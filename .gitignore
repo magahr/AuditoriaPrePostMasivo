@@ -1,0 +1,16 @@
+# Archivos de log generados por Pentaho
+*.log
+logs/
+data/output/ # Si no quieres versionar los resultados de salida, solo el código
+
+# Archivos temporales de Spoon o del OS
+*.tmp
+~*.*
+*.swp
+.DS_Store # macOS
+Thumbs.db # Windows
+
+# kettle.properties (no se versiona directamente porque contiene configuraciones locales y a veces credenciales)
+.kettle/kettle.properties
+# Si usas KETTLE_HOME variable de entorno para otra ubicación, puedes ignorar esa carpeta
+# /ruta/a/tu/KETTLE_HOME/kettle.properties
