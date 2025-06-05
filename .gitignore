@@ -14,3 +14,6 @@ Thumbs.db # Windows
 .kettle/kettle.properties
 # Si usas KETTLE_HOME variable de entorno para otra ubicación, puedes ignorar esa carpeta
 # /ruta/a/tu/KETTLE_HOME/kettle.properties
+
+#Archivos DATA, como excel, word, etc
+data/
