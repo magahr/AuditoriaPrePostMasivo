@@ -430,7 +430,7 @@
     <created_date>2025/06/23 15:09:20.373</created_date>
     <modified_user>-</modified_user>
     <modified_date>2025/06/23 15:09:20.373</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -538,62 +538,28 @@ otros Jobs o transformaciones.
   </notepads>
   <order>
     <hop>
-      <from>Generate rows</from>
-      <to>Get file names</to>
+      <from>Write to log - Verificar Ruta Encontrada</from>
+      <to>Set variables - Setear Variable Ruta Facturacion</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get file names</from>
-      <to>Set variables</to>
+      <from>Get variables - Obtener Variables de Configuracion</from>
+      <to>Write to log Verificar Variables de Entrada</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write to log Verificar Variables de Entrada</from>
+      <to>Get file names - Buscar Archivo Facturacion</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get file names - Buscar Archivo Facturacion</from>
+      <to>Write to log - Verificar Ruta Encontrada</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Generate rows</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>AUDIT_DATA_INPUT_DIR</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>${Internal.Job.Filename.Directory}</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>208</xloc>
-      <yloc>336</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Get file names</name>
+    <name>Get file names - Buscar Archivo Facturacion</name>
     <type>GetFileNames</type>
     <description/>
     <distribute>Y</distribute>
@@ -617,11 +583,11 @@ otros Jobs o transformaciones.
     <dynamic_include_subfolders>N</dynamic_include_subfolders>
     <limit>0</limit>
     <file>
-      <name>${AUDIT_DATA_INPUT_DIR}</name>
-      <filemask>${VAR_FACTURACION_FILENAME_PATTERN}</filemask>
+      <name>input_dir</name>
+      <filemask>facturacion_pattern</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
-      <include_subfolders>Y</include_subfolders>
+      <include_subfolders>N</include_subfolders>
     </file>
     <attributes/>
     <cluster_schema/>
@@ -632,13 +598,64 @@ otros Jobs o transformaciones.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>336</yloc>
+      <xloc>688</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Set variables</name>
+    <name>Get variables - Obtener Variables de Configuracion</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>input_dir</name>
+        <variable>${AUDIT_DATA_INPUT_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>facturacion_pattern</name>
+        <variable>${AUDIT_FACTURACION_FILENAME_PATTERN}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set variables - Setear Variable Ruta Facturacion</name>
     <type>SetVariable</type>
     <description/>
     <distribute>Y</distribute>
@@ -668,6 +685,121 @@ otros Jobs o transformaciones.
     <GUI>
       <xloc>1056</xloc>
       <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - Verificar Ruta Encontrada</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>Haciendo consulta de la ruta </logmessage>
+    <fields>
+      <field>
+        <name>input_dir</name>
+      </field>
+      <field>
+        <name>facturacion_pattern</name>
+      </field>
+      <field>
+        <name>filename</name>
+      </field>
+      <field>
+        <name>short_filename</name>
+      </field>
+      <field>
+        <name>path</name>
+      </field>
+      <field>
+        <name>type</name>
+      </field>
+      <field>
+        <name>exists</name>
+      </field>
+      <field>
+        <name>ishidden</name>
+      </field>
+      <field>
+        <name>isreadable</name>
+      </field>
+      <field>
+        <name>iswriteable</name>
+      </field>
+      <field>
+        <name>lastmodifiedtime</name>
+      </field>
+      <field>
+        <name>size</name>
+      </field>
+      <field>
+        <name>extension</name>
+      </field>
+      <field>
+        <name>uri</name>
+      </field>
+      <field>
+        <name>rooturi</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log Verificar Variables de Entrada</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>input_dir</name>
+      </field>
+      <field>
+        <name>facturacion_pattern</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
