@@ -4,13 +4,19 @@
   <description/>
   <extended_description/>
   <job_version/>
+  <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2025/06/18 21:05:49.964</created_date>
   <modified_user>-</modified_user>
   <modified_date>2025/06/18 21:05:49.964</modified_date>
   <parameters>
-    </parameters>
+    <parameter>
+      <name>${AUDIT_DATA_INPUT_DIR}</name>
+      <default_value/>
+      <description/>
+    </parameter>
+  </parameters>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -318,12 +324,12 @@
       <file_variable_type>JVM</file_variable_type>
       <fields>
         <field>
-          <variable_name>VAR_FACTURACION_FILENAME_PATTERN</variable_name>
+          <variable_name>VAR_TASAS_FILENAME</variable_name>
           <variable_value>${AUDIT_VAR_TASAS_FILENAME}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
-          <variable_name>VAR_TASAS_FILENAME</variable_name>
+          <variable_name>VAR_FACTURACION_FILENAME_PATTERN</variable_name>
           <variable_value>${AUDIT_FACTURACION_FILENAME_PATTERN}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
@@ -342,7 +348,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\transformations\trans_find_facturacion_file.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR}/trans_find_facturacion_file.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
