@@ -431,7 +431,7 @@
     <created_date>2025/06/25 20:15:24.326</created_date>
     <modified_user>-</modified_user>
     <modified_date>2025/06/25 20:15:24.326</modified_date>
-    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -492,7 +492,7 @@ sus metadatos  (tipo, longitud, precisión) y
 renombrarlos si es necesario para mayor claridad.</note>
       <xloc>272</xloc>
       <yloc>176</yloc>
-      <width>293</width>
+      <width>294</width>
       <heigth>105</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -577,6 +577,11 @@ que todo funcione.
     <hop>
       <from>Sort rows - Ordenar Tasas por Fecha</from>
       <to>Text file output - Salida a archivo de texto</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables - Obtener Variables de Configuracion</from>
+      <to>Microsoft Excel input - Leer Tasas de Cambio</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -729,23 +734,18 @@ que todo funcione.
     <fields>
       <field>
         <name>Fecha</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa</name>
-        <rename/>
       </field>
       <field>
         <name>Hora</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda</name>
-        <rename/>
       </field>
       <field>
         <name>TablaCambio</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1004,6 +1004,81 @@ que todo funcione.
     <GUI>
       <xloc>1008</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables - Obtener Variables de Configuracion</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>AUDIT_BASE_DIR_AUDI</name>
+        <variable>${AUDIT_BASE_DIR_AUDI}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_DATA_INPUT_DIR</name>
+        <variable>${AUDIT_DATA_INPUT_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_DATA_OUTPUT_DIR</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_VAR_TASAS_FILENAME</name>
+        <variable>${AUDIT_VAR_TASAS_FILENAME}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
