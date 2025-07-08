@@ -542,11 +542,12 @@ más cercana si no hay una coincidencia exacta de fecha.</note>
 Propósito: Este paso es solo para verificar que tus tasas se leen, 
 transforman  y ordenan correctamente. Lo eliminarás una vez 
 que todo funcione.
+(este paso lo quitamos lo puse en la transformacion de prueba)
 </note>
       <xloc>944</xloc>
       <yloc>176</yloc>
       <width>343</width>
-      <heigth>105</heigth>
+      <heigth>121</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -572,11 +573,6 @@ que todo funcione.
     <hop>
       <from>Select values - Seleccionar y Limpiar Campos Tasas</from>
       <to>Sort rows - Ordenar Tasas por Fecha</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows - Ordenar Tasas por Fecha</from>
-      <to>Text file output - Salida a archivo de texto</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -961,123 +957,6 @@ que todo funcione.
     </remotesteps>
     <GUI>
       <xloc>720</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Text file output - Salida a archivo de texto</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <separator>;</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR}/tasas_depuracion</name>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>csv</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery/>
-    </file>
-    <fields>
-      <field>
-        <name>Fecha</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Tasa</name>
-        <type>Number</type>
-        <format>0.00</format>
-        <currency/>
-        <decimal>,</decimal>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Hora</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy HH:mm:ss</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>Moneda</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>TablaCambio</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1008</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
