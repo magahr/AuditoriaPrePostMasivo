@@ -430,7 +430,7 @@
     <created_date>2025/07/08 16:34:15.965</created_date>
     <modified_user>-</modified_user>
     <modified_date>2025/07/08 16:34:15.965</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -462,13 +462,23 @@ las tasas de cambio y realizar los cálculos de auditoría.
   </notepads>
   <order>
     <hop>
-      <from>Microsoft Excel input - Leer Facturas</from>
+      <from>Text File Input - Leer Tasas Temp para Lookup</from>
+      <to>Sort Rows - Ordenar Tasas Re-Leidas</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Microsoft Excel Input - Leer Facturas/Proformas</from>
+      <to>Stream lookup - Buscar Tasa de Cambio</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
       <to>Stream lookup - Buscar Tasa de Cambio</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Microsoft Excel input - Leer Facturas</name>
+    <name>Microsoft Excel Input - Leer Facturas/Proformas</name>
     <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -601,12 +611,78 @@ las tasas de cambio y realizar los cálculos de auditoría.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <from/>
+    <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
+    <sorted_list>Y</sorted_list>
     <integer_pair>N</integer_pair>
     <lookup>
+      <key>
+        <name>Fecha Documento</name>
+        <field>Fecha</field>
+      </key>
+      <key>
+        <name>Numero Documento</name>
+        <field>Numero Documento</field>
+      </key>
+      <key>
+        <name>MONTO</name>
+        <field>MONTO</field>
+      </key>
+      <key>
+        <name>ID Cliente</name>
+        <field>ID Cliente</field>
+      </key>
+      <key>
+        <name>Fecha</name>
+        <field>Fecha</field>
+      </key>
+      <key>
+        <name>Tasa</name>
+        <field>Tasa</field>
+      </key>
+      <key>
+        <name>Hora</name>
+        <field>Hora</field>
+      </key>
+      <key>
+        <name>Moneda</name>
+        <field>Moneda</field>
+      </key>
+      <key>
+        <name>TablaCambio</name>
+        <field>TablaCambio</field>
+      </key>
+      <value>
+        <name>Fecha</name>
+        <rename>Fecha</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>Tasa</name>
+        <rename>Tasa_Aplicada</rename>
+        <default/>
+        <type>Number</type>
+      </value>
+      <value>
+        <name>Hora</name>
+        <rename>Hora</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>Moneda</name>
+        <rename>Moneda</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>TablaCambio</name>
+        <rename>TablaCambio</rename>
+        <default/>
+        <type>String</type>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -617,8 +693,247 @@ las tasas de cambio y realizar los cálculos de auditoría.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>208</yloc>
+      <xloc>192</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Text File Input - Leer Tasas Temp para Lookup</name>
+    <type>TextFileInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <accept_filenames>N</accept_filenames>
+    <passing_through_fields>N</passing_through_fields>
+    <accept_field/>
+    <accept_stepname/>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <enclosure_breaks>N</enclosure_breaks>
+    <escapechar/>
+    <header>Y</header>
+    <nr_headerlines>1</nr_headerlines>
+    <footer>N</footer>
+    <nr_footerlines>1</nr_footerlines>
+    <line_wrapped>N</line_wrapped>
+    <nr_wraps>1</nr_wraps>
+    <layout_paged>N</layout_paged>
+    <nr_lines_per_page>80</nr_lines_per_page>
+    <nr_lines_doc_header>0</nr_lines_doc_header>
+    <noempty>Y</noempty>
+    <include>N</include>
+    <include_field/>
+    <rownum>N</rownum>
+    <rownumByFile>N</rownumByFile>
+    <rownum_field/>
+    <format>DOS</format>
+    <encoding/>
+    <length>Characters</length>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${AUDIT_DATA_OUTPUT_DIR}/tasas_depuracion.csv</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <type>CSV</type>
+      <compression>None</compression>
+    </file>
+    <filters>
+    </filters>
+    <fields>
+      <field>
+        <name>Fecha</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Tasa</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Hora</name>
+        <type>Date</type>
+        <format>MM/dd/yyyy HH:mm:ss</format>
+        <currency>$</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>Moneda</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>3</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>TablaCambio</name>
+        <type>String</type>
+        <format/>
+        <currency>$</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <nullif>-</nullif>
+        <ifnull/>
+        <position>-1</position>
+        <length>7</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+    </fields>
+    <limit>0</limit>
+    <error_ignored>N</error_ignored>
+    <skip_bad_files>N</skip_bad_files>
+    <file_error_field/>
+    <file_error_message_field/>
+    <error_line_skipped>N</error_line_skipped>
+    <error_count_field/>
+    <error_fields_field/>
+    <error_text_field/>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <date_format_lenient>Y</date_format_lenient>
+    <date_format_locale>en_US</date_format_locale>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort Rows - Ordenar Tasas Re-Leidas</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Fecha</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Tasa</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Hora</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Moneda</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>TablaCambio</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

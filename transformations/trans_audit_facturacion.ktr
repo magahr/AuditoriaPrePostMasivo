@@ -441,8 +441,8 @@ Propósito:Leer el archivo de facturación, y cruzarlo con
 las tasas de cambio y realizar los cálculos de auditoría.
 
 </note>
-      <xloc>256</xloc>
-      <yloc>32</yloc>
+      <xloc>262</xloc>
+      <yloc>35</yloc>
       <width>303</width>
       <heigth>88</heigth>
       <fontname>Segoe UI</fontname>
