@@ -459,6 +459,105 @@ las tasas de cambio y realizar los cálculos de auditoría.
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
+    <notepad>
+      <note>2.5.1  Paso: Microsoft Excel Input - Leer Facturas/Proformas:
+Propósito: Este paso lee los datos de las facturas y proformas
+                   desde el archivo Excel principal. 
+</note>
+      <xloc>32</xloc>
+      <yloc>112</yloc>
+      <width>330</width>
+      <heigth>73</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.2  Paso: Text File Input - Leer Tasas Temp para Lookup:
+Propósito: Aquí se implementará la lógica de búsqueda 
+                  de la tasa(USD, EUR, PTR).
+</note>
+      <xloc>384</xloc>
+      <yloc>112</yloc>
+      <width>311</width>
+      <heigth>73</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.3  Paso: Sort Rows - Ordenar Tasas Re-Leidas:
+Propósito: Este paso asegura que el flujo de las tasas
+                   de cambio leídas desde el CSV esté ordenado 
+                   por el campo Fecha de forma ascendente. </note>
+      <xloc>432</xloc>
+      <yloc>544</yloc>
+      <width>308</width>
+      <heigth>74</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.4  Paso: Stream lookup - Buscar Tasa de Cambio:
+Propósito: Este paso es el corazón de la búsqueda de 
+                  la tasa de cambio. Une el flujo principal de facturas
+                  (Leer Facturas/Proformas) con el flujo de tasas ordenadas 
+                  (Ordenar Tasas Re-Leidas) para añadir la tasa de cambio
+                   aplicable a cada documento.
+</note>
+      <xloc>16</xloc>
+      <yloc>544</yloc>
+      <width>370</width>
+      <heigth>121</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <order>
     <hop>
@@ -512,19 +611,7 @@ las tasas de cambio y realizar los cálculos de auditoría.
     </file>
     <fields>
       <field>
-        <name>Fecha Documento</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>dd/MM/yyyy HH:mm:ss</format>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Numero Documento</name>
+        <name>Tipo de Documento</name>
         <type>Integer</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -536,8 +623,8 @@ las tasas de cambio y realizar los cálculos de auditoría.
         <group/>
       </field>
       <field>
-        <name>MONTO</name>
-        <type>Number</type>
+        <name>ClaseCliente</name>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -559,8 +646,217 @@ las tasas de cambio y realizar los cálculos de auditoría.
         <decimal/>
         <group/>
       </field>
+      <field>
+        <name>Nombre Cliente</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Numero Documento</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Id Direccion</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Fecha_Tasa</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format>dd/MM/yyyy HH:mm:ss</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format>dd/MM/yyyy HH:mm:ss</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CNAE</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format>dd/MM/yyyy HH:mm:ss</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Direccion1</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Direccion2</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Estado Anulado</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Suspedido</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Inactivo</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CONTACTO1</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>CONTACTO2</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ID Periodo</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Periodo</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>MONTO</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
     </fields>
     <sheets>
+      <sheet>
+        <name>Facturas Pagas</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
       <sheet>
         <name>Proformas y Fact sin Pago</name>
         <startrow>0</startrow>
@@ -669,8 +965,8 @@ las tasas de cambio y realizar los cálculos de auditoría.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>320</yloc>
+      <xloc>512</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -692,7 +988,7 @@ las tasas de cambio y realizar los cálculos de auditoría.
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>Fecha Documento</name>
+        <name>Fecha_Tasa</name>
         <field>Fecha</field>
       </key>
       <value>
@@ -703,7 +999,7 @@ las tasas de cambio y realizar los cálculos de auditoría.
       </value>
       <value>
         <name>Tasa</name>
-        <rename>Tasa_Aplicada</rename>
+        <rename>Tasa</rename>
         <default/>
         <type>Number</type>
       </value>
@@ -736,7 +1032,7 @@ las tasas de cambio y realizar los cálculos de auditoría.
     </remotesteps>
     <GUI>
       <xloc>192</xloc>
-      <yloc>464</yloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -900,8 +1196,8 @@ las tasas de cambio y realizar los cálculos de auditoría.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>64</yloc>
+      <xloc>512</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
