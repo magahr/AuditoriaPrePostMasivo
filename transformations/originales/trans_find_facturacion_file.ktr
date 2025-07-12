@@ -548,6 +548,16 @@ otros Jobs o transformaciones.
       <to>Get file names - Buscar Archivo Facturacion</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Set variables - Setear Variable Ruta Facturacion</from>
+      <to>Write to log - Saliendo de Set variables</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get file names - Buscar Archivo Facturacion</from>
+      <to>Set variables - Setear Variable Ruta Facturacion</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Get file names - Buscar Archivo Facturacion</name>
@@ -658,6 +668,40 @@ otros Jobs o transformaciones.
     </remotesteps>
     <GUI>
       <xloc>240</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Set variables - Setear Variable Ruta Facturacion</name>
+    <type>SetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <field_name>filename</field_name>
+        <variable_name>FULL_PATH_FACTURACION_EXCEL</variable_name>
+        <variable_type>ROOT_JOB</variable_type>
+        <default_value/>
+      </field>
+    </fields>
+    <use_formatting>Y</use_formatting>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1136</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>

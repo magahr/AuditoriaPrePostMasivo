@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_find_facturacion_file</name>
+    <name>trans_audit_facturacion</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -428,26 +428,23 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/06/23 15:09:20.373</created_date>
+    <created_date>2025/07/03 10:36:56.590</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/06/23 15:09:20.373</modified_date>
+    <modified_date>2025/07/03 10:36:56.590</modified_date>
     <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>  Transformación:  trans_find_facturacion_file.ktr
+      <note>Transformación: trans_audit_facturacion.ktr
+Propósito:Leer el archivo de facturación, y cruzarlo con 
+las tasas de cambio y realizar los cálculos de auditoría.
 
-Propósito
-Obtener la ruta del directorio donde se está ejecutando el Job principal.
-Buscar el archivo de facturación dentro de ese directorio utilizando un patrón de nombre.
-Establecer la ruta completa del archivo encontrado como una variable de entorno para que
-el Job principal pueda usarla.
 </note>
-      <xloc>404</xloc>
-      <yloc>53</yloc>
-      <width>489</width>
-      <heigth>136</heigth>
+      <xloc>262</xloc>
+      <yloc>35</yloc>
+      <width>303</width>
+      <heigth>88</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -455,82 +452,9 @@ el Job principal pueda usarla.
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Generate Rows (Generar Filas)
-Función: Este paso se usa para iniciar el flujo de la transformación con una sola fila, 
-que contendrá el directorio actual del Job. Esto es necesario porque en PDI 9.x, 
-las variables internas deben ser "cargadas" en un flujo de datos para ser usadas 
-por pasos posteriores como "Get File Names".</note>
-      <xloc>80</xloc>
-      <yloc>208</yloc>
-      <width>451</width>
-      <heigth>90</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Get File Names (Obtener Nombres de Archivos)
-Función: Este paso busca archivos en un directorio basándose en 
-un patrón de expresión regular.</note>
-      <xloc>576</xloc>
-      <yloc>224</yloc>
-      <width>355</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Set Variables (Establecer Variables)
-Función: Este paso toma el valor de un campo del flujo de la transformación
- y lo establece como una variable de entorno, que luego puede ser usada por 
-otros Jobs o transformaciones.
-</note>
-      <xloc>976</xloc>
-      <yloc>224</yloc>
-      <width>418</width>
-      <heigth>89</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -539,19 +463,14 @@ otros Jobs o transformaciones.
   </notepads>
   <order>
     <hop>
-      <from>Get variables - Obtener Variables de Configuracion</from>
-      <to>Write to log Verificar Variables de Entrada</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Write to log Verificar Variables de Entrada</from>
-      <to>Get file names - Buscar Archivo Facturacion</to>
+      <from>Microsoft Excel input - Leer Facturas</from>
+      <to>Stream lookup - Buscar Tasa de Cambio</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Get file names - Buscar Archivo Facturacion</name>
-    <type>GetFileNames</type>
+    <name>Microsoft Excel input - Leer Facturas</name>
+    <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -560,31 +479,104 @@ otros Jobs o transformaciones.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filter>
-      <filterfiletype>all_files</filterfiletype>
-    </filter>
-    <doNotFailIfNoFile>N</doNotFailIfNoFile>
-    <rownum>N</rownum>
-    <isaddresult>Y</isaddresult>
-    <filefield>N</filefield>
-    <rownum_field/>
-    <filename_Field/>
-    <wildcard_Field/>
-    <exclude_wildcard_Field/>
-    <dynamic_include_subfolders>N</dynamic_include_subfolders>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
     <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
     <file>
-      <name>${AUDIT_DATA_INPUT_DIR}</name>
-      <filemask>${AUDIT_FACTURACION_FILENAME_PATTERN}</filemask>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name/>
+      <name>${FULL_PATH_FACTURACION_EXCEL}</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
+    <fields>
+      <field>
+        <name>Fecha Documento</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format>dd/MM/yyyy HH:mm:ss</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Numero Documento</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>MONTO</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ID Cliente</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Proformas y Fact sin Pago</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>JXL</spreadsheet_type>
+    <password>Encrypted </password>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -594,14 +586,14 @@ otros Jobs o transformaciones.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
-      <yloc>352</yloc>
+      <xloc>64</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Get variables - Obtener Variables de Configuracion</name>
-    <type>GetVariable</type>
+    <name>Stream lookup - Buscar Tasa de Cambio</name>
+    <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -610,44 +602,13 @@ otros Jobs o transformaciones.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>AUDIT_DATA_INPUT_DIR</name>
-        <variable>${AUDIT_DATA_INPUT_DIR}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>AUDIT_FACTURACION_FILENAME_PATTERN</name>
-        <variable>${AUDIT_FACTURACION_FILENAME_PATTERN}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>FULL_PATH_FACTURACION_EXCEL</name>
-        <variable>${FULL_PATH_FACTURACION_EXCEL}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
+    <from/>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -657,81 +618,8 @@ otros Jobs o transformaciones.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log - Saliendo de Set variables</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
-    <fields>
-      <field>
-        <name>filename</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1280</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log Verificar Variables de Entrada</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
-    <fields>
-      <field>
-        <name>AUDIT_DATA_INPUT_DIR</name>
-      </field>
-      <field>
-        <name>AUDIT_FACTURACION_FILENAME_PATTERN</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>464</yloc>
+      <xloc>304</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

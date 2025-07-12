@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_find_facturacion_file</name>
+    <name>trans_get_exchange_rates</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -428,98 +428,22 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/06/23 15:09:20.373</created_date>
+    <created_date>2025/06/25 20:15:24.326</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/06/23 15:09:20.373</modified_date>
+    <modified_date>2025/06/25 20:15:24.326</modified_date>
     <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>  Transformación:  trans_find_facturacion_file.ktr
-
-Propósito
-Obtener la ruta del directorio donde se está ejecutando el Job principal.
-Buscar el archivo de facturación dentro de ese directorio utilizando un patrón de nombre.
-Establecer la ruta completa del archivo encontrado como una variable de entorno para que
-el Job principal pueda usarla.
+      <note>Transformación: trans_get_exchange_rates.ktr
+Propósito: Leer el archivo Consulta_TasaCambio.xlsx y preparar
+ las tasas para una búsqueda eficiente.
+Esta transformación generará un "cache" de tasas para su uso.
 </note>
-      <xloc>404</xloc>
-      <yloc>53</yloc>
-      <width>489</width>
-      <heigth>136</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Generate Rows (Generar Filas)
-Función: Este paso se usa para iniciar el flujo de la transformación con una sola fila, 
-que contendrá el directorio actual del Job. Esto es necesario porque en PDI 9.x, 
-las variables internas deben ser "cargadas" en un flujo de datos para ser usadas 
-por pasos posteriores como "Get File Names".</note>
-      <xloc>80</xloc>
-      <yloc>208</yloc>
-      <width>451</width>
-      <heigth>90</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Get File Names (Obtener Nombres de Archivos)
-Función: Este paso busca archivos en un directorio basándose en 
-un patrón de expresión regular.</note>
-      <xloc>576</xloc>
-      <yloc>224</yloc>
-      <width>355</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Set Variables (Establecer Variables)
-Función: Este paso toma el valor de un campo del flujo de la transformación
- y lo establece como una variable de entorno, que luego puede ser usada por 
-otros Jobs o transformaciones.
-</note>
-      <xloc>976</xloc>
-      <yloc>224</yloc>
-      <width>418</width>
+      <xloc>336</xloc>
+      <yloc>48</yloc>
+      <width>342</width>
       <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -528,9 +452,112 @@ otros Jobs o transformaciones.
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Microsoft Excel Input
+Propósito: Leer el archivo de tasas.
+</note>
+      <xloc>16</xloc>
+      <yloc>176</yloc>
+      <width>191</width>
+      <heigth>57</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Nombre del Paso (Step name): Select values - 
+                               Seleccionar y Limpiar Campos Tasas
+
+Propósito: Confirmar los nombres de los campos, 
+sus metadatos  (tipo, longitud, precisión) y 
+renombrarlos si es necesario para mayor claridad.</note>
+      <xloc>272</xloc>
+      <yloc>176</yloc>
+      <width>294</width>
+      <heigth>105</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Nombre del Paso (Step name): Ordenar Tasas por Fecha
+
+Propósito: Es CRUCIAL ordenar las tasas por fecha. 
+Esto es absolutamente necesario para que el siguiente 
+paso (Stream Lookup) que usaremos más adelante 
+funcione correctamente y pueda encontrar la tasa 
+más cercana si no hay una coincidencia exacta de fecha.</note>
+      <xloc>608</xloc>
+      <yloc>176</yloc>
+      <width>307</width>
+      <heigth>121</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Nombre del Paso (Step name): Text file output
+                                              (Salida a archivo de texto)
+Propósito: Este paso es solo para verificar que tus tasas se leen, 
+transforman  y ordenan correctamente. Lo eliminarás una vez 
+que todo funcione.
+(este paso lo quitamos lo puse en la transformacion de prueba)
+</note>
+      <xloc>944</xloc>
+      <yloc>176</yloc>
+      <width>343</width>
+      <heigth>121</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -539,66 +566,21 @@ otros Jobs o transformaciones.
   </notepads>
   <order>
     <hop>
-      <from>Get variables - Obtener Variables de Configuracion</from>
-      <to>Write to log Verificar Variables de Entrada</to>
+      <from>Microsoft Excel input - Leer Tasas de Cambio</from>
+      <to>Select values - Seleccionar y Limpiar Campos Tasas</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Write to log Verificar Variables de Entrada</from>
-      <to>Get file names - Buscar Archivo Facturacion</to>
+      <from>Select values - Seleccionar y Limpiar Campos Tasas</from>
+      <to>Sort rows - Ordenar Tasas por Fecha</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables - Obtener Variables de Configuracion</from>
+      <to>Microsoft Excel input - Leer Tasas de Cambio</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>Get file names - Buscar Archivo Facturacion</name>
-    <type>GetFileNames</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filter>
-      <filterfiletype>all_files</filterfiletype>
-    </filter>
-    <doNotFailIfNoFile>N</doNotFailIfNoFile>
-    <rownum>N</rownum>
-    <isaddresult>Y</isaddresult>
-    <filefield>N</filefield>
-    <rownum_field/>
-    <filename_Field/>
-    <wildcard_Field/>
-    <exclude_wildcard_Field/>
-    <dynamic_include_subfolders>N</dynamic_include_subfolders>
-    <limit>0</limit>
-    <file>
-      <name>${AUDIT_DATA_INPUT_DIR}</name>
-      <filemask>${AUDIT_FACTURACION_FILENAME_PATTERN}</filemask>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>752</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Get variables - Obtener Variables de Configuracion</name>
     <type>GetVariable</type>
@@ -612,6 +594,18 @@ otros Jobs o transformaciones.
     </partitioning>
     <fields>
       <field>
+        <name>AUDIT_BASE_DIR_AUDI</name>
+        <variable>${AUDIT_BASE_DIR_AUDI}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
         <name>AUDIT_DATA_INPUT_DIR</name>
         <variable>${AUDIT_DATA_INPUT_DIR}</variable>
         <type>String</type>
@@ -624,8 +618,8 @@ otros Jobs o transformaciones.
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_FACTURACION_FILENAME_PATTERN</name>
-        <variable>${AUDIT_FACTURACION_FILENAME_PATTERN}</variable>
+        <name>AUDIT_DATA_OUTPUT_DIR</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -636,8 +630,8 @@ otros Jobs o transformaciones.
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>FULL_PATH_FACTURACION_EXCEL</name>
-        <variable>${FULL_PATH_FACTURACION_EXCEL}</variable>
+        <name>AUDIT_VAR_TASAS_FILENAME</name>
+        <variable>${AUDIT_VAR_TASAS_FILENAME}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -657,14 +651,14 @@ otros Jobs o transformaciones.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>352</yloc>
+      <xloc>144</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Write to log - Saliendo de Set variables</name>
-    <type>WriteToLog</type>
+    <name>Microsoft Excel input - Leer Tasas de Cambio</name>
+    <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -673,14 +667,284 @@ otros Jobs o transformaciones.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>${AUDIT_DATA_INPUT_DIR}/${AUDIT_VAR_TASAS_FILENAME}</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
     <fields>
       <field>
-        <name>filename</name>
+        <name>Fecha</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Tasa</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format>0.00</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Hora</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format>dd/MM/yyyy HH:mm:ss</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Moneda</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TablaCambio</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>Tasa de Cambio</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>JXL</spreadsheet_type>
+    <password>Encrypted </password>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values - Seleccionar y Limpiar Campos Tasas</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Fecha</name>
+      </field>
+      <field>
+        <name>Tasa</name>
+      </field>
+      <field>
+        <name>Hora</name>
+      </field>
+      <field>
+        <name>Moneda</name>
+      </field>
+      <field>
+        <name>TablaCambio</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Fecha</name>
+        <rename>Fecha</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Tasa</name>
+        <rename>Tasa</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Hora</name>
+        <rename>Hora</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Moneda</name>
+        <rename>Moneda</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>TablaCambio</name>
+        <rename>TablaCambio</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows - Ordenar Tasas por Fecha</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>Fecha</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
       </field>
     </fields>
     <attributes/>
@@ -692,46 +956,8 @@ otros Jobs o transformaciones.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log Verificar Variables de Entrada</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
-    <fields>
-      <field>
-        <name>AUDIT_DATA_INPUT_DIR</name>
-      </field>
-      <field>
-        <name>AUDIT_FACTURACION_FILENAME_PATTERN</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>368</xloc>
-      <yloc>464</yloc>
+      <xloc>720</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
