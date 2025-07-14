@@ -833,11 +833,13 @@ Función: Un paso ficticio que actúa como un
                  desarrollo y las pruebas para previsualizar
                  el flujo de datos en cualquier punto sin 
                  escribir un archivo físico.
-</note>
+Desconectado porque era solo para puebas. Para que funcione
+se debe colocar C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\VOGFacturacionF0004HatilloARMONIZADO.xls
+en el paso Microsoft Excel Input - Leer Facturas/Proformas</note>
       <xloc>1584</xloc>
       <yloc>1360</yloc>
-      <width>279</width>
-      <heigth>121</heigth>
+      <width>667</width>
+      <heigth>154</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -937,7 +939,7 @@ Función: Un paso ficticio que actúa como un
     </hop>
     <hop>
       <from>Select Values - Reordenar Columnas Final</from>
-      <to>Dummy (do nothing)</to>
+      <to>Mapping input specification</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1076,31 +1078,6 @@ Función: Un paso ficticio que actúa como un
     <GUI>
       <xloc>496</xloc>
       <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Dummy (do nothing)</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1696</xloc>
-      <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2167,7 +2144,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </remotesteps>
     <GUI>
       <xloc>1408</xloc>
-      <yloc>1280</yloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2789,6 +2766,34 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <GUI>
       <xloc>1248</xloc>
       <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Mapping input specification</name>
+    <type>MappingInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1936</xloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
