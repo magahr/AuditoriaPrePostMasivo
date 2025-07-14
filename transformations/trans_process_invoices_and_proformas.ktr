@@ -465,8 +465,8 @@ las tasas de cambio y realizar los cálculos de auditoría.
 Propósito: Este paso lee los datos de las facturas y proformas
                    desde el archivo Excel principal. 
 </note>
-      <xloc>416</xloc>
-      <yloc>112</yloc>
+      <xloc>32</xloc>
+      <yloc>176</yloc>
       <width>330</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
@@ -489,8 +489,8 @@ Propósito: Este paso lee los datos de las facturas y proformas
 Propósito: Aquí se implementará la lógica de búsqueda 
                   de la tasa(USD, EUR, PTR).
 </note>
-      <xloc>1152</xloc>
-      <yloc>128</yloc>
+      <xloc>1408</xloc>
+      <yloc>240</yloc>
       <width>311</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
@@ -513,7 +513,7 @@ Propósito: Aquí se implementará la lógica de búsqueda
 Propósito: Este paso asegura que el flujo de las tasas
                    de cambio leídas desde el CSV esté ordenado 
                    por el campo Fecha de forma ascendente. </note>
-      <xloc>1376</xloc>
+      <xloc>1408</xloc>
       <yloc>512</yloc>
       <width>308</width>
       <heigth>74</heigth>
@@ -533,16 +533,310 @@ Propósito: Este paso asegura que el flujo de las tasas
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.5.4  Paso: Stream lookup - Buscar Tasa Petros:
-Propósito: Este paso es el corazón de la búsqueda de 
-                  la tasa de cambio. Une el flujo principal de facturas
-                  (Leer Facturas/Proformas) con el flujo de tasas ordenadas 
-                  (Ordenar Tasas Re-Leidas) para añadir la tasa de cambio
-                   aplicable a cada documento.
+      <note>2.5.5  Paso: Java Script Value - Preparar Tasa Petros:
+Función: Este paso podría ser redundante si Add Constants
+                 ya define Moneda_Para_Lookup_Petros. Su función
+                 es asegurar que la moneda "PTR" esté disponible 
+                para el lookup. 
 </note>
-      <xloc>64</xloc>
-      <yloc>480</yloc>
-      <width>370</width>
+      <xloc>32</xloc>
+      <yloc>384</yloc>
+      <width>330</width>
+      <heigth>105</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.2  Paso: Add Constants - Establecer Monedas:
+Función: Añade columnas constantes para las 
+                monedas que se usarán como clave en 
+               los lookups  de tasas.
+</note>
+      <xloc>32</xloc>
+      <yloc>272</yloc>
+      <width>268</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.6  Paso: Stream lookup - Buscar Tasa Petros:
+Propósito: Busca la tasa correspondiente para Petros basada 
+                   en la Fecha Tasa (de la factura/Proforma) 	y la
+                   constante Moneda_Para_Lookup_Petros.
+</note>
+      <xloc>32</xloc>
+      <yloc>528</yloc>
+      <width>329</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.7  Paso: Java Script Value - Preparar Tasa Dolares
+Función: Este paso podría ser redundante si Add 
+                Constants ya define Moneda_Para_Lookup_Dolares. 
+                Su función es asegurar que la moneda "Dolares" 
+               esté disponible para el lookup. </note>
+      <xloc>32</xloc>
+      <yloc>656</yloc>
+      <width>333</width>
+      <heigth>90</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.8 Paso: Stream lookup - Buscar Tasa Dolares:
+Propósito: Busca la tasa correspondiente para Dolares basada 
+                  en la Fecha Tasa (de la factura/Proforma) .
+</note>
+      <xloc>32</xloc>
+      <yloc>816</yloc>
+      <width>335</width>
+      <heigth>73</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.9  Paso: Java Script Value - Preparar Tasa Euros:
+Función:  Su función es asegurar que la moneda "Euro" esté 
+                 disponible para el lookup. </note>
+      <xloc>32</xloc>
+      <yloc>960</yloc>
+      <width>328</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.10  Paso: Stream lookup - Buscar Tasa Euros:
+Propósito: Busca la tasa correspondiente para Euros
+                   basada en la Fecha Tasa (de la factura/Proforma).
+
+</note>
+      <xloc>32</xloc>
+      <yloc>1072</yloc>
+      <width>325</width>
+      <heigth>88</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.11 Select values - Ajustes de Nombres Campos con 
+           Espacios:
+Función: Ajusta los nombres de campos con espacio con un
+                piso abajo _.</note>
+      <xloc>32</xloc>
+      <yloc>1232</yloc>
+      <width>327</width>
+      <heigth>74</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.12 Java Script Value - Calcular Montos y Armonizado:
+Función: Realiza los cálculos principales y añade nuevas 
+                 columnas derivadas.</note>
+      <xloc>32</xloc>
+      <yloc>1392</yloc>
+      <width>307</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.13 Select Values - Limpiar y Ordenar Campos:
+Función: Permite seleccionar, renombrar y reordenar
+                las columnas según el formato deseado para 
+                el archivo  de salida final.
+</note>
+      <xloc>672</xloc>
+      <yloc>1360</yloc>
+      <width>297</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.14 Add Constants - Columnas Manuales:
+Función: Agrega 6 columnas nuevas que estarán
+                inicialmente en blanco para ser usadas 
+                manualmente por el usuario final.
+</note>
+      <xloc>992</xloc>
+      <yloc>1360</yloc>
+      <width>265</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.15 Select Values - Reordenar Columnas Final:
+Función: Reordena las columnas para que las 6 
+                Columna_Manual_X aparezcan justo 
+                después de la columna MONTO.</note>
+      <xloc>1280</xloc>
+      <yloc>1360</yloc>
+      <width>263</width>
+      <heigth>74</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.16 Dummy (Solo para Pruebas):
+Función: Un paso ficticio que actúa como un
+                "sumidero" de datos. Útil durante el
+                 desarrollo y las pruebas para previsualizar
+                 el flujo de datos en cualquier punto sin 
+                 escribir un archivo físico.
+</note>
+      <xloc>1584</xloc>
+      <yloc>1360</yloc>
+      <width>279</width>
       <heigth>121</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -623,11 +917,11 @@ Propósito: Este paso es el corazón de la búsqueda de
     </hop>
     <hop>
       <from>Stream lookup - Buscar Tasa Euros</from>
-      <to>Select values</to>
+      <to>Select values - Ajustes Nombres Campos con Espacios</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
+      <from>Select values - Ajustes Nombres Campos con Espacios</from>
       <to>Java Script Value - Calcular Montos y Armonizado</to>
       <enabled>Y</enabled>
     </hop>
@@ -647,6 +941,105 @@ Propósito: Este paso es el corazón de la búsqueda de
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>Add Constants - Columnas Manuales</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>UDCD</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Reclamo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>CRS</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Convenios</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Excluidos</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Observaciones</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Add Constants - Establecer Monedas</name>
     <type>Constant</type>
@@ -706,7 +1099,7 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1552</xloc>
+      <xloc>1696</xloc>
       <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
@@ -916,7 +1309,7 @@ Armonizado = Math.round(Armonizado * 100) / 100; // Redondear a 2 decimales, se 
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>1280</yloc>
+      <yloc>1424</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -963,7 +1356,7 @@ var MONEDA_PARA_LOOKUP = "USD";
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>672</yloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1009,7 +1402,7 @@ var MONEDA_PARA_LOOKUP = "EUR";
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>928</yloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1055,7 +1448,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>400</yloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1397,147 +1790,111 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </field>
       <field>
         <name>Tipo_Documento</name>
-        <rename/>
       </field>
       <field>
         <name>Documento</name>
-        <rename/>
       </field>
       <field>
         <name>ClaseCliente</name>
-        <rename/>
       </field>
       <field>
         <name>idCliente</name>
-        <rename/>
       </field>
       <field>
         <name>idDireccion</name>
-        <rename/>
       </field>
       <field>
         <name>Nombre Cliente</name>
-        <rename/>
       </field>
       <field>
         <name>Numero Documento</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha Contabilizacion</name>
-        <rename/>
       </field>
       <field>
         <name>CNAE</name>
-        <rename/>
       </field>
       <field>
         <name>FeCreCliente</name>
-        <rename/>
       </field>
       <field>
         <name>Direccion1</name>
-        <rename/>
       </field>
       <field>
         <name>Direccion2</name>
-        <rename/>
       </field>
       <field>
         <name>Estado Anulado</name>
-        <rename/>
       </field>
       <field>
         <name>Suspedido</name>
-        <rename/>
       </field>
       <field>
         <name>Inactivo</name>
-        <rename/>
       </field>
       <field>
         <name>CONTACTO1</name>
-        <rename/>
       </field>
       <field>
         <name>CONTACTO2</name>
-        <rename/>
       </field>
       <field>
         <name>ID Periodo</name>
-        <rename/>
       </field>
       <field>
         <name>Periodo</name>
-        <rename/>
       </field>
       <field>
         <name>MONTO</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Petros</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa_Petros</name>
-        <rename/>
       </field>
       <field>
         <name>Petros</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda_1</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Dolares</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa_Dolares</name>
-        <rename/>
       </field>
       <field>
         <name>Dolares</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda_2</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Euros</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa_Euros</name>
-        <rename/>
       </field>
       <field>
         <name>Euros</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda_Tasa_Mas_Alta</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa_Mas_Alta</name>
-        <rename/>
       </field>
       <field>
         <name>Armonizado</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1658,7 +2015,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
+    <name>Select Values - Reordenar Columnas Final</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1670,25 +2027,28 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </partitioning>
     <fields>
       <field>
-        <name>Tipo de Documento</name>
-        <rename>Tipo_Documento</rename>
+        <name>Clave</name>
+      </field>
+      <field>
+        <name>Tipo_Documento</name>
+      </field>
+      <field>
+        <name>Documento</name>
       </field>
       <field>
         <name>ClaseCliente</name>
       </field>
       <field>
-        <name>ID Cliente</name>
-        <rename>ID_Cliente</rename>
+        <name>idCliente</name>
+      </field>
+      <field>
+        <name>idDireccion</name>
       </field>
       <field>
         <name>Nombre Cliente</name>
       </field>
       <field>
         <name>Numero Documento</name>
-      </field>
-      <field>
-        <name>Id Direccion</name>
-        <rename>ID_Direccion</rename>
       </field>
       <field>
         <name>Fecha_Tasa</name>
@@ -1733,7 +2093,25 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <name>MONTO</name>
       </field>
       <field>
-        <name>MONEDA_PARA_LOOKUP</name>
+        <name>UDCD</name>
+      </field>
+      <field>
+        <name>Reclamo</name>
+      </field>
+      <field>
+        <name>CRS</name>
+      </field>
+      <field>
+        <name>Convenios</name>
+      </field>
+      <field>
+        <name>Excluidos</name>
+      </field>
+      <field>
+        <name>Observaciones</name>
+      </field>
+      <field>
+        <name>MonedaPetros</name>
       </field>
       <field>
         <name>Fecha_Tasa_Petros</name>
@@ -1742,13 +2120,10 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <name>Tasa_Petros</name>
       </field>
       <field>
-        <name>Hora</name>
+        <name>MontoPetros</name>
       </field>
       <field>
-        <name>Moneda</name>
-      </field>
-      <field>
-        <name>TablaCambio</name>
+        <name>MonedaDolares</name>
       </field>
       <field>
         <name>Fecha_Tasa_Dolares</name>
@@ -1757,13 +2132,10 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <name>Tasa_Dolares</name>
       </field>
       <field>
-        <name>Hora_1</name>
+        <name>MontoDolares</name>
       </field>
       <field>
-        <name>Moneda_1</name>
-      </field>
-      <field>
-        <name>TablaCambio_1</name>
+        <name>MonedaEuros</name>
       </field>
       <field>
         <name>Fecha_Tasa_Euros</name>
@@ -1772,13 +2144,188 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <name>Tasa_Euros</name>
       </field>
       <field>
+        <name>MontoEuros</name>
+      </field>
+      <field>
+        <name>Moneda_Tasa_Mas_Alta</name>
+      </field>
+      <field>
+        <name>Tasa_Mas_Alta</name>
+      </field>
+      <field>
+        <name>Armonizado</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1408</xloc>
+      <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values - Ajustes Nombres Campos con Espacios</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Tipo de Documento</name>
+        <rename>Tipo_Documento</rename>
+      </field>
+      <field>
+        <name>ClaseCliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ID Cliente</name>
+        <rename>ID_Cliente</rename>
+      </field>
+      <field>
+        <name>Nombre Cliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Numero Documento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Id Direccion</name>
+        <rename>ID_Direccion</rename>
+      </field>
+      <field>
+        <name>Fecha_Tasa</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CNAE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Direccion1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Direccion2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Estado Anulado</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Suspedido</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Inactivo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CONTACTO1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CONTACTO2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ID Periodo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Periodo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MONTO</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MONEDA_PARA_LOOKUP</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Petros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Tasa_Petros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Hora</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Moneda</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TablaCambio</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Dolares</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Tasa_Dolares</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Hora_1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Moneda_1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TablaCambio_1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Euros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Tasa_Euros</name>
+        <rename/>
+      </field>
+      <field>
         <name>Hora_2</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda_2</name>
+        <rename/>
       </field>
       <field>
         <name>TablaCambio_2</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1792,7 +2339,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>1184</yloc>
+      <yloc>1248</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1936,7 +2483,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>800</yloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2006,7 +2553,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>1056</yloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2076,7 +2623,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </remotesteps>
     <GUI>
       <xloc>496</xloc>
-      <yloc>528</yloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2242,305 +2789,6 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <GUI>
       <xloc>1248</xloc>
       <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add Constants - Columnas Manuales</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>UDCD</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Reclamo</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CRS</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Convenios</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Excluidos</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Observaciones</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif> </nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1072</xloc>
-      <yloc>1280</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select Values - Reordenar Columnas Final</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Clave</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tipo_Documento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Documento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ClaseCliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>idCliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>idDireccion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Nombre Cliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Numero Documento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha_Tasa</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha Contabilizacion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CNAE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Direccion1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Direccion2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Estado Anulado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Suspedido</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Inactivo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CONTACTO1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CONTACTO2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ID Periodo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Periodo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MONTO</name>
-        <rename/>
-      </field>
-      <field>
-        <name>UDCD</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Reclamo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CRS</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Convenios</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Excluidos</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Observaciones</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MonedaPetros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Petros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tasa_Petros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MontoPetros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MonedaDolares</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Dolares</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tasa_Dolares</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MontoDolares</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MonedaEuros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Euros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tasa_Euros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MontoEuros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Moneda_Tasa_Mas_Alta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tasa_Mas_Alta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Armonizado</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
