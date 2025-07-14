@@ -607,11 +607,6 @@ Propósito: Este paso es el corazón de la búsqueda de
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select Values - Limpiar y Ordenar Campos</from>
-      <to>Dummy (do nothing)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
       <to>Stream lookup - Buscar Tasa Petros</to>
       <enabled>Y</enabled>
@@ -634,6 +629,21 @@ Propósito: Este paso es el corazón de la búsqueda de
     <hop>
       <from>Select values</from>
       <to>Java Script Value - Calcular Montos y Armonizado</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select Values - Limpiar y Ordenar Campos</from>
+      <to>Add Constants - Columnas Manuales</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add Constants - Columnas Manuales</from>
+      <to>Select Values - Reordenar Columnas Final</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select Values - Reordenar Columnas Final</from>
+      <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -696,7 +706,7 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1648</xloc>
+      <xloc>1552</xloc>
       <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
@@ -769,20 +779,45 @@ if (MONTO != null &amp;&amp; Tasa_Euros != null &amp;&amp; Tasa_Euros != 0) {
     Euros = Math.round(Euros * 100) / 100; // Redondear a 2 decimales
 }
 
+
 // --- Cálculo de Armonizado (BASADO EN LA TASA, NO EL MONTO) ---
-var Armonizado = 0;
-if (Tasa_Dolares != null &amp;&amp; Tasa_Euros != null &amp;&amp; MONTO != null) {
-    if (Tasa_Dolares > Tasa_Euros) {
+// --- Inicialización para cada fila ---
+var Armonizado = 0; // Se inicializa para cada fila, en caso de que no haya cálculo
+var Tasa_Mas_Alta = 0; // Se inicializa para cada fila
+var Moneda_Tasa_Mas_Alta = ""; // Se inicializa para cada fila
+
+// --- Cálculo de Armonizado (BASADO EN LA TASA, NO EL MONTO) ---
+// Primero, asegurémonos de que al menos el MONTO sea válido para intentar cálculos.
+// Y que al menos una de las tasas de lookup (Dolar o Euro) no sea nula para evitar errores.
+if (MONTO != null) {
+    // Si solo tenemos Tasa_Dolares (y Euros es null)
+    if (Tasa_Dolares != null &amp;&amp; Tasa_Euros == null) {
         Armonizado = MONTO / Tasa_Dolares;
-        var Tasa_Mas_Alta = Tasa_Dolares;
-        var Moneda_Tasa_Mas_Alta = "USD";
-    } else { // Si Tasa_Euros es mayor o igual a Tasa_Dolares
-        Armonizado = MONTO / Tasa_Euros;
-        var Tasa_Mas_Alta = Tasa_Euros;
-        var Moneda_Tasa_Mas_Alta = "EUR";
+        Tasa_Mas_Alta = Tasa_Dolares;
+        Moneda_Tasa_Mas_Alta = "USD";
     }
-    Armonizado = Math.round(Armonizado * 100) / 100; // Redondear a 2 decimales
+    // Si solo tenemos Tasa_Euros (y Dolares es null)
+    else if (Tasa_Euros != null &amp;&amp; Tasa_Dolares == null) {
+        Armonizado = MONTO / Tasa_Euros;
+        Tasa_Mas_Alta = Tasa_Euros;
+        Moneda_Tasa_Mas_Alta = "EUR";
+    }
+    // Si tenemos AMBAS tasas (Dolares y Euros)
+    else if (Tasa_Dolares != null &amp;&amp; Tasa_Euros != null) {
+        if (Tasa_Dolares > Tasa_Euros) {
+            Armonizado = MONTO / Tasa_Dolares;
+            Tasa_Mas_Alta = Tasa_Dolares;
+            Moneda_Tasa_Mas_Alta = "USD";
+        } else { // Si Tasa_Euros es mayor o igual a Tasa_Dolares
+            Armonizado = MONTO / Tasa_Euros;
+            Tasa_Mas_Alta = Tasa_Euros;
+            Moneda_Tasa_Mas_Alta = "EUR";
+        }
+    }
+    // Si ambas son nulas o no se cumplen las condiciones, Armonizado, Tasa_Mas_Alta y Moneda_Tasa_Mas_Alta se mantienen en sus valores iniciales (0 o "").
 }
+
+Armonizado = Math.round(Armonizado * 100) / 100; // Redondear a 2 decimales, se aplica siempre si se hizo algún cálculo
 
 // Puedes eliminar la columna temporal MONEDA_PARA_LOOKUP si no la necesitas en la salida final
 // deleteRow(getVariable("MONEDA_PARA_LOOKUP", null)); // Esto si no quieres que pase al siguiente paso
@@ -1045,13 +1080,13 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <sheetfield/>
     <filefield/>
     <limit>0</limit>
-    <encoding/>
+    <encoding>ISO-8859-1</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <accept_filenames>N</accept_filenames>
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:/Desarrollo/Proyectos/AuditoriaPrePostMasivo/data/input/VOGFacturacionF0004HatilloARMONIZADO.xls</name>
+      <name>${FULL_PATH_FACTURACION_EXCEL}</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1362,105 +1397,147 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </field>
       <field>
         <name>Tipo_Documento</name>
+        <rename/>
       </field>
       <field>
         <name>Documento</name>
+        <rename/>
       </field>
       <field>
         <name>ClaseCliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>idCliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>idDireccion</name>
+        <rename/>
       </field>
       <field>
         <name>Nombre Cliente</name>
+        <rename/>
       </field>
       <field>
         <name>Numero Documento</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha Contabilizacion</name>
+        <rename/>
       </field>
       <field>
         <name>CNAE</name>
+        <rename/>
       </field>
       <field>
         <name>FeCreCliente</name>
+        <rename/>
       </field>
       <field>
         <name>Direccion1</name>
+        <rename/>
       </field>
       <field>
         <name>Direccion2</name>
+        <rename/>
       </field>
       <field>
         <name>Estado Anulado</name>
+        <rename/>
       </field>
       <field>
         <name>Suspedido</name>
+        <rename/>
       </field>
       <field>
         <name>Inactivo</name>
+        <rename/>
       </field>
       <field>
         <name>CONTACTO1</name>
+        <rename/>
       </field>
       <field>
         <name>CONTACTO2</name>
+        <rename/>
       </field>
       <field>
         <name>ID Periodo</name>
+        <rename/>
       </field>
       <field>
         <name>Periodo</name>
+        <rename/>
       </field>
       <field>
         <name>MONTO</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Petros</name>
+        <rename/>
       </field>
       <field>
         <name>Tasa_Petros</name>
+        <rename/>
       </field>
       <field>
         <name>Petros</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda_1</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Dolares</name>
+        <rename/>
       </field>
       <field>
         <name>Tasa_Dolares</name>
+        <rename/>
       </field>
       <field>
         <name>Dolares</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda_2</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Euros</name>
+        <rename/>
       </field>
       <field>
         <name>Tasa_Euros</name>
+        <rename/>
       </field>
       <field>
         <name>Euros</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda_Tasa_Mas_Alta</name>
+        <rename/>
       </field>
       <field>
         <name>Tasa_Mas_Alta</name>
+        <rename/>
       </field>
       <field>
         <name>Armonizado</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1575,7 +1652,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1216</xloc>
+      <xloc>800</xloc>
       <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1714,7 +1791,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
+      <xloc>496</xloc>
       <yloc>1184</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2165,6 +2242,305 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <GUI>
       <xloc>1248</xloc>
       <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add Constants - Columnas Manuales</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>UDCD</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Reclamo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>CRS</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Convenios</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Excluidos</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Observaciones</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif> </nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Values - Reordenar Columnas Final</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Clave</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Tipo_Documento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Documento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ClaseCliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>idCliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>idDireccion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Nombre Cliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Numero Documento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha_Tasa</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CNAE</name>
+        <rename/>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Direccion1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Direccion2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Estado Anulado</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Suspedido</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Inactivo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CONTACTO1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CONTACTO2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ID Periodo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Periodo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MONTO</name>
+        <rename/>
+      </field>
+      <field>
+        <name>UDCD</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Reclamo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>CRS</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Convenios</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Excluidos</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Observaciones</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MonedaPetros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Petros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Tasa_Petros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MontoPetros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MonedaDolares</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Dolares</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Tasa_Dolares</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MontoDolares</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MonedaEuros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Euros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Tasa_Euros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>MontoEuros</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Moneda_Tasa_Mas_Alta</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Tasa_Mas_Alta</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Armonizado</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1328</xloc>
+      <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
