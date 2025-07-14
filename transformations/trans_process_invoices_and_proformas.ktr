@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -464,7 +465,7 @@ las tasas de cambio y realizar los cálculos de auditoría.
 Propósito: Este paso lee los datos de las facturas y proformas
                    desde el archivo Excel principal. 
 </note>
-      <xloc>32</xloc>
+      <xloc>416</xloc>
       <yloc>112</yloc>
       <width>330</width>
       <heigth>73</heigth>
@@ -488,8 +489,8 @@ Propósito: Este paso lee los datos de las facturas y proformas
 Propósito: Aquí se implementará la lógica de búsqueda 
                   de la tasa(USD, EUR, PTR).
 </note>
-      <xloc>384</xloc>
-      <yloc>112</yloc>
+      <xloc>1152</xloc>
+      <yloc>128</yloc>
       <width>311</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
@@ -512,8 +513,8 @@ Propósito: Aquí se implementará la lógica de búsqueda
 Propósito: Este paso asegura que el flujo de las tasas
                    de cambio leídas desde el CSV esté ordenado 
                    por el campo Fecha de forma ascendente. </note>
-      <xloc>432</xloc>
-      <yloc>544</yloc>
+      <xloc>1376</xloc>
+      <yloc>512</yloc>
       <width>308</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
@@ -532,15 +533,15 @@ Propósito: Este paso asegura que el flujo de las tasas
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.5.4  Paso: Stream lookup - Buscar Tasa de Cambio:
+      <note>2.5.4  Paso: Stream lookup - Buscar Tasa Petros:
 Propósito: Este paso es el corazón de la búsqueda de 
                   la tasa de cambio. Une el flujo principal de facturas
                   (Leer Facturas/Proformas) con el flujo de tasas ordenadas 
                   (Ordenar Tasas Re-Leidas) para añadir la tasa de cambio
                    aplicable a cada documento.
 </note>
-      <xloc>16</xloc>
-      <yloc>544</yloc>
+      <xloc>64</xloc>
+      <yloc>480</yloc>
       <width>370</width>
       <heigth>121</heigth>
       <fontname>Segoe UI</fontname>
@@ -567,15 +568,462 @@ Propósito: Este paso es el corazón de la búsqueda de
     </hop>
     <hop>
       <from>Microsoft Excel Input - Leer Facturas/Proformas</from>
-      <to>Stream lookup - Buscar Tasa de Cambio</to>
+      <to>Add Constants - Establecer Monedas</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add Constants - Establecer Monedas</from>
+      <to>Java Script Value - Preparar Tasa Petros</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Java Script Value - Preparar Tasa Petros</from>
+      <to>Stream lookup - Buscar Tasa Petros</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup - Buscar Tasa Petros</from>
+      <to>Java Script Value - Preparar Tasa Dolares</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Java Script Value - Preparar Tasa Dolares</from>
+      <to>Stream lookup - Buscar Tasa Dolares</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup - Buscar Tasa Dolares</from>
+      <to>Java Script Value - Preparar Tasa Euros</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Java Script Value - Preparar Tasa Euros</from>
+      <to>Stream lookup - Buscar Tasa Euros</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Java Script Value - Calcular Montos y Armonizado</from>
+      <to>Select Values - Limpiar y Ordenar Campos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select Values - Limpiar y Ordenar Campos</from>
+      <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
-      <to>Stream lookup - Buscar Tasa de Cambio</to>
+      <to>Stream lookup - Buscar Tasa Petros</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
+      <to>Stream lookup - Buscar Tasa Dolares</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
+      <to>Stream lookup - Buscar Tasa Euros</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup - Buscar Tasa Euros</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Java Script Value - Calcular Montos y Armonizado</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>Add Constants - Establecer Monedas</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>MONEDA_PARA_LOOKUP</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Dummy (do nothing)</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1648</xloc>
+      <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Java Script Value - Calcular Montos y Armonizado</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+// Asegúrate de que los campos MONTO, Tasa_Petros, Tasa_Dolares, Tasa_Euros existan en el flujo de entrada.
+
+// Concatenación de ID Cliente y ID Direccion
+var ID_Cliente_Direccion = "";
+
+// Accede a los campos usando sus nuevos nombres
+var idCliente = ID_Cliente; // Ya no necesitas row[] si el campo está en Input fields
+var idDireccion = ID_Direccion; // Ya no necesitas row[] si el campo está en Input fields
+
+if (idCliente != null &amp;&amp; idDireccion != null) {
+    ID_Cliente_Direccion = idCliente + idDireccion;
+} else if (idCliente != null) {
+    ID_Cliente_Direccion = idCliente;
+} else if (idDireccion != null) {
+    ID_Cliente_Direccion = idDireccion;
+}
+
+// Columna condicional Tipo_Documento_Texto
+var Documento = ""; // Inicializamos la variable
+
+if (Tipo_Documento == 3) { // Asumiendo que 'Tipo_Documento' es el nombre del campo que viene del Excel
+    Documento = "Factura";
+} else if (Tipo_Documento == 2) {
+    Tipo_Documento_Texto = "Proforma";
+} else {
+    Documento = "Desconocido"; // O puedes dejarlo vacío "" si no quieres un valor por defecto
+}
+
+
+// --- Cálculos de Petros ---
+var Petros = 0;
+if (MONTO != null &amp;&amp; Tasa_Petros != null &amp;&amp; Tasa_Petros != 0) {
+    Petros = MONTO / Tasa_Petros;
+    Petros = Math.round(Petros * 100000) / 100000; // Redondear a 5 decimales
+}
+
+// --- Cálculos de Dólares ---
+var Dolares = 0;
+if (MONTO != null &amp;&amp; Tasa_Dolares != null &amp;&amp; Tasa_Dolares != 0) {
+    Dolares = MONTO / Tasa_Dolares;
+    Dolares = Math.round(Dolares * 100) / 100; // Redondear a 2 decimales
+}
+
+// --- Cálculos de Euros ---
+var Euros = 0;
+if (MONTO != null &amp;&amp; Tasa_Euros != null &amp;&amp; Tasa_Euros != 0) {
+    Euros = MONTO / Tasa_Euros;
+    Euros = Math.round(Euros * 100) / 100; // Redondear a 2 decimales
+}
+
+// --- Cálculo de Armonizado (BASADO EN LA TASA, NO EL MONTO) ---
+var Armonizado = 0;
+if (Tasa_Dolares != null &amp;&amp; Tasa_Euros != null &amp;&amp; MONTO != null) {
+    if (Tasa_Dolares > Tasa_Euros) {
+        Armonizado = MONTO / Tasa_Dolares;
+        var Tasa_Mas_Alta = Tasa_Dolares;
+        var Moneda_Tasa_Mas_Alta = "USD";
+    } else { // Si Tasa_Euros es mayor o igual a Tasa_Dolares
+        Armonizado = MONTO / Tasa_Euros;
+        var Tasa_Mas_Alta = Tasa_Euros;
+        var Moneda_Tasa_Mas_Alta = "EUR";
+    }
+    Armonizado = Math.round(Armonizado * 100) / 100; // Redondear a 2 decimales
+}
+
+// Puedes eliminar la columna temporal MONEDA_PARA_LOOKUP si no la necesitas en la salida final
+// deleteRow(getVariable("MONEDA_PARA_LOOKUP", null)); // Esto si no quieres que pase al siguiente paso
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>ID_Cliente_Direccion</name>
+        <rename>ID_Cliente_Direccion</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>idCliente</name>
+        <rename>idCliente</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>idDireccion</name>
+        <rename>idDireccion</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>Documento</name>
+        <rename>Documento</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>Petros</name>
+        <rename>Petros</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>Dolares</name>
+        <rename>Dolares</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>Euros</name>
+        <rename>Euros</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>Armonizado</name>
+        <rename>Armonizado</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>Tasa_Mas_Alta</name>
+        <rename>Tasa_Mas_Alta</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>Moneda_Tasa_Mas_Alta</name>
+        <rename>Moneda_Tasa_Mas_Alta</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Java Script Value - Preparar Tasa Dolares</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+var MONEDA_PARA_LOOKUP = "USD";
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>MONEDA_PARA_LOOKUP</name>
+        <rename>MONEDA_PARA_LOOKUP</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Java Script Value - Preparar Tasa Euros</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+var MONEDA_PARA_LOOKUP = "EUR";
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>MONEDA_PARA_LOOKUP</name>
+        <rename>MONEDA_PARA_LOOKUP</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>928</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Java Script Value - Preparar Tasa Petros</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+var MONEDA_PARA_LOOKUP = "PTR";
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>MONEDA_PARA_LOOKUP</name>
+        <rename>MONEDA_PARA_LOOKUP</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>Y</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Microsoft Excel Input - Leer Facturas/Proformas</name>
     <type>ExcelInput</type>
@@ -603,7 +1051,7 @@ Propósito: Este paso es el corazón de la búsqueda de
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>${FULL_PATH_FACTURACION_EXCEL}</name>
+      <name>C:/Desarrollo/Proyectos/AuditoriaPrePostMasivo/data/input/VOGFacturacionF0004HatilloARMONIZADO.xls</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -689,7 +1137,7 @@ Propósito: Este paso es el corazón de la búsqueda de
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format>dd/MM/yyyy HH:mm:ss</format>
+        <format>dd/MM/yyyy</format>
         <currency/>
         <decimal/>
         <group/>
@@ -891,8 +1339,383 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>496</xloc>
       <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Values - Limpiar y Ordenar Campos</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ID_Cliente_Direccion</name>
+        <rename>Clave</rename>
+      </field>
+      <field>
+        <name>Tipo_Documento</name>
+      </field>
+      <field>
+        <name>Documento</name>
+      </field>
+      <field>
+        <name>ClaseCliente</name>
+      </field>
+      <field>
+        <name>Nombre Cliente</name>
+      </field>
+      <field>
+        <name>Numero Documento</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa</name>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+      </field>
+      <field>
+        <name>CNAE</name>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+      </field>
+      <field>
+        <name>Direccion1</name>
+      </field>
+      <field>
+        <name>Direccion2</name>
+      </field>
+      <field>
+        <name>Estado Anulado</name>
+      </field>
+      <field>
+        <name>Suspedido</name>
+      </field>
+      <field>
+        <name>Inactivo</name>
+      </field>
+      <field>
+        <name>CONTACTO1</name>
+      </field>
+      <field>
+        <name>CONTACTO2</name>
+      </field>
+      <field>
+        <name>ID Periodo</name>
+      </field>
+      <field>
+        <name>Periodo</name>
+      </field>
+      <field>
+        <name>MONTO</name>
+      </field>
+      <field>
+        <name>Moneda</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Petros</name>
+      </field>
+      <field>
+        <name>Tasa_Petros</name>
+      </field>
+      <field>
+        <name>Petros</name>
+      </field>
+      <field>
+        <name>Moneda_1</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Dolares</name>
+      </field>
+      <field>
+        <name>Tasa_Dolares</name>
+      </field>
+      <field>
+        <name>Dolares</name>
+      </field>
+      <field>
+        <name>Moneda_2</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Euros</name>
+      </field>
+      <field>
+        <name>Tasa_Euros</name>
+      </field>
+      <field>
+        <name>Euros</name>
+      </field>
+      <field>
+        <name>Moneda_Tasa_Mas_Alta</name>
+      </field>
+      <field>
+        <name>Tasa_Mas_Alta</name>
+      </field>
+      <field>
+        <name>Armonizado</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Moneda</name>
+        <rename>MonedaPetros</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Petros</name>
+        <rename>MontoPetros</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Moneda_1</name>
+        <rename>MonedaDolares</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Dolares</name>
+        <rename>MontoDolares</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Moneda_2</name>
+        <rename>MonedaEuros</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Euros</name>
+        <rename>MontoEuros</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1216</xloc>
+      <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Tipo de Documento</name>
+        <rename>Tipo_Documento</rename>
+      </field>
+      <field>
+        <name>ClaseCliente</name>
+      </field>
+      <field>
+        <name>ID Cliente</name>
+        <rename>ID_Cliente</rename>
+      </field>
+      <field>
+        <name>Nombre Cliente</name>
+      </field>
+      <field>
+        <name>Numero Documento</name>
+      </field>
+      <field>
+        <name>Id Direccion</name>
+        <rename>ID_Direccion</rename>
+      </field>
+      <field>
+        <name>Fecha_Tasa</name>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+      </field>
+      <field>
+        <name>CNAE</name>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+      </field>
+      <field>
+        <name>Direccion1</name>
+      </field>
+      <field>
+        <name>Direccion2</name>
+      </field>
+      <field>
+        <name>Estado Anulado</name>
+      </field>
+      <field>
+        <name>Suspedido</name>
+      </field>
+      <field>
+        <name>Inactivo</name>
+      </field>
+      <field>
+        <name>CONTACTO1</name>
+      </field>
+      <field>
+        <name>CONTACTO2</name>
+      </field>
+      <field>
+        <name>ID Periodo</name>
+      </field>
+      <field>
+        <name>Periodo</name>
+      </field>
+      <field>
+        <name>MONTO</name>
+      </field>
+      <field>
+        <name>MONEDA_PARA_LOOKUP</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Petros</name>
+      </field>
+      <field>
+        <name>Tasa_Petros</name>
+      </field>
+      <field>
+        <name>Hora</name>
+      </field>
+      <field>
+        <name>Moneda</name>
+      </field>
+      <field>
+        <name>TablaCambio</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Dolares</name>
+      </field>
+      <field>
+        <name>Tasa_Dolares</name>
+      </field>
+      <field>
+        <name>Hora_1</name>
+      </field>
+      <field>
+        <name>Moneda_1</name>
+      </field>
+      <field>
+        <name>TablaCambio_1</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Euros</name>
+      </field>
+      <field>
+        <name>Tasa_Euros</name>
+      </field>
+      <field>
+        <name>Hora_2</name>
+      </field>
+      <field>
+        <name>Moneda_2</name>
+      </field>
+      <field>
+        <name>TablaCambio_2</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>1184</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -900,7 +1723,7 @@ Propósito: Este paso es el corazón de la búsqueda de
     <name>Sort Rows - Ordenar Tasas Re-Leidas</name>
     <type>SortRows</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -965,13 +1788,13 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>448</yloc>
+      <xloc>1248</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Stream lookup - Buscar Tasa de Cambio</name>
+    <name>Stream lookup - Buscar Tasa Dolares</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -991,15 +1814,19 @@ Propósito: Este paso es el corazón de la búsqueda de
         <name>Fecha_Tasa</name>
         <field>Fecha</field>
       </key>
+      <key>
+        <name>MONEDA_PARA_LOOKUP</name>
+        <field>Moneda</field>
+      </key>
       <value>
         <name>Fecha</name>
-        <rename>Fecha</rename>
+        <rename>Fecha_Tasa_Dolares</rename>
         <default/>
         <type>Date</type>
       </value>
       <value>
         <name>Tasa</name>
-        <rename>Tasa</rename>
+        <rename>Tasa_Dolares</rename>
         <default/>
         <type>Number</type>
       </value>
@@ -1031,8 +1858,148 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>448</yloc>
+      <xloc>496</xloc>
+      <yloc>800</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup - Buscar Tasa Euros</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>Y</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>Fecha_Tasa</name>
+        <field>Fecha</field>
+      </key>
+      <key>
+        <name>MONEDA_PARA_LOOKUP</name>
+        <field>Moneda</field>
+      </key>
+      <value>
+        <name>Fecha</name>
+        <rename>Fecha_Tasa_Euros</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>Tasa</name>
+        <rename>Tasa_Euros</rename>
+        <default/>
+        <type>Number</type>
+      </value>
+      <value>
+        <name>Hora</name>
+        <rename>Hora</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>Moneda</name>
+        <rename>Moneda</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>TablaCambio</name>
+        <rename>TablaCambio</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>1056</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup - Buscar Tasa Petros</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>Y</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>Fecha_Tasa</name>
+        <field>Fecha</field>
+      </key>
+      <key>
+        <name>MONEDA_PARA_LOOKUP</name>
+        <field>Moneda</field>
+      </key>
+      <value>
+        <name>Fecha</name>
+        <rename>Fecha_Tasa_Petros</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>Tasa</name>
+        <rename>Tasa_Petros</rename>
+        <default/>
+        <type>Number</type>
+      </value>
+      <value>
+        <name>Hora</name>
+        <rename>Hora</rename>
+        <default/>
+        <type>Date</type>
+      </value>
+      <value>
+        <name>Moneda</name>
+        <rename>Moneda</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>TablaCambio</name>
+        <rename>TablaCambio</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1196,8 +2163,8 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>208</yloc>
+      <xloc>1248</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
