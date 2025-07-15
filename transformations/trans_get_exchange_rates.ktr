@@ -711,7 +711,7 @@ que todo funcione.
         <name>Tasa</name>
         <type>Number</type>
         <length>-1</length>
-        <precision>2</precision>
+        <precision>6</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
         <format/>
@@ -810,23 +810,18 @@ que todo funcione.
     <fields>
       <field>
         <name>Fecha</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa</name>
-        <rename/>
       </field>
       <field>
         <name>Hora</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda</name>
-        <rename/>
       </field>
       <field>
         <name>TablaCambio</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>

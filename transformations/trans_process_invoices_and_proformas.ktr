@@ -939,7 +939,7 @@ en el paso Microsoft Excel Input - Leer Facturas/Proformas</note>
     </hop>
     <hop>
       <from>Select Values - Reordenar Columnas Final</from>
-      <to>Mapping input specification</to>
+      <to>Text file output - Datos Procesados Temp</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1262,9 +1262,9 @@ Armonizado = Math.round(Armonizado * 100) / 100; // Redondear a 2 decimales, se 
       <field>
         <name>Tasa_Mas_Alta</name>
         <rename>Tasa_Mas_Alta</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
         <replace>N</replace>
       </field>
       <field>
@@ -1456,7 +1456,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>${FULL_PATH_FACTURACION_EXCEL}</name>
+      <name>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\VOGFacturacionF0004HatilloARMONIZADO.xls</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1700,7 +1700,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <repeat>N</repeat>
         <format/>
         <currency/>
-        <decimal/>
+        <decimal>,</decimal>
         <group/>
       </field>
     </fields>
@@ -1767,111 +1767,147 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </field>
       <field>
         <name>Tipo_Documento</name>
+        <rename/>
       </field>
       <field>
         <name>Documento</name>
+        <rename/>
       </field>
       <field>
         <name>ClaseCliente</name>
+        <rename/>
       </field>
       <field>
         <name>idCliente</name>
+        <rename/>
       </field>
       <field>
         <name>idDireccion</name>
+        <rename/>
       </field>
       <field>
         <name>Nombre Cliente</name>
+        <rename/>
       </field>
       <field>
         <name>Numero Documento</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha Contabilizacion</name>
+        <rename/>
       </field>
       <field>
         <name>CNAE</name>
+        <rename/>
       </field>
       <field>
         <name>FeCreCliente</name>
+        <rename/>
       </field>
       <field>
         <name>Direccion1</name>
+        <rename/>
       </field>
       <field>
         <name>Direccion2</name>
+        <rename/>
       </field>
       <field>
         <name>Estado Anulado</name>
+        <rename/>
       </field>
       <field>
         <name>Suspedido</name>
+        <rename/>
       </field>
       <field>
         <name>Inactivo</name>
+        <rename/>
       </field>
       <field>
         <name>CONTACTO1</name>
+        <rename/>
       </field>
       <field>
         <name>CONTACTO2</name>
+        <rename/>
       </field>
       <field>
         <name>ID Periodo</name>
+        <rename/>
       </field>
       <field>
         <name>Periodo</name>
+        <rename/>
       </field>
       <field>
         <name>MONTO</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Petros</name>
+        <rename/>
       </field>
       <field>
         <name>Tasa_Petros</name>
+        <rename/>
       </field>
       <field>
         <name>Petros</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda_1</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Dolares</name>
+        <rename/>
       </field>
       <field>
         <name>Tasa_Dolares</name>
+        <rename/>
       </field>
       <field>
         <name>Dolares</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda_2</name>
+        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Euros</name>
+        <rename/>
       </field>
       <field>
         <name>Tasa_Euros</name>
+        <rename/>
       </field>
       <field>
         <name>Euros</name>
+        <rename/>
       </field>
       <field>
         <name>Moneda_Tasa_Mas_Alta</name>
+        <rename/>
       </field>
       <field>
         <name>Tasa_Mas_Alta</name>
+        <rename/>
       </field>
       <field>
         <name>Armonizado</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -2144,7 +2180,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </remotesteps>
     <GUI>
       <xloc>1408</xloc>
-      <yloc>1264</yloc>
+      <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2166,7 +2202,6 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </field>
       <field>
         <name>ClaseCliente</name>
-        <rename/>
       </field>
       <field>
         <name>ID Cliente</name>
@@ -2174,11 +2209,9 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </field>
       <field>
         <name>Nombre Cliente</name>
-        <rename/>
       </field>
       <field>
         <name>Numero Documento</name>
-        <rename/>
       </field>
       <field>
         <name>Id Direccion</name>
@@ -2186,123 +2219,93 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </field>
       <field>
         <name>Fecha_Tasa</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha Contabilizacion</name>
-        <rename/>
       </field>
       <field>
         <name>CNAE</name>
-        <rename/>
       </field>
       <field>
         <name>FeCreCliente</name>
-        <rename/>
       </field>
       <field>
         <name>Direccion1</name>
-        <rename/>
       </field>
       <field>
         <name>Direccion2</name>
-        <rename/>
       </field>
       <field>
         <name>Estado Anulado</name>
-        <rename/>
       </field>
       <field>
         <name>Suspedido</name>
-        <rename/>
       </field>
       <field>
         <name>Inactivo</name>
-        <rename/>
       </field>
       <field>
         <name>CONTACTO1</name>
-        <rename/>
       </field>
       <field>
         <name>CONTACTO2</name>
-        <rename/>
       </field>
       <field>
         <name>ID Periodo</name>
-        <rename/>
       </field>
       <field>
         <name>Periodo</name>
-        <rename/>
       </field>
       <field>
         <name>MONTO</name>
-        <rename/>
       </field>
       <field>
         <name>MONEDA_PARA_LOOKUP</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Petros</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa_Petros</name>
-        <rename/>
       </field>
       <field>
         <name>Hora</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda</name>
-        <rename/>
       </field>
       <field>
         <name>TablaCambio</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Dolares</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa_Dolares</name>
-        <rename/>
       </field>
       <field>
         <name>Hora_1</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda_1</name>
-        <rename/>
       </field>
       <field>
         <name>TablaCambio_1</name>
-        <rename/>
       </field>
       <field>
         <name>Fecha_Tasa_Euros</name>
-        <rename/>
       </field>
       <field>
         <name>Tasa_Euros</name>
-        <rename/>
       </field>
       <field>
         <name>Hora_2</name>
-        <rename/>
       </field>
       <field>
         <name>Moneda_2</name>
-        <rename/>
       </field>
       <field>
         <name>TablaCambio_2</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -2672,15 +2675,15 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <field>
         <name>Tasa</name>
         <type>Number</type>
-        <format>#.#</format>
-        <currency>$</currency>
+        <format/>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-1</length>
+        <precision>6</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -2770,8 +2773,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </GUI>
   </step>
   <step>
-    <name>Mapping input specification</name>
-    <type>MappingInput</type>
+    <name>Text file output - Datos Procesados Temp</name>
+    <type>TextFileOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2780,8 +2783,553 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <separator>;</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>${AUDIT_DATA_OUTPUT_DIR}/processed_invoices_temp</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>csv</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
+    </file>
     <fields>
-      <select_unspecified>N</select_unspecified>
+      <field>
+        <name>Clave</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Tipo_Documento</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>Documento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ClaseCliente</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>idCliente</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>idDireccion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Nombre Cliente</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Numero Documento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Fecha_Tasa</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>CNAE</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Direccion1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Direccion2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Estado Anulado</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>Suspedido</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>Inactivo</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>CONTACTO1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>CONTACTO2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ID Periodo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Periodo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>MONTO</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>UDCD</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Reclamo</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>CRS</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Convenios</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Excluidos</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Observaciones</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>MonedaPetros</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Petros</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Tasa_Petros</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>6</precision>
+      </field>
+      <field>
+        <name>MontoPetros</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>MonedaDolares</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Dolares</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Tasa_Dolares</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>MontoDolares</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>MonedaEuros</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Euros</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Tasa_Euros</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>MontoEuros</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>Moneda_Tasa_Mas_Alta</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Tasa_Mas_Alta</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>Armonizado</name>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>2</precision>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2792,8 +3340,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1936</xloc>
-      <yloc>1264</yloc>
+      <xloc>1792</xloc>
+      <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
