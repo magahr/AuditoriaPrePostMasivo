@@ -338,6 +338,11 @@
           <variable_value>${FULL_PATH_FACTURACION_EXCEL}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
+        <field>
+          <variable_name>FULL_PATH_EXCEL_OUTPUT</variable_name>
+          <variable_value>"${AUDIT_DATA_OUTPUT_DIR}/Resultados_Auditoria_Facturas_Proformas_" + [nombre_empresa] + ".xlsx"</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -460,7 +465,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>736</yloc>
+      <yloc>640</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -506,6 +511,11 @@
       <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>FULL_PATH_EXCEL_OUTPUT</name>
+          <stream_name>FULL_PATH_EXCEL_OUTPUT</stream_name>
+          <value/>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -553,19 +563,19 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation -trans_process_invoices_and_proformas.ktr</from>
-      <to>Transformation -trans_write_results_to_excel.ktr</to>
-      <from_nr>0</from_nr>
-      <to_nr>1</to_nr>
+      <from>Transformation -trans_write_results_to_excel.ktr</from>
+      <to>Success</to>
+      <from_nr>1</from_nr>
+      <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation -trans_write_results_to_excel.ktr</from>
-      <to>Success</to>
-      <from_nr>1</from_nr>
-      <to_nr>0</to_nr>
+      <from>Transformation -trans_process_invoices_and_proformas.ktr</from>
+      <to>Transformation -trans_write_results_to_excel.ktr</to>
+      <from_nr>0</from_nr>
+      <to_nr>1</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>

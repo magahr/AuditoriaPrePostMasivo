@@ -465,7 +465,7 @@ Propósito: Tomar los datos procesados y escribirlos
 Propósito: Reescribir en un libro excel el resultado 
                    de la salida de la transformación </note>
       <xloc>16</xloc>
-      <yloc>448</yloc>
+      <yloc>640</yloc>
       <width>276</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -484,16 +484,15 @@ Propósito: Reescribir en un libro excel el resultado
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.6.1  Paso: Mapping input - Datos Procesados:
-Propósito: No necesitas configurar nada dentro de 
-                  este paso Mapping (input) por ahora. 
-                  Simplemente actúa como un "punto de entrada"
-                  para los datos que vendrán de la transformación 
-                  anterior en el Job.</note>
-      <xloc>0</xloc>
-      <yloc>208</yloc>
-      <width>322</width>
-      <heigth>106</heigth>
+      <note>2.6.1  Paso: Text file input - Leer Datos Procesados Temp:
+Propósito:  Consumo de Datos Intermedios.
+                     Interpretación de Formato.
+                     Preparación para Escritura Final.
+</note>
+      <xloc>16</xloc>
+      <yloc>496</yloc>
+      <width>306</width>
+      <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -512,11 +511,308 @@ Propósito: No necesitas configurar nada dentro de
   </notepads>
   <order>
     <hop>
+      <from>Get file names - Buscar Archivo Facturacion</from>
+      <to>Text file input - Leer Datos Procesados Temp</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Regex Evaluation - Obtener Empresa</from>
+      <to>Formula</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Text file input - Leer Datos Procesados Temp</from>
+      <to>Join rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables</from>
+      <to>Join rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join rows (cartesian product)</from>
+      <to>Regex Evaluation - Obtener Empresa</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Formula</from>
+      <to>Write to log - trans_write_results_to_excel</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write to log - trans_write_results_to_excel</from>
       <to>Microsoft Excel Writer - Salida Final</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>Formula</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>archivo_salida_excel_nuevo</field_name>
+      <formula_string>[ruta_salida] &amp; "/Resultados_Auditoria_Facturas_Proformas_" &amp; [nombre_empresa] </formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get file names - Buscar Archivo Facturacion</name>
+    <type>GetFileNames</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filter>
+      <filterfiletype>all_files</filterfiletype>
+    </filter>
+    <doNotFailIfNoFile>N</doNotFailIfNoFile>
+    <rownum>N</rownum>
+    <isaddresult>Y</isaddresult>
+    <filefield>N</filefield>
+    <rownum_field/>
+    <filename_Field/>
+    <wildcard_Field/>
+    <exclude_wildcard_Field/>
+    <dynamic_include_subfolders>N</dynamic_include_subfolders>
+    <limit>0</limit>
+    <file>
+      <name>${AUDIT_DATA_OUTPUT_DIR}</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>AUDIT_BASE_DIR_AUDI</name>
+        <variable>${AUDIT_BASE_DIR_AUDI}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_DATA_INPUT_DIR</name>
+        <variable>${AUDIT_DATA_INPUT_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_DATA_OUTPUT_DIR</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_FACTURACION_FILENAME_PATTERN</name>
+        <variable>${AUDIT_FACTURACION_FILENAME_PATTERN}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_JOBS_DIR</name>
+        <variable>${AUDIT_JOBS_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_SCRIPTS_DIR</name>
+        <variable>${AUDIT_SCRIPTS_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_TRANS_DIR</name>
+        <variable>${AUDIT_TRANS_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_VAR_TASAS_FILENAME</name>
+        <variable>${AUDIT_VAR_TASAS_FILENAME}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>FULL_PATH_FACTURACION_EXCEL</name>
+        <variable>${FULL_PATH_FACTURACION_EXCEL}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ruta_salida</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join rows (cartesian product)</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Microsoft Excel Writer - Salida Final</name>
     <type>TypeExitExcelWriterStep</type>
@@ -541,7 +837,7 @@ Propósito: No necesitas configurar nada dentro de
     <appendLines>N</appendLines>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR}/Resultados_Auditoria_Facturas_Proformas</name>
+      <name>${AUDIT_TRANS_DIR}/Resultados_Auditoria_Facturas_Proformas02</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
@@ -966,7 +1262,7 @@ Propósito: No necesitas configurar nada dentro de
       <field>
         <name>Fecha_Tasa_Dolares</name>
         <type>Date</type>
-        <format/>
+        <format>dd/MM/yyyy</format>
         <title>Fecha_Tasa_Dolares</title>
         <titleStyleCell/>
         <styleCell/>
@@ -1094,7 +1390,60 @@ Propósito: No necesitas configurar nada dentro de
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>448</yloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Regex Evaluation - Obtener Empresa</name>
+    <type>RegexEval</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <script>^processed_invoices_temp_(.*)\.csv$</script>
+    <matcher>nombre_archivo_corto</matcher>
+    <resultfieldname/>
+    <usevar>Y</usevar>
+    <allowcapturegroups>Y</allowcapturegroups>
+    <replacefields>N</replacefields>
+    <canoneq>N</canoneq>
+    <caseinsensitive>N</caseinsensitive>
+    <comment>N</comment>
+    <dotall>N</dotall>
+    <multiline>N</multiline>
+    <unicode>N</unicode>
+    <unix>N</unix>
+    <fields>
+      <field>
+        <name>nombre_empresa</name>
+        <type>String</type>
+        <format/>
+        <group>1</group>
+        <decimal/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+        <currency/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1137,8 +1486,8 @@ Propósito: No necesitas configurar nada dentro de
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\output\processed_invoices_temp.csv</name>
-      <filemask/>
+      <name>${AUDIT_DATA_OUTPUT_DIR}</name>
+      <filemask>${AUDIT_FACTURACION_FILENAME_CVS}</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
@@ -1152,13 +1501,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Clave</name>
         <type>String</type>
         <format/>
-        <currency>..</currency>
-        <decimal>.</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>22</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1167,13 +1516,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Tipo_Documento</name>
         <type>Integer</type>
         <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
+        <length>-1</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1182,13 +1531,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Documento</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>7</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1197,13 +1546,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>ClaseCliente</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>12</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1212,13 +1561,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>idCliente</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>10</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1227,13 +1576,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>idDireccion</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>12</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1242,13 +1591,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Nombre_Cliente</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>55</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1257,13 +1606,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Numero_Documento</name>
         <type>Integer</type>
         <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
+        <length>-1</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1272,9 +1621,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>Fecha_Tasa</name>
         <type>Date</type>
         <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1287,9 +1636,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>Fecha_Contabilizacion</name>
         <type>Date</type>
         <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1302,13 +1651,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>CNAE</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>13</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1317,9 +1666,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>FeCreCliente</name>
         <type>Date</type>
         <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1332,13 +1681,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Direccion1</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>58</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1347,13 +1696,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Direccion2</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>58</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1362,13 +1711,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Estado_Anulado</name>
         <type>Integer</type>
         <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
+        <length>-1</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1377,13 +1726,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Suspedido</name>
         <type>Integer</type>
         <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
+        <length>-1</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1392,13 +1741,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Inactivo</name>
         <type>Integer</type>
         <format/>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
+        <length>-1</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1407,13 +1756,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>CONTACTO1</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>26</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1422,13 +1771,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>CONTACTO2</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>13</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1437,13 +1786,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>ID_Periodo</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1452,13 +1801,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Periodo</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>40</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1467,14 +1816,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>MONTO</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-1</length>
+        <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1482,13 +1831,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>UDCD</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>1</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1497,13 +1846,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Reclamo</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>1</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1512,13 +1861,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>CRS</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>1</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1527,13 +1876,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Convenios</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>1</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1542,13 +1891,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Excluidos</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>1</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1557,13 +1906,13 @@ Propósito: No necesitas configurar nada dentro de
         <name>Observaciones</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>1</length>
+        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1572,9 +1921,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>MonedaPetros</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1587,9 +1936,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>Fecha_Tasa_Petros</name>
         <type>Date</type>
         <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1602,14 +1951,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>Tasa_Petros</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-1</length>
+        <precision>6</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1617,14 +1966,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>MontoPetros</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>16</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1632,9 +1981,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>MonedaDolares</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1647,9 +1996,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>Fecha_Tasa_Dolares</name>
         <type>Date</type>
         <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1662,14 +2011,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>Tasa_Dolares</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-1</length>
+        <precision>6</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1677,14 +2026,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>MontoDolares</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>16</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1692,9 +2041,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>MonedaEuros</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1707,9 +2056,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>Fecha_Tasa_Euros</name>
         <type>Date</type>
         <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1722,14 +2071,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>Tasa_Euros</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>-1</length>
+        <precision>6</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1737,14 +2086,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>MontoEuros</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>16</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1752,9 +2101,9 @@ Propósito: No necesitas configurar nada dentro de
         <name>Moneda_Tasa_Mas_Alta</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
@@ -1767,14 +2116,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>Tasa_Mas_Alta</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>16</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1782,14 +2131,14 @@ Propósito: No necesitas configurar nada dentro de
         <name>Armonizado</name>
         <type>Number</type>
         <format/>
-        <currency>$</currency>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <length>16</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -1811,7 +2160,7 @@ Propósito: No necesitas configurar nada dentro de
     <line_number_files_extension>line</line_number_files_extension>
     <date_format_lenient>Y</date_format_lenient>
     <date_format_locale>en_US</date_format_locale>
-    <shortFileFieldName/>
+    <shortFileFieldName>nombre_archivo_corto</shortFileFieldName>
     <pathFieldName/>
     <hiddenFieldName/>
     <lastModificationTimeFieldName/>
@@ -1829,7 +2178,48 @@ Propósito: No necesitas configurar nada dentro de
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>240</yloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - trans_write_results_to_excel</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>ruta_salida</name>
+      </field>
+      <field>
+        <name>nombre_empresa</name>
+      </field>
+      <field>
+        <name>archivo_salida_excel_nuevo</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
