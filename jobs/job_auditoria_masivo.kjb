@@ -347,7 +347,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>224</xloc>
+      <xloc>176</xloc>
       <yloc>336</yloc>
       <attributes_kjc/>
     </entry>
@@ -426,7 +426,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>512</yloc>
+      <yloc>496</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -465,7 +465,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>416</xloc>
-      <yloc>640</yloc>
+      <yloc>624</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -487,7 +487,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_write_results_to_excel.ktr</filename>
+      <filename>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\transformations\trans_write_results_to_excel_02.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

@@ -1033,23 +1033,13 @@ Propósito: Intermediario de Datos.
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set variables</from>
-      <to>Write to log despues de Set variables</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Write to log despues de Set variables</from>
-      <to>Microsoft Excel writer</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Write to log</from>
       <to>Sample rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Sample rows</from>
-      <to>Set variables</to>
+      <to>Write to log despues de Set variables</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1205,14 +1195,6 @@ Propósito: Intermediario de Datos.
     <formula>
       <field_name>full_output_path</field_name>
       <formula_string>[ruta_salida] &amp; "/processed_invoices_temp_" &amp; [nombre_empresa]</formula_string>
-      <value_type>String</value_type>
-      <value_length>-1</value_length>
-      <value_precision>-1</value_precision>
-      <replace_field/>
-    </formula>
-    <formula>
-      <field_name>full_output_path_02</field_name>
-      <formula_string>[ruta_salida] &amp; "/Resultados_Auditoria_Facturas_Proformas_" &amp; [nombre_empresa]</formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -1467,13 +1449,19 @@ if (idCliente != null &amp;&amp; idDireccion != null) {
 // Columna condicional Tipo_Documento_Texto
 var Documento = ""; // Inicializamos la variable
 
+if (Tipo_Documento == 2) {
+    Documento  = "Proforma";
+} 
+
 if (Tipo_Documento == 3) { // Asumiendo que 'Tipo_Documento' es el nombre del campo que viene del Excel
     Documento = "Factura";
-} else if (Tipo_Documento == 2) {
-    Tipo_Documento_Texto = "Proforma";
-} else {
-    Documento = "Desconocido"; // O puedes dejarlo vacío "" si no quieres un valor por defecto
-}
+} //else if (Tipo_Documento == 2) {
+  //  Tipo_Documento_Texto = "Proforma";
+
+
+if (Tipo_Documento != 2 &amp;&amp; Tipo_Documento != 3) {
+    Documento  = "Desconocido";
+} 
 
 
 // --- Cálculos de Petros ---
@@ -2135,623 +2123,6 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel writer</name>
-    <type>TypeExitExcelWriterStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <makeSheetActive>Y</makeSheetActive>
-    <startingCell>A1</startingCell>
-    <appendOmitHeader>N</appendOmitHeader>
-    <appendOffset>0</appendOffset>
-    <appendEmpty>0</appendEmpty>
-    <rowWritingMethod>overwrite</rowWritingMethod>
-    <forceFormulaRecalculation>N</forceFormulaRecalculation>
-    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
-    <appendLines>N</appendLines>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${AUDIT_FACTURACION_FILENAME_PATTERN_02}</name>
-      <extention>xlsx</extention>
-      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <stream_data>N</stream_data>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <protected_by/>
-      <splitevery>0</splitevery>
-      <if_file_exists>new</if_file_exists>
-      <if_sheet_exists>new</if_sheet_exists>
-    </file>
-    <template>
-      <enabled>N</enabled>
-      <sheet_enabled>N</sheet_enabled>
-      <filename>template.xls</filename>
-      <sheetname/>
-      <hidden>N</hidden>
-    </template>
-    <fields>
-      <field>
-        <name>Clave</name>
-        <type>String</type>
-        <format/>
-        <title>Clave</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tipo_Documento</name>
-        <type>Integer</type>
-        <format/>
-        <title>Tipo_Documento</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Documento</name>
-        <type>String</type>
-        <format/>
-        <title>Documento</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>ClaseCliente</name>
-        <type>String</type>
-        <format/>
-        <title>ClaseCliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>idCliente</name>
-        <type>String</type>
-        <format/>
-        <title>idCliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>idDireccion</name>
-        <type>String</type>
-        <format/>
-        <title>idDireccion</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Nombre Cliente</name>
-        <type>String</type>
-        <format/>
-        <title>Nombre Cliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Numero Documento</name>
-        <type>Integer</type>
-        <format/>
-        <title>Numero Documento</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Tasa</name>
-        <type>Date</type>
-        <format/>
-        <title>Fecha_Tasa</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha Contabilizacion</name>
-        <type>Date</type>
-        <format/>
-        <title>Fecha Contabilizacion</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CNAE</name>
-        <type>String</type>
-        <format/>
-        <title>CNAE</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-        <type>Date</type>
-        <format/>
-        <title>FeCreCliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Direccion1</name>
-        <type>String</type>
-        <format/>
-        <title>Direccion1</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Direccion2</name>
-        <type>String</type>
-        <format/>
-        <title>Direccion2</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Estado Anulado</name>
-        <type>Integer</type>
-        <format/>
-        <title>Estado Anulado</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Suspendido</name>
-        <type>Integer</type>
-        <format/>
-        <title>Suspendido</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Inactivo</name>
-        <type>Integer</type>
-        <format/>
-        <title>Inactivo</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CONTACTO1</name>
-        <type>String</type>
-        <format/>
-        <title>CONTACTO1</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CONTACTO2</name>
-        <type>String</type>
-        <format/>
-        <title>CONTACTO2</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>ID Periodo</name>
-        <type>String</type>
-        <format/>
-        <title>ID Periodo</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Periodo</name>
-        <type>String</type>
-        <format/>
-        <title>Periodo</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MONTO</name>
-        <type>Number</type>
-        <format/>
-        <title>MONTO</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>UDCD</name>
-        <type>String</type>
-        <format/>
-        <title>UDCD</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Reclamo</name>
-        <type>String</type>
-        <format/>
-        <title>Reclamo</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CRS</name>
-        <type>String</type>
-        <format/>
-        <title>CRS</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Convenios</name>
-        <type>String</type>
-        <format/>
-        <title>Convenios</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Excluidos</name>
-        <type>String</type>
-        <format/>
-        <title>Excluidos</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Observaciones</name>
-        <type>String</type>
-        <format/>
-        <title>Observaciones</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MonedaPetros</name>
-        <type>String</type>
-        <format/>
-        <title>MonedaPetros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Petros</name>
-        <type>Date</type>
-        <format/>
-        <title>Fecha_Tasa_Petros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tasa_Petros</name>
-        <type>Number</type>
-        <format/>
-        <title>Tasa_Petros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MontoPetros</name>
-        <type>Number</type>
-        <format>00000000000000.00</format>
-        <title>MontoPetros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MonedaDolares</name>
-        <type>String</type>
-        <format/>
-        <title>MonedaDolares</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Dolares</name>
-        <type>Date</type>
-        <format/>
-        <title>Fecha_Tasa_Dolares</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tasa_Dolares</name>
-        <type>Number</type>
-        <format/>
-        <title>Tasa_Dolares</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MontoDolares</name>
-        <type>Number</type>
-        <format>00000000000000.00</format>
-        <title>MontoDolares</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MonedaEuros</name>
-        <type>String</type>
-        <format/>
-        <title>MonedaEuros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Euros</name>
-        <type>Date</type>
-        <format/>
-        <title>Fecha_Tasa_Euros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tasa_Euros</name>
-        <type>Number</type>
-        <format/>
-        <title>Tasa_Euros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MontoEuros</name>
-        <type>Number</type>
-        <format>00000000000000.00</format>
-        <title>MontoEuros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Moneda_Tasa_Mas_Alta</name>
-        <type>String</type>
-        <format/>
-        <title>Moneda_Tasa_Mas_Alta</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tasa_Mas_Alta</name>
-        <type>Number</type>
-        <format>00000000000000.00</format>
-        <title>Tasa_Mas_Alta</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Armonizado</name>
-        <type>Number</type>
-        <format>00000000000000.00</format>
-        <title>Armonizado</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>nombre_empresa</name>
-        <type>String</type>
-        <format/>
-        <title>nombre_empresa</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>ruta_salida</name>
-        <type>String</type>
-        <format/>
-        <title>ruta_salida</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>full_output_path</name>
-        <type>String</type>
-        <format/>
-        <title>full_output_path</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2816</xloc>
-      <yloc>1072</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Regex Evaluation - Obtener Empresa</name>
     <type>RegexEval</type>
     <description/>
@@ -2960,6 +2331,33 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <GUI>
       <xloc>496</xloc>
       <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sample rows</name>
+    <type>SampleRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <linesrange>1</linesrange>
+    <linenumfield/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2464</xloc>
+      <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3372,6 +2770,172 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <GUI>
       <xloc>1408</xloc>
       <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Tipo_Documento</name>
+      </field>
+      <field>
+        <name>Clave</name>
+      </field>
+      <field>
+        <name>Documento</name>
+      </field>
+      <field>
+        <name>ClaseCliente</name>
+      </field>
+      <field>
+        <name>idCliente</name>
+      </field>
+      <field>
+        <name>idDireccion</name>
+      </field>
+      <field>
+        <name>Nombre Cliente</name>
+      </field>
+      <field>
+        <name>Numero Documento</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa</name>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+      </field>
+      <field>
+        <name>CNAE</name>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+      </field>
+      <field>
+        <name>Direccion1</name>
+      </field>
+      <field>
+        <name>Direccion2</name>
+      </field>
+      <field>
+        <name>Estado Anulado</name>
+      </field>
+      <field>
+        <name>Suspendido</name>
+      </field>
+      <field>
+        <name>Inactivo</name>
+      </field>
+      <field>
+        <name>CONTACTO1</name>
+      </field>
+      <field>
+        <name>CONTACTO2</name>
+      </field>
+      <field>
+        <name>ID Periodo</name>
+      </field>
+      <field>
+        <name>Periodo</name>
+      </field>
+      <field>
+        <name>MONTO</name>
+      </field>
+      <field>
+        <name>UDCD</name>
+      </field>
+      <field>
+        <name>Reclamo</name>
+      </field>
+      <field>
+        <name>CRS</name>
+      </field>
+      <field>
+        <name>Convenios</name>
+      </field>
+      <field>
+        <name>Excluidos</name>
+      </field>
+      <field>
+        <name>Observaciones</name>
+      </field>
+      <field>
+        <name>MonedaPetros</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Petros</name>
+      </field>
+      <field>
+        <name>Tasa_Petros</name>
+      </field>
+      <field>
+        <name>MontoPetros</name>
+      </field>
+      <field>
+        <name>MonedaDolares</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Dolares</name>
+      </field>
+      <field>
+        <name>Tasa_Dolares</name>
+      </field>
+      <field>
+        <name>MontoDolares</name>
+      </field>
+      <field>
+        <name>MonedaEuros</name>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Euros</name>
+      </field>
+      <field>
+        <name>Tasa_Euros</name>
+      </field>
+      <field>
+        <name>MontoEuros</name>
+      </field>
+      <field>
+        <name>Moneda_Tasa_Mas_Alta</name>
+      </field>
+      <field>
+        <name>Tasa_Mas_Alta</name>
+      </field>
+      <field>
+        <name>Armonizado</name>
+      </field>
+      <field>
+        <name>nombre_empresa</name>
+      </field>
+      <field>
+        <name>ruta_salida</name>
+      </field>
+      <field>
+        <name>full_output_path</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2192</xloc>
+      <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4527,6 +4091,18 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <length>16</length>
         <precision>2</precision>
       </field>
+      <field>
+        <name>nombre_empresa</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -4560,7 +4136,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <logmessage/>
     <fields>
       <field>
-        <name>full_output_path_02</name>
+        <name>nombre_empresa</name>
       </field>
     </fields>
     <attributes/>
@@ -4573,256 +4149,6 @@ var MONEDA_PARA_LOOKUP = "PTR";
     </remotesteps>
     <GUI>
       <xloc>2320</xloc>
-      <yloc>1072</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Tipo_Documento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Clave</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Documento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ClaseCliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>idCliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>idDireccion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Nombre Cliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Numero Documento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha_Tasa</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha Contabilizacion</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CNAE</name>
-        <rename/>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Direccion1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Direccion2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Estado Anulado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Suspendido</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Inactivo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CONTACTO1</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CONTACTO2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ID Periodo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Periodo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MONTO</name>
-        <rename/>
-      </field>
-      <field>
-        <name>UDCD</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Reclamo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>CRS</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Convenios</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Excluidos</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Observaciones</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MonedaPetros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Petros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tasa_Petros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MontoPetros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MonedaDolares</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Dolares</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tasa_Dolares</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MontoDolares</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MonedaEuros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Euros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tasa_Euros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>MontoEuros</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Moneda_Tasa_Mas_Alta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tasa_Mas_Alta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Armonizado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nombre_empresa</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ruta_salida</name>
-        <rename/>
-      </field>
-      <field>
-        <name>full_output_path</name>
-        <rename/>
-      </field>
-      <field>
-        <name>full_output_path_02</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2192</xloc>
-      <yloc>1072</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Set variables</name>
-    <type>SetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <field_name>full_output_path_02</field_name>
-        <variable_name>AUDIT_FACTURACION_FILENAME_PATTERN_02</variable_name>
-        <variable_type>JVM</variable_type>
-        <default_value/>
-      </field>
-    </fields>
-    <use_formatting>Y</use_formatting>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2608</xloc>
       <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4845,7 +4171,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <logmessage/>
     <fields>
       <field>
-        <name>full_output_path_02</name>
+        <name>nombre_empresa</name>
       </field>
     </fields>
     <attributes/>
@@ -4859,33 +4185,6 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <GUI>
       <xloc>2608</xloc>
       <yloc>1232</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sample rows</name>
-    <type>SampleRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <linesrange>1</linesrange>
-    <linenumfield/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2464</xloc>
-      <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
