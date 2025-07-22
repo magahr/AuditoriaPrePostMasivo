@@ -1911,7 +1911,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <field>
         <name>Fecha_Tasa</name>
         <type>Date</type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1923,7 +1923,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <field>
         <name>Fecha Contabilizacion</name>
         <type>Date</type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -1947,7 +1947,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <field>
         <name>FeCreCliente</name>
         <type>Date</type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>

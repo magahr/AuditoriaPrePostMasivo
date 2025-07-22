@@ -481,13 +481,13 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Transformation -trans_write_results_to_excel.ktr</name>
+      <name>Transformation -trans_write_results_to_excel_02</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\transformations\trans_write_results_to_excel_02.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR}/trans_write_results_to_excel_02.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -563,7 +563,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation -trans_write_results_to_excel.ktr</from>
+      <from>Transformation -trans_write_results_to_excel_02</from>
       <to>Success</to>
       <from_nr>1</from_nr>
       <to_nr>0</to_nr>
@@ -573,7 +573,7 @@
     </hop>
     <hop>
       <from>Transformation -trans_process_invoices_and_proformas.ktr</from>
-      <to>Transformation -trans_write_results_to_excel.ktr</to>
+      <to>Transformation -trans_write_results_to_excel_02</to>
       <from_nr>0</from_nr>
       <to_nr>1</to_nr>
       <enabled>Y</enabled>

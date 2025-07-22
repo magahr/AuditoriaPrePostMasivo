@@ -556,13 +556,13 @@ Propósito:  Consumo de Datos Intermedios.
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Write to log - Hatillo</from>
-      <to>Microsoft Excel Writer - Salida Final - Hatillo</to>
+      <from>Filter rows - Hatillo</from>
+      <to>Write to log - Hatillo</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows - Hatillo</from>
-      <to>Write to log - Hatillo</to>
+      <from>Write to log - Hatillo</from>
+      <to>Microsoft Excel Writer - Salida Final - Hatillo</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -655,6 +655,50 @@ Propósito:  Consumo de Datos Intermedios.
     </remotesteps>
     <GUI>
       <xloc>720</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows - Hatillo</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Write to log - Hatillo</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>nombre_empresa</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Hatillo</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -933,12 +977,12 @@ Propósito:  Consumo de Datos Intermedios.
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
-      <add_date>N</add_date>
+      <add_date>Y</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <sheetname>Fasturas_y_Proformas</sheetname>
-      <autosizecolums>N</autosizecolums>
+      <autosizecolums>Y</autosizecolums>
       <stream_data>Y</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
@@ -948,9 +992,9 @@ Propósito:  Consumo de Datos Intermedios.
       <if_sheet_exists>new</if_sheet_exists>
     </file>
     <template>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <sheet_enabled>N</sheet_enabled>
-      <filename>template.xls</filename>
+      <filename>${AUDIT_DATA_INPUT_DIR}/template.xlsx</filename>
       <sheetname/>
       <hidden>N</hidden>
     </template>
@@ -1499,599 +1543,6 @@ Propósito:  Consumo de Datos Intermedios.
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel Writer - Salida Final - Chacao</name>
-    <type>TypeExitExcelWriterStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <makeSheetActive>Y</makeSheetActive>
-    <startingCell>A1</startingCell>
-    <appendOmitHeader>N</appendOmitHeader>
-    <appendOffset>0</appendOffset>
-    <appendEmpty>0</appendEmpty>
-    <rowWritingMethod>overwrite</rowWritingMethod>
-    <forceFormulaRecalculation>N</forceFormulaRecalculation>
-    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
-    <appendLines>N</appendLines>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR}/Resultado_Auditoria_Chacao</name>
-      <extention>xlsx</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>Fasturas_y_Proformas</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <stream_data>Y</stream_data>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <protected_by/>
-      <splitevery>0</splitevery>
-      <if_file_exists>new</if_file_exists>
-      <if_sheet_exists>new</if_sheet_exists>
-    </file>
-    <template>
-      <enabled>N</enabled>
-      <sheet_enabled>N</sheet_enabled>
-      <filename>template.xls</filename>
-      <sheetname/>
-      <hidden>N</hidden>
-    </template>
-    <fields>
-      <field>
-        <name>nombre_empresa</name>
-        <type>String</type>
-        <format/>
-        <title/>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Clave</name>
-        <type>String</type>
-        <format/>
-        <title>Clave</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tipo_Documento</name>
-        <type>Integer</type>
-        <format/>
-        <title>Tipo_Documento</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Documento</name>
-        <type>String</type>
-        <format/>
-        <title>Documento</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>ClaseCliente</name>
-        <type>String</type>
-        <format/>
-        <title>ClaseCliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>idCliente</name>
-        <type>String</type>
-        <format/>
-        <title>idCliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>idDireccion</name>
-        <type>String</type>
-        <format/>
-        <title>idDireccion</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Nombre_Cliente</name>
-        <type>String</type>
-        <format/>
-        <title>Nombre_Cliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Numero_Documento</name>
-        <type>Integer</type>
-        <format/>
-        <title>Numero_Documento</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Tasa</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <title>Fecha_Tasa</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Contabilizacion</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <title>Fecha_Contabilizacion</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CNAE</name>
-        <type>String</type>
-        <format/>
-        <title>CNAE</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <title>FeCreCliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Direccion1</name>
-        <type>String</type>
-        <format/>
-        <title>Direccion1</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Direccion2</name>
-        <type>String</type>
-        <format/>
-        <title>Direccion2</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Estado_Anulado</name>
-        <type>Integer</type>
-        <format/>
-        <title>Estado_Anulado</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Suspedido</name>
-        <type>Integer</type>
-        <format/>
-        <title>Suspedido</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Inactivo</name>
-        <type>Integer</type>
-        <format/>
-        <title>Inactivo</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CONTACTO1</name>
-        <type>String</type>
-        <format/>
-        <title>CONTACTO1</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CONTACTO2</name>
-        <type>String</type>
-        <format/>
-        <title>CONTACTO2</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>ID_Periodo</name>
-        <type>String</type>
-        <format/>
-        <title>ID_Periodo</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Periodo</name>
-        <type>String</type>
-        <format/>
-        <title>Periodo</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MONTO</name>
-        <type>Number</type>
-        <format/>
-        <title>MONTO</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>UDCD</name>
-        <type>String</type>
-        <format/>
-        <title>UDCD</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Reclamo</name>
-        <type>String</type>
-        <format/>
-        <title>Reclamo</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CRS</name>
-        <type>String</type>
-        <format/>
-        <title>CRS</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Convenios</name>
-        <type>String</type>
-        <format/>
-        <title>Convenios</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Excluidos</name>
-        <type>String</type>
-        <format/>
-        <title>Excluidos</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Observaciones</name>
-        <type>String</type>
-        <format/>
-        <title>Observaciones</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MonedaPetros</name>
-        <type>String</type>
-        <format/>
-        <title>MonedaPetros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Petros</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <title>Fecha_Tasa_Petros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tasa_Petros</name>
-        <type>Number</type>
-        <format/>
-        <title>Tasa_Petros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MontoPetros</name>
-        <type>Number</type>
-        <format/>
-        <title>MontoPetros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MonedaDolares</name>
-        <type>String</type>
-        <format/>
-        <title>MonedaDolares</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Dolares</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <title>Fecha_Tasa_Dolares</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tasa_Dolares</name>
-        <type>Number</type>
-        <format/>
-        <title>Tasa_Dolares</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MontoDolares</name>
-        <type>Number</type>
-        <format/>
-        <title>MontoDolares</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MonedaEuros</name>
-        <type>String</type>
-        <format/>
-        <title>MonedaEuros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha_Tasa_Euros</name>
-        <type>Date</type>
-        <format>dd/MM/yyyy</format>
-        <title>Fecha_Tasa_Euros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tasa_Euros</name>
-        <type>Number</type>
-        <format/>
-        <title>Tasa_Euros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>MontoEuros</name>
-        <type>Number</type>
-        <format/>
-        <title>MontoEuros</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Moneda_Tasa_Mas_Alta</name>
-        <type>String</type>
-        <format/>
-        <title>Moneda_Tasa_Mas_Alta</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Tasa_Mas_Alta</name>
-        <type>Number</type>
-        <format/>
-        <title>Tasa_Mas_Alta</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Armonizado</name>
-        <type>Number</type>
-        <format/>
-        <title>Armonizado</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>720</xloc>
-      <yloc>736</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Text file input - Leer Datos Procesados Temp</name>
     <type>TextFileInput</type>
     <description/>
@@ -2151,7 +1602,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>50</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2166,7 +1617,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>20</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2181,7 +1632,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2211,7 +1662,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2226,7 +1677,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2256,7 +1707,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>20</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2271,7 +1722,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2286,7 +1737,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2316,7 +1767,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2466,7 +1917,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>20</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2586,7 +2037,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2646,7 +2097,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2706,7 +2157,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2796,7 +2247,7 @@ Propósito:  Consumo de Datos Intermedios.
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>6</length>
+        <length>10</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -2927,8 +2378,8 @@ Propósito:  Consumo de Datos Intermedios.
     </GUI>
   </step>
   <step>
-    <name>Filter rows - Hatillo</name>
-    <type>FilterRows</type>
+    <name>Write to log - Hatillo</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2937,25 +2388,16 @@ Propósito:  Consumo de Datos Intermedios.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Write to log - Hatillo</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>nombre_empresa</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>Hatillo</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>nombre_empresa</name>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2966,7 +2408,7 @@ Propósito:  Consumo de Datos Intermedios.
     </remotesteps>
     <GUI>
       <xloc>240</xloc>
-      <yloc>464</yloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2998,12 +2440,12 @@ Propósito:  Consumo de Datos Intermedios.
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
-      <add_date>N</add_date>
+      <add_date>Y</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <sheetname>Fasturas_y_Proformas</sheetname>
-      <autosizecolums>N</autosizecolums>
+      <autosizecolums>Y</autosizecolums>
       <stream_data>Y</stream_data>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
@@ -3013,9 +2455,9 @@ Propósito:  Consumo de Datos Intermedios.
       <if_sheet_exists>new</if_sheet_exists>
     </file>
     <template>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <sheet_enabled>N</sheet_enabled>
-      <filename>template.xls</filename>
+      <filename>${AUDIT_DATA_INPUT_DIR}/template.xlsx</filename>
       <sheetname/>
       <hidden>N</hidden>
     </template>
@@ -3559,13 +3001,13 @@ Propósito:  Consumo de Datos Intermedios.
     </remotesteps>
     <GUI>
       <xloc>240</xloc>
-      <yloc>736</yloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Write to log - Hatillo</name>
-    <type>WriteToLog</type>
+    <name>Microsoft Excel Writer - Salida Final - Chacao</name>
+    <type>TypeExitExcelWriterStep</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -3574,14 +3016,572 @@ Propósito:  Consumo de Datos Intermedios.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${AUDIT_DATA_OUTPUT_DIR}/Resultado_Auditoria_Chacao</name>
+      <extention>xlsx</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>Y</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Fasturas_y_Proformas</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>Y</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+    </file>
+    <template>
+      <enabled>Y</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>${AUDIT_DATA_INPUT_DIR}/template.xlsx</filename>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
     <fields>
       <field>
         <name>nombre_empresa</name>
+        <type>String</type>
+        <format/>
+        <title/>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Clave</name>
+        <type>String</type>
+        <format/>
+        <title>Clave</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Tipo_Documento</name>
+        <type>Integer</type>
+        <format/>
+        <title>Tipo_Documento</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Documento</name>
+        <type>String</type>
+        <format/>
+        <title>Documento</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ClaseCliente</name>
+        <type>String</type>
+        <format/>
+        <title>ClaseCliente</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>idCliente</name>
+        <type>String</type>
+        <format/>
+        <title>idCliente</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>idDireccion</name>
+        <type>String</type>
+        <format/>
+        <title>idDireccion</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Nombre_Cliente</name>
+        <type>String</type>
+        <format/>
+        <title>Nombre_Cliente</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Numero_Documento</name>
+        <type>Integer</type>
+        <format/>
+        <title>Numero_Documento</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha_Tasa</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <title>Fecha_Tasa</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha_Contabilizacion</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <title>Fecha_Contabilizacion</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CNAE</name>
+        <type>String</type>
+        <format/>
+        <title>CNAE</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <title>FeCreCliente</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Direccion1</name>
+        <type>String</type>
+        <format/>
+        <title>Direccion1</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Direccion2</name>
+        <type>String</type>
+        <format/>
+        <title>Direccion2</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Estado_Anulado</name>
+        <type>Integer</type>
+        <format/>
+        <title>Estado_Anulado</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Suspedido</name>
+        <type>Integer</type>
+        <format/>
+        <title>Suspedido</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Inactivo</name>
+        <type>Integer</type>
+        <format/>
+        <title>Inactivo</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CONTACTO1</name>
+        <type>String</type>
+        <format/>
+        <title>CONTACTO1</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CONTACTO2</name>
+        <type>String</type>
+        <format/>
+        <title>CONTACTO2</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ID_Periodo</name>
+        <type>String</type>
+        <format/>
+        <title>ID_Periodo</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Periodo</name>
+        <type>String</type>
+        <format/>
+        <title>Periodo</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MONTO</name>
+        <type>Number</type>
+        <format/>
+        <title>MONTO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>UDCD</name>
+        <type>String</type>
+        <format/>
+        <title>UDCD</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Reclamo</name>
+        <type>String</type>
+        <format/>
+        <title>Reclamo</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CRS</name>
+        <type>String</type>
+        <format/>
+        <title>CRS</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Convenios</name>
+        <type>String</type>
+        <format/>
+        <title>Convenios</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Excluidos</name>
+        <type>String</type>
+        <format/>
+        <title>Excluidos</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Observaciones</name>
+        <type>String</type>
+        <format/>
+        <title>Observaciones</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MonedaPetros</name>
+        <type>String</type>
+        <format/>
+        <title>MonedaPetros</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Petros</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <title>Fecha_Tasa_Petros</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Tasa_Petros</name>
+        <type>Number</type>
+        <format/>
+        <title>Tasa_Petros</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MontoPetros</name>
+        <type>Number</type>
+        <format/>
+        <title>MontoPetros</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MonedaDolares</name>
+        <type>String</type>
+        <format/>
+        <title>MonedaDolares</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Dolares</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <title>Fecha_Tasa_Dolares</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Tasa_Dolares</name>
+        <type>Number</type>
+        <format/>
+        <title>Tasa_Dolares</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MontoDolares</name>
+        <type>Number</type>
+        <format/>
+        <title>MontoDolares</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MonedaEuros</name>
+        <type>String</type>
+        <format/>
+        <title>MonedaEuros</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha_Tasa_Euros</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <title>Fecha_Tasa_Euros</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Tasa_Euros</name>
+        <type>Number</type>
+        <format/>
+        <title>Tasa_Euros</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>MontoEuros</name>
+        <type>Number</type>
+        <format/>
+        <title>MontoEuros</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Moneda_Tasa_Mas_Alta</name>
+        <type>String</type>
+        <format/>
+        <title>Moneda_Tasa_Mas_Alta</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Tasa_Mas_Alta</name>
+        <type>Number</type>
+        <format/>
+        <title>Tasa_Mas_Alta</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Armonizado</name>
+        <type>Number</type>
+        <format/>
+        <title>Armonizado</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
       </field>
     </fields>
     <attributes/>
@@ -3593,8 +3593,8 @@ Propósito:  Consumo de Datos Intermedios.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>576</yloc>
+      <xloc>720</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
