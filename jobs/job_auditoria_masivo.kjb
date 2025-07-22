@@ -476,7 +476,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>64</xloc>
+      <xloc>176</xloc>
       <yloc>896</yloc>
       <attributes_kjc/>
     </entry>
@@ -522,6 +522,31 @@
       <nr>1</nr>
       <xloc>416</xloc>
       <yloc>896</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Shell</name>
+      <description/>
+      <type>SHELL</type>
+      <attributes/>
+      <filename/>
+      <work_directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <set_append_logfile>N</set_append_logfile>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <insertScript>Y</insertScript>
+      <script>mshta javascript:alert("El proceso de Aditoria Masivo - EMPETRADO -  ha finalizado con EXITO!");window.close();</script>
+      <loglevel>Basic</loglevel>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>176</xloc>
+      <yloc>784</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -576,6 +601,15 @@
       <to>Transformation -trans_write_results_to_excel_02</to>
       <from_nr>0</from_nr>
       <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Success</from>
+      <to>Shell</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
@@ -720,7 +754,7 @@ Propósito:Esta transformación es responsable de leer los datos
 Propósito: Tomar los datos procesados y escribirlos en 
                     un nuevo archivo Excel temporal.
 </note>
-      <xloc>608</xloc>
+      <xloc>592</xloc>
       <yloc>848</yloc>
       <width>298</width>
       <heigth>89</heigth>

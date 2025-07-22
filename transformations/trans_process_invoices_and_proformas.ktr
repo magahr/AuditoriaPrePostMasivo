@@ -827,7 +827,7 @@ Función: Reordena las columnas para que las 6
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.5.16 Dummy (Solo para Pruebas):
+      <note>2.5.17 Dummy (Solo para Pruebas):
 Función: Un paso ficticio que actúa como un
                 "sumidero" de datos. Útil durante el
                  desarrollo y las pruebas para previsualizar
@@ -890,6 +890,50 @@ Propósito: Intermediario de Datos.
       <yloc>1374</yloc>
       <width>259</width>
       <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.5.18 Formula - Agrega Nombre Empresa:
+Función: Agrega el nombre de la empresa a el 
+			    nombre del archivo de salida csv.</note>
+      <xloc>1600</xloc>
+      <yloc>1024</yloc>
+      <width>341</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Pasos complentarios, se prodrian quitar</note>
+      <xloc>2240</xloc>
+      <yloc>992</yloc>
+      <width>219</width>
+      <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -994,11 +1038,11 @@ Propósito: Intermediario de Datos.
     </hop>
     <hop>
       <from>Select Values - Reordenar Columnas Final</from>
-      <to>Formula</to>
+      <to>Formula - Agrega Nombre Empresa</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Formula</from>
+      <from>Formula - Agrega Nombre Empresa</from>
       <to>Text file output - Datos Procesados Temp</to>
       <enabled>Y</enabled>
     </hop>
@@ -1182,7 +1226,7 @@ Propósito: Intermediario de Datos.
     </GUI>
   </step>
   <step>
-    <name>Formula</name>
+    <name>Formula - Agrega Nombre Empresa</name>
     <type>Formula</type>
     <description/>
     <distribute>Y</distribute>
@@ -1209,7 +1253,7 @@ Propósito: Intermediario de Datos.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1616</xloc>
+      <xloc>1760</xloc>
       <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
@@ -4183,8 +4227,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2608</xloc>
-      <yloc>1232</yloc>
+      <xloc>2464</xloc>
+      <yloc>1216</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
