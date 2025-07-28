@@ -1,4 +1,18 @@
 # AuditoriaPrePostMasivo
+PASO 00.
+1.- Actualizar la dia las siguientes xlsx
+
+    VOGFacturacionF0004HatilloARMONIZADO.xlsx
+    VOGFacturacionF2099BarutaARMONIZADO.xlsx
+    VOGFacturacionF5618ChacaoARMONIZADO.xlsx
+
+2.- Dejar solo el mes actual, para procesar
+3.- Guardar en formato xls.
+
+Paso 01.
+
+
+
 Auditoria Pre y Post Masivo
 git commit -m "01-06-2025 - Initial commit for Auditoria Pre-Post Masivo project structure and base files"
 git commit -m "19-06-2025 - Initial commit for Auditoria Pre-Post Masivo project structure and base files in my Job"
@@ -23,3 +37,5 @@ git commit -m "18-07-2025 - Fisnish the creation of trans_process_invoices_and_p
 git commit -m "19-07-2025 - Fisnish the creation of trans_process_invoices_and_proformas"
 git commit -m "121-07-2025 - Fisnish the creation of the job"
 git commit -m "221-07-2025 - Finish the Project"
+git commit -m "28-07-2025  - Creating the transformation trans_cargar_integracion_municipio.ktr"
+
