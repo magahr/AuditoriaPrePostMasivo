@@ -38,4 +38,4 @@ git commit -m "19-07-2025 - Fisnish the creation of trans_process_invoices_and_p
 git commit -m "121-07-2025 - Fisnish the creation of the job"
 git commit -m "221-07-2025 - Finish the Project"
 git commit -m "28-07-2025  - Creating the transformation trans_cargar_integracion_municipio.ktr"
-
+git commit -m "08/08/2025  - Updating the all project trans_cargar_integracion_municipio.ktr"
