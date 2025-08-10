@@ -585,11 +585,6 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch / case Existencias de Archivo</from>
-      <to>Write to log - Valores Despues de la formula Entrada</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Write to log - No existe el archivo</from>
       <to>Dummy (do nothing) 2</to>
       <enabled>Y</enabled>
@@ -600,101 +595,41 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add constants - add aditionals fields</from>
-      <to>Select values  - Reorganize fields Tipo A Caracas</to>
+      <from>Add constants - add aditionals fields Tipo B Fonáneos</from>
+      <to>Select values  -Reorganize fields Tipo B Fonáneos</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Microsoft Excel input - Archivo de Entrada Tipo A Caracas</from>
-      <to>Add constants - add aditionals fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values  - Reorganize fields Tipo A Caracas</from>
-      <to>Microsoft Excel writer - Tipo A Caracas</to>
+      <from>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</from>
+      <to>Add constants - add aditionals fields Tipo B Fonáneos</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Switch / case - Tipo de Municipio</from>
-      <to>Microsoft Excel input - Archivo de Entrada Tipo A Caracas</to>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / case Existencias de Archivo</from>
+      <to>Filter rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 3</from>
+      <to>Write to log - Valores Despues de la formula Entrada</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values  -Reorganize fields Tipo B Fonáneos</from>
+      <to>Microsoft Excel writer - Tipo B Foráneos</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>Add constants - add aditionals fields</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Fecha Documento</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Fecha Contabilizacion</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CNAE</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1184</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Dummy (do nothing)</name>
     <type>Dummy</type>
@@ -1460,385 +1395,6 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel input - Archivo de Entrada Tipo A Caracas</name>
-    <type>ExcelInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
-    <limit>0</limit>
-    <encoding>UTF-8</encoding>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>Y</accept_filenames>
-    <accept_field>ruta_archivo_excel</accept_field>
-    <accept_stepname>Switch / case - Tipo de Municipio</accept_stepname>
-    <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>Id Cliente</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Id Dirección</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>articulo</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Cantidad</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>medida</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>almacen</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>UDCD</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Bolivares</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-    </fields>
-    <sheets>
-      <sheet>
-        <name>Proforma Comerc_JUNIO 2025</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-      <sheet>
-        <name>Fact 50 a razon Bolivares</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-      <sheet>
-        <name>Proform Gubern JUNIO 2025</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <spreadsheet_type>POI</spreadsheet_type>
-    <password>Encrypted </password>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1072</xloc>
-      <yloc>864</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Microsoft Excel writer - Tipo A Caracas</name>
-    <type>TypeExitExcelWriterStep</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <makeSheetActive>N</makeSheetActive>
-    <startingCell>A1</startingCell>
-    <appendOmitHeader>N</appendOmitHeader>
-    <appendOffset>0</appendOffset>
-    <appendEmpty>0</appendEmpty>
-    <rowWritingMethod>overwrite</rowWritingMethod>
-    <forceFormulaRecalculation>N</forceFormulaRecalculation>
-    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
-    <appendLines>N</appendLines>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR_Paso01}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}_Periodo_Desde_${PARAM_MES_ANIO_DESDE}_hasta_${PARAM_MES_ANIO_HASTA}</name>
-      <extention>xlsx</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>${PARAM_HOJA_DESTINO_NOMBRE_PREFIJO}${PARAM_HOJA_MES_ANIO_DESDE}</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <stream_data>N</stream_data>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <protected_by/>
-      <splitevery>0</splitevery>
-      <if_file_exists>new</if_file_exists>
-      <if_sheet_exists>reuse</if_sheet_exists>
-    </file>
-    <template>
-      <enabled>Y</enabled>
-      <sheet_enabled>Y</sheet_enabled>
-      <filename>${AUDIT_DATA_INPUT_DIR_Paso01\Plantillas}/NO_BORRAR_Rep_Auditoria_ABM.xlsx</filename>
-      <sheetname/>
-      <hidden>N</hidden>
-    </template>
-    <fields>
-      <field>
-        <name>Id Cliente</name>
-        <type>String</type>
-        <format/>
-        <title>Id Cliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Id Dirección</name>
-        <type>String</type>
-        <format/>
-        <title>Id Dirección</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha Documento</name>
-        <type>String</type>
-        <format/>
-        <title>Fecha Documento</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Fecha Contabilizacion</name>
-        <type>String</type>
-        <format/>
-        <title>Fecha Contabilizacion</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>CNAE</name>
-        <type>String</type>
-        <format/>
-        <title>CNAE</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-        <type>String</type>
-        <format/>
-        <title>FeCreCliente</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>UDCD</name>
-        <type>Number</type>
-        <format/>
-        <title>UDCD</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1488</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values  - Reorganize fields Tipo A Caracas</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Id Cliente</name>
-      </field>
-      <field>
-        <name>Id Dirección</name>
-      </field>
-      <field>
-        <name>Fecha Documento</name>
-      </field>
-      <field>
-        <name>Fecha Contabilizacion</name>
-      </field>
-      <field>
-        <name>CNAE</name>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-      </field>
-      <field>
-        <name>UDCD</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1360</xloc>
-      <yloc>864</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Set variables</name>
     <type>SetVariable</type>
     <description/>
@@ -1892,8 +1448,8 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     <default_target_step>Dummy (do nothing)</default_target_step>
     <cases>
       <case>
-        <value>TIPO_A</value>
-        <target_step>Microsoft Excel input - Archivo de Entrada Tipo A Caracas</target_step>
+        <value>TIPO_B</value>
+        <target_step>Filter rows</target_step>
       </case>
     </cases>
     <attributes/>
@@ -1931,7 +1487,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     <cases>
       <case>
         <value>Y</value>
-        <target_step>Write to log - Valores Despues de la formula Entrada</target_step>
+        <target_step>Filter rows 3</target_step>
       </case>
       <case>
         <value>N</value>
@@ -2158,6 +1714,9 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       <field>
         <name>tipo_plantilla</name>
       </field>
+      <field>
+        <name>existe_archivo</name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -2170,6 +1729,507 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     <GUI>
       <xloc>784</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants - add aditionals fields Tipo B Fonáneos</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Fecha Documento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>CNAE</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</name>
+    <type>ExcelInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding>UTF-8</encoding>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>Y</accept_filenames>
+    <accept_field>ruta_archivo_excel</accept_field>
+    <accept_stepname>Filter rows</accept_stepname>
+    <file>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>CODIGO.</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ID_DIR</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Tarifa BS </name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Tarifa UDCD</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>PROFORMAS</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>POI</spreadsheet_type>
+    <password>Encrypted </password>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel writer - Tipo B Foráneos</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>N</makeSheetActive>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${AUDIT_DATA_OUTPUT_DIR_Paso01}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}_Periodo_Desde_${PARAM_MES_ANIO_DESDE}_hasta_${PARAM_MES_ANIO_HASTA}</name>
+      <extention>xlsx</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>${PARAM_HOJA_DESTINO_NOMBRE_PREFIJO}${PARAM_HOJA_MES_ANIO_DESDE}</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+    </file>
+    <template>
+      <enabled>Y</enabled>
+      <sheet_enabled>Y</sheet_enabled>
+      <filename>${AUDIT_DATA_INPUT_DIR_Paso01\Plantillas}/NO_BORRAR_Rep_Auditoria_ABM.xlsx</filename>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
+    <fields>
+      <field>
+        <name>CODIGO.</name>
+        <type>String</type>
+        <format/>
+        <title>CODIGO.</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ID_DIR</name>
+        <type>String</type>
+        <format/>
+        <title>ID_DIR</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha Documento</name>
+        <type>String</type>
+        <format/>
+        <title>Fecha Documento</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+        <type>String</type>
+        <format/>
+        <title>Fecha Contabilizacion</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>CNAE</name>
+        <type>String</type>
+        <format/>
+        <title>CNAE</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <type>String</type>
+        <format/>
+        <title>FeCreCliente</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Tarifa UDCD</name>
+        <type>Number</type>
+        <format/>
+        <title>Tarifa UDCD</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1488</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values  -Reorganize fields Tipo B Fonáneos</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>CODIGO.</name>
+      </field>
+      <field>
+        <name>ID_DIR</name>
+      </field>
+      <field>
+        <name>Fecha Documento</name>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+      </field>
+      <field>
+        <name>CNAE</name>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+      </field>
+      <field>
+        <name>Tarifa UDCD</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Tarifa UDCD</name>
+        <rename>Tarifa UDCD</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>#,##0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1408</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>tipo_plantilla</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>TIPO_B</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>912</xloc>
+      <yloc>640</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 3</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Write to log - Valores Despues de la formula Entrada</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>existe_archivo</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Boolean</type>
+          <text>Y</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

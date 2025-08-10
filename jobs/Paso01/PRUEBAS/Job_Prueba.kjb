@@ -287,13 +287,13 @@
   <shared_objects_file/>
   <entries>
     <entry>
-      <name>Transformation - trans_cargar_integracion_municipio</name>
+      <name>Transformation - trans_cargar_integracion_municipio - TIPO_A</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR_Paso01}/trans_cargar_integracion_municipio.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR_Paso01}/trans_cargar_integracion_municipio - TIPO_A.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -379,7 +379,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>240</xloc>
-      <yloc>672</yloc>
+      <yloc>624</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -418,7 +418,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>240</xloc>
-      <yloc>256</yloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -463,10 +463,132 @@
       <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
+    <entry>
+      <name>Simple evaluation</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <attributes/>
+      <valuetype>field</valuetype>
+      <fieldname>tipo_plantilla</fieldname>
+      <variablename>Tipo_A</variablename>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>TIPO_A</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>320</xloc>
+      <yloc>352</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Transformation - trans_cargar_integracion_municipio - TIPO_B</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${AUDIT_TRANS_DIR_Paso01}/trans_cargar_integracion_municipio - TIPO_B.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>Y</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>PARAM_MUNICIPIO</name>
+          <stream_name>municipio</stream_name>
+          <value/>
+        </parameter>
+        <parameter>
+          <name>PARAM_PLANTILLA</name>
+          <stream_name>tipo_plantilla</stream_name>
+          <value/>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>1</nr>
+      <xloc>656</xloc>
+      <yloc>464</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Shell - recalcular_excel</name>
+      <description/>
+      <type>SHELL</type>
+      <attributes/>
+      <filename/>
+      <work_directory>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\output\Paso01</work_directory>
+      <arg_from_previous>N</arg_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <set_append_logfile>N</set_append_logfile>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <insertScript>Y</insertScript>
+      <script>cscript.exe "C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\scripts\recalcular_excel.vbs" "${RUTA_ARCHIVO_FINAL}"</script>
+      <loglevel>Basic</loglevel>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>1</nr>
+      <xloc>656</xloc>
+      <yloc>640</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Simple evaluation 2</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <attributes/>
+      <valuetype>field</valuetype>
+      <fieldname>tipo_plantilla</fieldname>
+      <variablename/>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>TIPO_B</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>656</xloc>
+      <yloc>352</yloc>
+      <attributes_kjc/>
+    </entry>
   </entries>
   <hops>
     <hop>
-      <from>Transformation - trans_cargar_integracion_municipio</from>
+      <from>Transformation - trans_cargar_integracion_municipio - TIPO_A</from>
       <to>Shell - recalcular_excel</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -494,9 +616,45 @@
     </hop>
     <hop>
       <from>Transformation - trans_obtener_municipios</from>
-      <to>Transformation - trans_cargar_integracion_municipio</to>
+      <to>Simple evaluation</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Simple evaluation</from>
+      <to>Transformation - trans_cargar_integracion_municipio - TIPO_A</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation - trans_cargar_integracion_municipio - TIPO_B</from>
+      <to>Shell - recalcular_excel</to>
+      <from_nr>1</from_nr>
+      <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Simple evaluation</from>
+      <to>Simple evaluation 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Simple evaluation 2</from>
+      <to>Transformation - trans_cargar_integracion_municipio - TIPO_B</to>
+      <from_nr>0</from_nr>
+      <to_nr>1</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
