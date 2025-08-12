@@ -436,13 +436,14 @@
   </info>
   <notepads>
     <notepad>
-      <note>
-TIPO_A
-trans_obtener_municipios</note>
+      <note>2.3.- Transformation - trans_obtener_municipios_TIPO_A:  
+Propósito: Carga todos los municipios correspondientes 
+                   a los TIPO_A, los ubicados en Caracas..
+</note>
       <xloc>288</xloc>
       <yloc>32</yloc>
-      <width>147</width>
-      <heigth>57</heigth>
+      <width>316</width>
+      <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -450,8 +451,32 @@ trans_obtener_municipios</note>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>64</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.1  Data grid - GRID - Detalles Municipios 
+Propósito: 	Contiene todos los municipios junto 
+                    con sus tipos de los municipios que son 
+                    de TIPO_A, los pertenecientes a Caracas </note>
+      <xloc>32</xloc>
+      <yloc>208</yloc>
+      <width>302</width>
+      <heigth>74</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
       <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
@@ -491,8 +516,8 @@ trans_obtener_municipios</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>192</yloc>
+      <xloc>496</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -556,8 +581,8 @@ trans_obtener_municipios</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>192</yloc>
+      <xloc>96</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -594,8 +619,8 @@ trans_obtener_municipios</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>336</yloc>
+      <xloc>496</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

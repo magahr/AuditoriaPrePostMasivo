@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_cargar_integracion_municipio</name>
+    <name>trans_cargar_integracion_municipio - TIPO_B</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -491,14 +491,16 @@
   </info>
   <notepads>
     <notepad>
-      <note>2.3.- trans_cargar_integracion_municipio - TIPO_B.ktr
-Propósito: Esta transformación será ejecutada 
-repetidamente por  el Job principal (una vez por 
-cada municipio).</note>
-      <xloc>400</xloc>
-      <yloc>96</yloc>
-      <width>304</width>
-      <heigth>74</heigth>
+      <note>2.3.- Transformation - trans_obtener_municipios_TIPO_B:  
+Propósito: Cargar todas los archivos en excel correspondiente
+                   a las integraciones anteriores de los municipios Foráneos,
+                  para luego colocarlos en las plantillas de auditoría de la 
+                  forma Rep.
+</note>
+      <xloc>384</xloc>
+      <yloc>64</yloc>
+      <width>382</width>
+      <heigth>105</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>Y</fontbold>
@@ -506,7 +508,7 @@ cada municipio).</note>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorred>0</backgroundcolorred>
       <backgroundcolorgreen>255</backgroundcolorgreen>
       <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
@@ -515,12 +517,62 @@ cada municipio).</note>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Recuerda los parametros que pusistes en la transformacion en las propiedades de la transformacion
-${PARAM_NUMERO_HOJA}, PARAM_NOMBRE_HOJA_ENTRADA que esta en las propiedades de la transformatiocn 
-${PARAM_NOMBRE_HOJA_ENTRADA}</note>
-      <xloc>304</xloc>
-      <yloc>32</yloc>
-      <width>614</width>
+      <note>2.3.1  Get variables - Obtener Variables de Entorno 
+Propósito: Cargar a la transformación todas las variables
+                  de entorno ya sea las que están en el archivo 
+                  ketle.properties o las de inicio.
+</note>
+      <xloc>16</xloc>
+      <yloc>192</yloc>
+      <width>306</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.2   Fórmula - Forma Ruta y Nombre Archivo Entrada 
+Propósito: Armar las rutas y nombres de archivos 
+                  correspondientes.  Dependiendo de los 
+                  municipios y las fechas de procesamiento.
+</note>
+      <xloc>0</xloc>
+      <yloc>464</yloc>
+      <width>306</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.3   File exists - Existencias de Archivo 
+Propósito: Detectar si existe o no el archivo 
+                   de integración que se intenta subir. </note>
+      <xloc>384</xloc>
+      <yloc>224</yloc>
+      <width>256</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -529,9 +581,202 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.4   Switch / case Existencias de Archivo 
+Propósito: Detener el flujo si el archivo de  entrada las
+                   integraciones anteriores no existen. </note>
+      <xloc>192</xloc>
+      <yloc>688</yloc>
+      <width>292</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.5   Microsoft Excel input - Archivo de Entrada Tipo B Foráneos
+Propósito: Carga de la data de entrada, las integraciones anteriores
+                   de los diferentes municipios, que se trabajaron.
+</note>
+      <xloc>832</xloc>
+      <yloc>592</yloc>
+      <width>361</width>
+      <heigth>73</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.7   Select values  - Reorganize fields Tipo B Foráneos
+Propósito: Reorganización de los diferentes campos para
+                   adaptarlos a las plantillas de salida Rep.</note>
+      <xloc>1264</xloc>
+      <yloc>608</yloc>
+      <width>309</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.6   Add constants - add aditionals fields - Tipo B Foráneos
+Propósito: Se agregan campos adicionales a proceso de carga
+                  para que corresponda con las columnas de la plantilla 
+                  de salida, en este caso los Rep.
+</note>
+      <xloc>1008</xloc>
+      <yloc>208</yloc>
+      <width>351</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.8   Microsoft Excel writer - Tipo B Foráneos 
+Propósito: Generación de los archivos de salida Excel
+                   con la data que viene de los pasos anteriores 
+                   y con las variables de entorno ya actualizadas.
+</note>
+      <xloc>1424</xloc>
+      <yloc>208</yloc>
+      <width>308</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.9  Get variables - Obtener Nuevas Variables de Entorno 
+Propósito: Cargar a la transformación todas las variables de
+                   entorno ya sea las que están en el archivo
+                   ketle.properties o las de inicio, nuevamente.
+</note>
+      <xloc>1600</xloc>
+      <yloc>608</yloc>
+      <width>322</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.10   Formula - Forma Ruta y Nombre Archivo Salida 
+Propósito: Armar las rutas y nombres de archivos correspondientes
+                  de Salida. Dependiendo de los municipios y las fechas de 
+                   procesamiento.
+</note>
+      <xloc>1792</xloc>
+      <yloc>208</yloc>
+      <width>367</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>2.3.11   Set variables 
+Propósito: Establecer las variables ya obtenidas 
+                   para hacer uso en los job correspondientes.</note>
+      <xloc>1984</xloc>
+      <yloc>624</yloc>
+      <width>295</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -686,7 +931,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     </remotesteps>
     <GUI>
       <xloc>1184</xloc>
-      <yloc>384</yloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -711,7 +956,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
-      <yloc>784</yloc>
+      <yloc>1008</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -784,8 +1029,8 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>432</yloc>
+      <xloc>672</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -818,7 +1063,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     </remotesteps>
     <GUI>
       <xloc>320</xloc>
-      <yloc>512</yloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -850,7 +1095,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1904</xloc>
+      <xloc>1968</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1237,7 +1482,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
+      <xloc>1760</xloc>
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1591,8 +1836,8 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>496</yloc>
+      <xloc>992</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1740,8 +1985,8 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1488</xloc>
-      <yloc>384</yloc>
+      <xloc>1552</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1840,7 +2085,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1904</xloc>
+      <xloc>2080</xloc>
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1883,7 +2128,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
-      <yloc>528</yloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1917,8 +2162,8 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1712</xloc>
-      <yloc>752</yloc>
+      <xloc>2320</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2027,7 +2272,7 @@ ${PARAM_NOMBRE_HOJA_ENTRADA}</note>
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
-      <yloc>672</yloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

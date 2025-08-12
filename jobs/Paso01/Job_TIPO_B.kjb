@@ -310,48 +310,6 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Set variables</name>
-      <description/>
-      <type>SET_VARIABLES</type>
-      <attributes/>
-      <replacevars>Y</replacevars>
-      <filename/>
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>PARAM_HOJA_MES_ANIO_DESDE</variable_name>
-          <variable_value>JUNIO2025</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>PARAM_HOJA_MES_ANIO_HASTA</variable_name>
-          <variable_value>JULIO2025</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>PARAM_MES_ANIO_DESDE</variable_name>
-          <variable_value>JUNIO_2025</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>PARAM_MES_ANIO_HASTA</variable_name>
-          <variable_value>JUNIO_2025</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>PARAM_NOMBRE_FIJO_ENTRADA</variable_name>
-          <variable_value>PROFORMAS_Lote_CIERRE_</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>80</xloc>
-      <yloc>208</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
       <name>Transformation - trans_cargar_integracion_municipio - TIPO_B</name>
       <description/>
       <type>TRANS</type>
@@ -436,29 +394,11 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>240</xloc>
-      <yloc>304</yloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>Start</from>
-      <to>Set variables</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Set variables</from>
-      <to>Transformation - trans_obtener_municipios_TIPO_B</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
     <hop>
       <from>Transformation - trans_obtener_municipios_TIPO_B</from>
       <to>Transformation - trans_cargar_integracion_municipio - TIPO_B</to>
@@ -467,6 +407,15 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Start</from>
+      <to>Transformation - trans_obtener_municipios_TIPO_B</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
