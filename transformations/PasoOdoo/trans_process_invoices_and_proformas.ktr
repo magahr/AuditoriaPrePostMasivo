@@ -436,37 +436,12 @@
   </info>
   <notepads>
     <notepad>
-      <note>Transformación: trans_audit_facturacion.ktr
-Propósito:Leer el archivo de facturación, y cruzarlo con 
-las tasas de cambio y realizar los cálculos de auditoría.
-
-</note>
-      <xloc>426</xloc>
-      <yloc>-95</yloc>
-      <width>303</width>
-      <heigth>88</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
       <note>2.5.1  Paso: Microsoft Excel Input - Leer Facturas/Proformas:
 Propósito: Este paso lee los datos de las facturas y proformas
                    desde el archivo Excel principal. 
 </note>
-      <xloc>32</xloc>
-      <yloc>16</yloc>
+      <xloc>192</xloc>
+      <yloc>224</yloc>
       <width>330</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
@@ -489,8 +464,8 @@ Propósito: Este paso lee los datos de las facturas y proformas
 Propósito: Aquí se implementará la lógica de búsqueda 
                   de la tasa(USD, EUR, PTR).
 </note>
-      <xloc>1408</xloc>
-      <yloc>240</yloc>
+      <xloc>1568</xloc>
+      <yloc>448</yloc>
       <width>311</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
@@ -513,8 +488,8 @@ Propósito: Aquí se implementará la lógica de búsqueda
 Propósito: Este paso asegura que el flujo de las tasas
                    de cambio leídas desde el CSV esté ordenado 
                    por el campo Fecha de forma ascendente. </note>
-      <xloc>1408</xloc>
-      <yloc>512</yloc>
+      <xloc>1568</xloc>
+      <yloc>720</yloc>
       <width>308</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
@@ -539,8 +514,8 @@ Función: Este paso podría ser redundante si Add Constants
                  es asegurar que la moneda "PTR" esté disponible 
                 para el lookup. 
 </note>
-      <xloc>32</xloc>
-      <yloc>384</yloc>
+      <xloc>192</xloc>
+      <yloc>592</yloc>
       <width>330</width>
       <heigth>105</heigth>
       <fontname>Segoe UI</fontname>
@@ -564,8 +539,8 @@ Función: Añade columnas constantes para las
                 monedas que se usarán como clave en 
                los lookups  de tasas.
 </note>
-      <xloc>32</xloc>
-      <yloc>272</yloc>
+      <xloc>192</xloc>
+      <yloc>480</yloc>
       <width>268</width>
       <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
@@ -589,8 +564,8 @@ Propósito: Busca la tasa correspondiente para Petros basada
                    en la Fecha Tasa (de la factura/Proforma) 	y la
                    constante Moneda_Para_Lookup_Petros.
 </note>
-      <xloc>32</xloc>
-      <yloc>528</yloc>
+      <xloc>192</xloc>
+      <yloc>736</yloc>
       <width>329</width>
       <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
@@ -614,8 +589,8 @@ Función: Este paso podría ser redundante si Add
                 Constants ya define Moneda_Para_Lookup_Dolares. 
                 Su función es asegurar que la moneda "Dolares" 
                esté disponible para el lookup. </note>
-      <xloc>32</xloc>
-      <yloc>656</yloc>
+      <xloc>192</xloc>
+      <yloc>864</yloc>
       <width>333</width>
       <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
@@ -638,8 +613,8 @@ Función: Este paso podría ser redundante si Add
 Propósito: Busca la tasa correspondiente para Dolares basada 
                   en la Fecha Tasa (de la factura/Proforma) .
 </note>
-      <xloc>32</xloc>
-      <yloc>816</yloc>
+      <xloc>192</xloc>
+      <yloc>1024</yloc>
       <width>335</width>
       <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
@@ -661,8 +636,8 @@ Propósito: Busca la tasa correspondiente para Dolares basada
       <note>2.5.10 Paso: Java Script Value - Preparar Tasa Euros:
 Función:  Su función es asegurar que la moneda "Euro" esté 
                  disponible para el lookup. </note>
-      <xloc>32</xloc>
-      <yloc>960</yloc>
+      <xloc>192</xloc>
+      <yloc>1168</yloc>
       <width>328</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -686,8 +661,8 @@ Propósito: Busca la tasa correspondiente para Euros
                    basada en la Fecha Tasa (de la factura/Proforma).
 
 </note>
-      <xloc>32</xloc>
-      <yloc>1072</yloc>
+      <xloc>192</xloc>
+      <yloc>1280</yloc>
       <width>325</width>
       <heigth>88</heigth>
       <fontname>Segoe UI</fontname>
@@ -710,8 +685,8 @@ Propósito: Busca la tasa correspondiente para Euros
            Espacios:
 Función: Ajusta los nombres de campos con espacio con un
                 piso abajo _.</note>
-      <xloc>32</xloc>
-      <yloc>1232</yloc>
+      <xloc>192</xloc>
+      <yloc>1440</yloc>
       <width>327</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
@@ -733,8 +708,8 @@ Función: Ajusta los nombres de campos con espacio con un
       <note>2.5.13 Java Script Value - Calcular Montos y Armonizado:
 Función: Realiza los cálculos principales y añade nuevas 
                  columnas derivadas.</note>
-      <xloc>32</xloc>
-      <yloc>1392</yloc>
+      <xloc>192</xloc>
+      <yloc>1600</yloc>
       <width>307</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -758,8 +733,8 @@ Función: Permite seleccionar, renombrar y reordenar
                 las columnas según el formato deseado para 
                 el archivo  de salida final.
 </note>
-      <xloc>672</xloc>
-      <yloc>1360</yloc>
+      <xloc>832</xloc>
+      <yloc>1568</yloc>
       <width>297</width>
       <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
@@ -783,8 +758,8 @@ Función: Agrega 6 columnas nuevas que estarán
                 inicialmente en blanco para ser usadas 
                 manualmente por el usuario final.
 </note>
-      <xloc>992</xloc>
-      <yloc>1360</yloc>
+      <xloc>1152</xloc>
+      <yloc>1568</yloc>
       <width>265</width>
       <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
@@ -807,8 +782,8 @@ Función: Agrega 6 columnas nuevas que estarán
 Función: Reordena las columnas para que las 6 
                 Columna_Manual_X aparezcan justo 
                 después de la columna MONTO.</note>
-      <xloc>1280</xloc>
-      <yloc>1360</yloc>
+      <xloc>1440</xloc>
+      <yloc>1568</yloc>
       <width>263</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
@@ -837,8 +812,8 @@ Desconectado porque era solo para puebas. Para que funcione
 se debe colocar C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input
                            \VOGFacturacionF0004HatilloARMONIZADO.xls
 en el paso Microsoft Excel Input - Leer Facturas/Proformas</note>
-      <xloc>1584</xloc>
-      <yloc>1360</yloc>
+      <xloc>1744</xloc>
+      <yloc>1568</yloc>
       <width>415</width>
       <heigth>170</heigth>
       <fontname>Segoe UI</fontname>
@@ -861,8 +836,8 @@ en el paso Microsoft Excel Input - Leer Facturas/Proformas</note>
 Propósito:  Prevenir errores de lectura/escritura: Evita 
                    que los Text file input interpreten un salto de 
                    línea interno como el fin de una fila.</note>
-      <xloc>32</xloc>
-      <yloc>144</yloc>
+      <xloc>192</xloc>
+      <yloc>352</yloc>
       <width>305</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
@@ -886,8 +861,8 @@ Propósito: Intermediario de Datos.
                   Consistencia de Datos.
                   Manejo de Finales de Línea.
 </note>
-      <xloc>2111</xloc>
-      <yloc>1374</yloc>
+      <xloc>2256</xloc>
+      <yloc>1584</yloc>
       <width>259</width>
       <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
@@ -909,8 +884,8 @@ Propósito: Intermediario de Datos.
       <note>2.5.18 Formula - Agrega Nombre Empresa:
 Función: Agrega el nombre de la empresa a el 
 			    nombre del archivo de salida csv.</note>
-      <xloc>1600</xloc>
-      <yloc>1024</yloc>
+      <xloc>1760</xloc>
+      <yloc>1232</yloc>
       <width>341</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
@@ -930,13 +905,36 @@ Función: Agrega el nombre de la empresa a el
     </notepad>
     <notepad>
       <note>Pasos complentarios, se prodrian quitar</note>
-      <xloc>2240</xloc>
-      <yloc>992</yloc>
+      <xloc>2400</xloc>
+      <yloc>1200</yloc>
       <width>219</width>
       <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>PASO 00.- Transformación: trans_audit_facturacion.ktr
+Propósito:Leer el archivo de facturación, y cruzarlo con 
+las tasas de cambio y realizar los cálculos de auditoría.</note>
+      <xloc>1056</xloc>
+      <yloc>16</yloc>
+      <width>506</width>
+      <heigth>88</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>14</fontsize>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
@@ -1042,18 +1040,8 @@ Función: Agrega el nombre de la empresa a el
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Formula - Agrega Nombre Empresa</from>
-      <to>Text file output - Datos Procesados Temp</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Join rows (cartesian product)</from>
       <to>Regex Evaluation - Obtener Empresa</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get variables</from>
-      <to>Join rows (cartesian product)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -1084,6 +1072,26 @@ Función: Agrega el nombre de la empresa a el
     <hop>
       <from>Sample rows</from>
       <to>Write to log despues de Set variables</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables - Obtener Variables de Configuracion</from>
+      <to>Get file names - Buscar Archivo Facturacion</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables</from>
+      <to>Join rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Formula - Agrega Nombre Empresa</from>
+      <to>Write to log  - Valor de full_output_path</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write to log  - Valor de full_output_path</from>
+      <to>Text file output - Datos Procesados Temp</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1181,8 +1189,8 @@ Función: Agrega el nombre de la empresa a el
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>1280</yloc>
+      <xloc>1280</xloc>
+      <yloc>1488</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1220,8 +1228,8 @@ Función: Agrega el nombre de la empresa a el
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>304</yloc>
+      <xloc>656</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1253,8 +1261,8 @@ Función: Agrega el nombre de la empresa a el
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1760</xloc>
-      <yloc>1120</yloc>
+      <xloc>1920</xloc>
+      <yloc>1328</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1283,8 +1291,8 @@ Función: Agrega el nombre de la empresa a el
     <dynamic_include_subfolders>N</dynamic_include_subfolders>
     <limit>0</limit>
     <file>
-      <name>${AUDIT_DATA_INPUT_DIR}</name>
-      <filemask>${AUDIT_FACTURACION_FILENAME_PATTERN}</filemask>
+      <name>${AUDIT_DATA_INPUT_DIR_Paso00}</name>
+      <filemask>${AUDIT_FACTURACION_FILENAME_PATTERN_Paso00}</filemask>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
@@ -1303,8 +1311,8 @@ Función: Agrega el nombre de la empresa a el
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>32</yloc>
+      <xloc>960</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1321,8 +1329,8 @@ Función: Agrega el nombre de la empresa a el
     </partitioning>
     <fields>
       <field>
-        <name>AUDIT_BASE_DIR_AUDI</name>
-        <variable>${AUDIT_BASE_DIR_AUDI}</variable>
+        <name>AUDIT_DATA_INPUT_DIR_Paso00</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso00}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1333,8 +1341,8 @@ Función: Agrega el nombre de la empresa a el
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_INPUT_DIR</name>
-        <variable>${AUDIT_DATA_INPUT_DIR}</variable>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso00</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso00}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1345,8 +1353,8 @@ Función: Agrega el nombre de la empresa a el
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_OUTPUT_DIR</name>
-        <variable>${AUDIT_DATA_OUTPUT_DIR}</variable>
+        <name>AUDIT_FACTURACION_FILENAME_PATTERN_Paso00</name>
+        <variable>${AUDIT_FACTURACION_FILENAME_PATTERN_Paso00}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1357,8 +1365,8 @@ Función: Agrega el nombre de la empresa a el
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_FACTURACION_FILENAME_PATTERN</name>
-        <variable>${AUDIT_FACTURACION_FILENAME_PATTERN}</variable>
+        <name>AUDIT_JOBS_DIR_Paso00</name>
+        <variable>${AUDIT_JOBS_DIR_Paso00}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1369,8 +1377,143 @@ Función: Agrega el nombre de la empresa a el
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_JOBS_DIR</name>
-        <variable>${AUDIT_JOBS_DIR}</variable>
+        <name>AUDIT_TRANS_DIR_Paso00</name>
+        <variable>${AUDIT_TRANS_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_VAR_TASAS_FILENAME_Paso00</name>
+        <variable>${AUDIT_VAR_TASAS_FILENAME_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>FULL_PATH_FACTURACION_EXCEL_Paso00</name>
+        <variable>${FULL_PATH_FACTURACION_EXCEL_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ruta_salida</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1232</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables - Obtener Variables de Configuracion</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>AUDIT_DATA_INPUT_DIR_Paso00</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso00</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_FACTURACION_FILENAME_PATTERN_Paso00</name>
+        <variable>${AUDIT_FACTURACION_FILENAME_PATTERN_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_JOBS_DIR_Paso00</name>
+        <variable>${AUDIT_JOBS_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_TRANS_DIR_Paso00</name>
+        <variable>${AUDIT_TRANS_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_VAR_TASAS_FILENAME_Paso00</name>
+        <variable>${AUDIT_VAR_TASAS_FILENAME_Paso00}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1393,32 +1536,8 @@ Función: Agrega el nombre de la empresa a el
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_TRANS_DIR</name>
-        <variable>${AUDIT_TRANS_DIR}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>AUDIT_VAR_TASAS_FILENAME</name>
-        <variable>${AUDIT_VAR_TASAS_FILENAME}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>FULL_PATH_FACTURACION_EXCEL</name>
-        <variable>${FULL_PATH_FACTURACION_EXCEL}</variable>
+        <name>FULL_PATH_FACTURACION_EXCEL_Paso00</name>
+        <variable>${FULL_PATH_FACTURACION_EXCEL_Paso00}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1430,7 +1549,7 @@ Función: Agrega el nombre de la empresa a el
       </field>
       <field>
         <name>ruta_salida</name>
-        <variable>${AUDIT_DATA_OUTPUT_DIR}</variable>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso00}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1450,8 +1569,8 @@ Función: Agrega el nombre de la empresa a el
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1072</xloc>
-      <yloc>32</yloc>
+      <xloc>800</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1665,8 +1784,8 @@ Armonizado = Math.round(Armonizado * 100) / 100; // Redondear a 2 decimales, se 
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>1424</yloc>
+      <xloc>656</xloc>
+      <yloc>1632</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1712,8 +1831,8 @@ var MONEDA_PARA_LOOKUP = "USD";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>720</yloc>
+      <xloc>656</xloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1758,8 +1877,8 @@ var MONEDA_PARA_LOOKUP = "EUR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>976</yloc>
+      <xloc>656</xloc>
+      <yloc>1184</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1804,8 +1923,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>448</yloc>
+      <xloc>656</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1841,8 +1960,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>160</yloc>
+      <xloc>960</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1873,8 +1992,13 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>${AUDIT_DATA_INPUT_DIR}</name>
-      <filemask>${AUDIT_FACTURACION_FILENAME_PATTERN}</filemask>
+      <name>${AUDIT_DATA_INPUT_DIR_Paso00}</name>
+      <filemask>${AUDIT_FACTURACION_FILENAME_PATTERN_Paso00}</filemask>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
+      <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
@@ -2150,7 +2274,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-    <spreadsheet_type>JXL</spreadsheet_type>
+    <spreadsheet_type>POI</spreadsheet_type>
     <password>Encrypted </password>
     <attributes/>
     <cluster_schema/>
@@ -2161,8 +2285,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>32</yloc>
+      <xloc>656</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2177,7 +2301,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <script>^VOGFacturacionF\d+(.*)ARMONIZADO\.xls$</script>
+    <script>^VOGFacturacionF\d+(.*)ARMONIZADO\.xlsx$</script>
     <matcher>nombre_archivo_corto</matcher>
     <resultfieldname/>
     <usevar>Y</usevar>
@@ -2214,8 +2338,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>272</yloc>
+      <xloc>960</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2373,8 +2497,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>160</yloc>
+      <xloc>656</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2400,8 +2524,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2464</xloc>
-      <yloc>1072</yloc>
+      <xloc>2624</xloc>
+      <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2649,8 +2773,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>1280</yloc>
+      <xloc>960</xloc>
+      <yloc>1488</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2812,8 +2936,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
-      <yloc>1280</yloc>
+      <xloc>1568</xloc>
+      <yloc>1488</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2978,8 +3102,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2192</xloc>
-      <yloc>1072</yloc>
+      <xloc>2352</xloc>
+      <yloc>1280</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3123,8 +3247,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>1248</yloc>
+      <xloc>656</xloc>
+      <yloc>1456</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3197,8 +3321,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>528</yloc>
+      <xloc>1408</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3267,8 +3391,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>864</yloc>
+      <xloc>656</xloc>
+      <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3337,8 +3461,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>1120</yloc>
+      <xloc>656</xloc>
+      <yloc>1328</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3407,8 +3531,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>592</yloc>
+      <xloc>656</xloc>
+      <yloc>800</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3451,7 +3575,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR}/tasas_depuracion.csv</name>
+      <name>${AUDIT_DATA_OUTPUT_DIR_Paso00}/tasas_depuracion.csv</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -3572,8 +3696,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>240</yloc>
+      <xloc>1408</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3724,7 +3848,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -3736,7 +3860,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -3760,7 +3884,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -3881,19 +4005,19 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <nullif/>
         <trim_type>none</trim_type>
         <length>-1</length>
-        <precision>2</precision>
+        <precision>-1</precision>
       </field>
       <field>
         <name>UDCD</name>
-        <type>Integer</type>
-        <format/>
+        <type>Number</type>
+        <format>#</format>
         <currency/>
-        <decimal/>
-        <group/>
+        <decimal>,</decimal>
+        <group>.</group>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>0</precision>
+        <length>15</length>
+        <precision>-1</precision>
       </field>
       <field>
         <name>Reclamo</name>
@@ -3904,7 +4028,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -3916,7 +4040,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -3928,7 +4052,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -3940,7 +4064,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -3952,7 +4076,7 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>-1</length>
+        <length>15</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -3994,10 +4118,10 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <field>
         <name>MontoPetros</name>
         <type>Number</type>
-        <format/>
+        <format>####0.0#########;-####0.0#########</format>
         <currency/>
         <decimal>,</decimal>
-        <group/>
+        <group>.</group>
         <nullif/>
         <trim_type>none</trim_type>
         <length>16</length>
@@ -4042,10 +4166,10 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <field>
         <name>MontoDolares</name>
         <type>Number</type>
-        <format/>
+        <format>####0.0#########;-####0.0#########</format>
         <currency/>
         <decimal>,</decimal>
-        <group/>
+        <group>.</group>
         <nullif/>
         <trim_type>none</trim_type>
         <length>16</length>
@@ -4090,10 +4214,10 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <field>
         <name>MontoEuros</name>
         <type>Number</type>
-        <format/>
+        <format>####0.0#########;-####0.0#########</format>
         <currency/>
         <decimal>,</decimal>
-        <group/>
+        <group>.</group>
         <nullif/>
         <trim_type>none</trim_type>
         <length>16</length>
@@ -4108,16 +4232,16 @@ var MONEDA_PARA_LOOKUP = "PTR";
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>3</length>
+        <length>-1</length>
         <precision>-1</precision>
       </field>
       <field>
         <name>Tasa_Mas_Alta</name>
         <type>Number</type>
-        <format/>
+        <format>####0.0#########;-####0.0#########</format>
         <currency/>
         <decimal>,</decimal>
-        <group/>
+        <group>.</group>
         <nullif/>
         <trim_type>none</trim_type>
         <length>16</length>
@@ -4126,10 +4250,10 @@ var MONEDA_PARA_LOOKUP = "PTR";
       <field>
         <name>Armonizado</name>
         <type>Number</type>
-        <format/>
+        <format>####0.0#########;-####0.0#########</format>
         <currency/>
         <decimal>,</decimal>
-        <group/>
+        <group>.</group>
         <nullif/>
         <trim_type>none</trim_type>
         <length>16</length>
@@ -4137,6 +4261,30 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </field>
       <field>
         <name>nombre_empresa</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>ruta_salida</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>90</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>full_output_path</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -4157,8 +4305,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2192</xloc>
-      <yloc>1280</yloc>
+      <xloc>2352</xloc>
+      <yloc>1488</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4192,8 +4340,49 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2320</xloc>
-      <yloc>1072</yloc>
+      <xloc>2480</xloc>
+      <yloc>1280</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log  - Valor de full_output_path</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>full_output_path</name>
+      </field>
+      <field>
+        <name>ruta_salida</name>
+      </field>
+      <field>
+        <name>nombre_empresa</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2176</xloc>
+      <yloc>1360</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4227,8 +4416,8 @@ var MONEDA_PARA_LOOKUP = "PTR";
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2464</xloc>
-      <yloc>1216</yloc>
+      <xloc>2624</xloc>
+      <yloc>1424</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

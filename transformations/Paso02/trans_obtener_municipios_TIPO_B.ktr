@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_audit_facturacion</name>
+    <name>trans_obtener_municipios_TIPO_A</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -428,23 +428,21 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/07/03 10:36:56.590</created_date>
+    <created_date>2025/07/25 10:46:51.737</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/07/03 10:36:56.590</modified_date>
+    <modified_date>2025/07/25 10:46:51.737</modified_date>
     <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Transformación: trans_audit_facturacion.ktr
-Propósito:Leer el archivo de facturación, y cruzarlo con 
-las tasas de cambio y realizar los cálculos de auditoría.
-
-</note>
-      <xloc>262</xloc>
-      <yloc>35</yloc>
-      <width>303</width>
-      <heigth>88</heigth>
+      <note>
+TIPO_B
+trans_obtener_municipios</note>
+      <xloc>288</xloc>
+      <yloc>32</yloc>
+      <width>147</width>
+      <heigth>57</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -452,9 +450,9 @@ las tasas de cambio y realizar los cálculos de auditoría.
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorred>64</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
+      <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -463,14 +461,19 @@ las tasas de cambio y realizar los cálculos de auditoría.
   </notepads>
   <order>
     <hop>
-      <from>Microsoft Excel input - Leer Facturas</from>
-      <to>Stream lookup - Buscar Tasa de Cambio</to>
+      <from>Copy rows to result</from>
+      <to>Write to log - Transformacion trans_obtener_municipios</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Data grid - GRID - Detalles Municipios</from>
+      <to>Copy rows to result</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Microsoft Excel input - Leer Facturas</name>
-    <type>ExcelInput</type>
+    <name>Copy rows to result</name>
+    <type>RowsToResult</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -479,136 +482,6 @@ las tasas de cambio y realizar los cálculos de auditoría.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
-    <limit>0</limit>
-    <encoding/>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-    <file>
-      <name>${FULL_PATH_FACTURACION_EXCEL}</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>Fecha Documento</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>dd/MM/yyyy HH:mm:ss</format>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Numero Documento</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>MONTO</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>ID Cliente</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-    </fields>
-    <sheets>
-      <sheet>
-        <name>Proformas y Fact sin Pago</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <spreadsheet_type>JXL</spreadsheet_type>
-    <password>Encrypted </password>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup - Buscar Tasa de Cambio</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from/>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -620,6 +493,113 @@ las tasas de cambio y realizar los cálculos de auditoría.
     <GUI>
       <xloc>304</xloc>
       <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Data grid - GRID - Detalles Municipios</name>
+    <type>DataGrid</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>municipio</name>
+        <type>String</type>
+        <format>50</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+      <field>
+        <name>tipo_plantilla</name>
+        <type>String</type>
+        <format>50</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+    </fields>
+    <data>
+      <line>
+        <item>Maneiro</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>Caroni</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>Simon</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>San Diego</item>
+        <item>TIPO_B</item>
+      </line>
+    </data>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - Transformacion trans_obtener_municipios</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>municipio</name>
+      </field>
+      <field>
+        <name>tipo_plantilla</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

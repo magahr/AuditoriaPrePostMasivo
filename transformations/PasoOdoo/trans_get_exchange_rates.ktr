@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_process_invoices_and_proformas</name>
+    <name>trans_get_exchange_rates</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,23 +428,46 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/07/08 16:34:15.965</created_date>
+    <created_date>2025/06/25 20:15:24.326</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/07/08 16:34:15.965</modified_date>
+    <modified_date>2025/06/25 20:15:24.326</modified_date>
     <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Transformación: trans_audit_facturacion.ktr
-Propósito:Leer el archivo de facturación, y cruzarlo con 
-las tasas de cambio y realizar los cálculos de auditoría.
-
+      <note>Transformación: trans_get_exchange_rates.ktr
+Propósito: Leer el archivo Consulta_TasaCambio.xlsx y preparar
+ las tasas para una búsqueda eficiente.
+Esta transformación generará un "cache" de tasas para su uso.
 </note>
-      <xloc>426</xloc>
-      <yloc>-95</yloc>
-      <width>303</width>
-      <heigth>88</heigth>
+      <xloc>336</xloc>
+      <yloc>48</yloc>
+      <width>342</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Microsoft Excel Input
+Propósito: Leer el archivo de tasas.
+</note>
+      <xloc>16</xloc>
+      <yloc>176</yloc>
+      <width>191</width>
+      <heigth>57</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -460,14 +484,16 @@ las tasas de cambio y realizar los cálculos de auditoría.
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.5.1  Paso: Microsoft Excel Input - Leer Facturas/Proformas:
-Propósito: Este paso lee los datos de las facturas y proformas
-                   desde el archivo Excel principal. 
-</note>
-      <xloc>32</xloc>
-      <yloc>112</yloc>
-      <width>330</width>
-      <heigth>73</heigth>
+      <note>Nombre del Paso (Step name): Select values - 
+                               Seleccionar y Limpiar Campos Tasas
+
+Propósito: Confirmar los nombres de los campos, 
+sus metadatos  (tipo, longitud, precisión) y 
+renombrarlos si es necesario para mayor claridad.</note>
+      <xloc>272</xloc>
+      <yloc>176</yloc>
+      <width>294</width>
+      <heigth>105</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -475,73 +501,25 @@ Propósito: Este paso lee los datos de las facturas y proformas
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.5.2  Paso: Text File Input - Leer Tasas Temp para Lookup:
-Propósito: Aquí se implementará la lógica de búsqueda 
-                  de la tasa(USD, EUR, PTR).
-</note>
-      <xloc>384</xloc>
-      <yloc>112</yloc>
-      <width>311</width>
-      <heigth>73</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.5.3  Paso: Sort Rows - Ordenar Tasas Re-Leidas:
-Propósito: Este paso asegura que el flujo de las tasas
-                   de cambio leídas desde el CSV esté ordenado 
-                   por el campo Fecha de forma ascendente. </note>
-      <xloc>432</xloc>
-      <yloc>544</yloc>
-      <width>308</width>
-      <heigth>74</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.5.4  Paso: Stream lookup - Buscar Tasa de Cambio:
-Propósito: Este paso es el corazón de la búsqueda de 
-                  la tasa de cambio. Une el flujo principal de facturas
-                  (Leer Facturas/Proformas) con el flujo de tasas ordenadas 
-                  (Ordenar Tasas Re-Leidas) para añadir la tasa de cambio
-                   aplicable a cada documento.
-</note>
-      <xloc>16</xloc>
-      <yloc>544</yloc>
-      <width>370</width>
+      <note>Nombre del Paso (Step name): Ordenar Tasas por Fecha
+
+Propósito: Es CRUCIAL ordenar las tasas por fecha. 
+Esto es absolutamente necesario para que el siguiente 
+paso (Stream Lookup) que usaremos más adelante 
+funcione correctamente y pueda encontrar la tasa 
+más cercana si no hay una coincidencia exacta de fecha.</note>
+      <xloc>608</xloc>
+      <yloc>176</yloc>
+      <width>307</width>
       <heigth>121</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -550,9 +528,36 @@ Propósito: Este paso es el corazón de la búsqueda de
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Nombre del Paso (Step name): Text file output
+                                              (Salida a archivo de texto)
+Propósito: Este paso es solo para verificar que tus tasas se leen, 
+transforman  y ordenan correctamente. Lo eliminarás una vez 
+que todo funcione.
+(este paso lo quitamos lo puse en la transformacion de prueba)
+</note>
+      <xloc>944</xloc>
+      <yloc>176</yloc>
+      <width>343</width>
+      <heigth>121</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -561,23 +566,115 @@ Propósito: Este paso es el corazón de la búsqueda de
   </notepads>
   <order>
     <hop>
-      <from>Text File Input - Leer Tasas Temp para Lookup</from>
-      <to>Sort Rows - Ordenar Tasas Re-Leidas</to>
+      <from>Microsoft Excel input - Leer Tasas de Cambio</from>
+      <to>Select values - Seleccionar y Limpiar Campos Tasas</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Microsoft Excel Input - Leer Facturas/Proformas</from>
-      <to>Stream lookup - Buscar Tasa de Cambio</to>
+      <from>Select values - Seleccionar y Limpiar Campos Tasas</from>
+      <to>Sort rows - Ordenar Tasas por Fecha</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
-      <to>Stream lookup - Buscar Tasa de Cambio</to>
+      <from>Get variables - Obtener Variables de Configuracion</from>
+      <to>Microsoft Excel input - Leer Tasas de Cambio</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows - Ordenar Tasas por Fecha</from>
+      <to>Text file output - Salida de Depuracion Tasas</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Microsoft Excel Input - Leer Facturas/Proformas</name>
+    <name>Get variables - Obtener Variables de Configuracion</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>AUDIT_DATA_INPUT_DIR_Paso00</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso00</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_JOBS_DIR_Paso00</name>
+        <variable>${AUDIT_JOBS_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_TRANS_DIR_Paso00</name>
+        <variable>${AUDIT_TRANS_DIR_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_VAR_TASAS_FILENAME_Paso00</name>
+        <variable>${AUDIT_VAR_TASAS_FILENAME_Paso00}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel input - Leer Tasas de Cambio</name>
     <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -597,13 +694,13 @@ Propósito: Este paso es el corazón de la búsqueda de
     <sheetfield/>
     <filefield/>
     <limit>0</limit>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <accept_filenames>N</accept_filenames>
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>${FULL_PATH_FACTURACION_EXCEL}</name>
+      <name>${AUDIT_DATA_INPUT_DIR_Paso00}/${AUDIT_VAR_TASAS_FILENAME_Paso00}</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -611,236 +708,56 @@ Propósito: Este paso es el corazón de la búsqueda de
     </file>
     <fields>
       <field>
-        <name>Tipo de Documento</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>ClaseCliente</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>ID Cliente</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Nombre Cliente</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Numero Documento</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Id Direccion</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Fecha_Tasa</name>
+        <name>Fecha</name>
         <type>Date</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format>dd/MM/yyyy HH:mm:ss</format>
+        <format>dd/MM/yyyy</format>
         <currency/>
         <decimal/>
         <group/>
       </field>
       <field>
-        <name>Fecha Contabilizacion</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>dd/MM/yyyy HH:mm:ss</format>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>CNAE</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>dd/MM/yyyy HH:mm:ss</format>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Direccion1</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Direccion2</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Estado Anulado</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Suspedido</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Inactivo</name>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>CONTACTO1</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>CONTACTO2</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>ID Periodo</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Periodo</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>MONTO</name>
+        <name>Tasa</name>
         <type>Number</type>
+        <length>-1</length>
+        <precision>6</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal>,</decimal>
+        <group/>
+      </field>
+      <field>
+        <name>Hora</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format>dd/MM/yyyy HH:mm:ss</format>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Moneda</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TablaCambio</name>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -853,12 +770,7 @@ Propósito: Este paso es el corazón de la búsqueda de
     </fields>
     <sheets>
       <sheet>
-        <name>Facturas Pagas</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-      <sheet>
-        <name>Proformas y Fact sin Pago</name>
+        <name>Tasa de Cambio</name>
         <startrow>0</startrow>
         <startcol>0</startcol>
       </sheet>
@@ -880,7 +792,7 @@ Propósito: Este paso es el corazón de la búsqueda de
     <rootUriNameFieldName/>
     <extensionFieldName/>
     <sizeFieldName/>
-    <spreadsheet_type>JXL</spreadsheet_type>
+    <spreadsheet_type>POI</spreadsheet_type>
     <password>Encrypted </password>
     <attributes/>
     <cluster_schema/>
@@ -891,13 +803,141 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>208</yloc>
+      <xloc>112</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort Rows - Ordenar Tasas Re-Leidas</name>
+    <name>Select values - Seleccionar y Limpiar Campos Tasas</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Fecha</name>
+      </field>
+      <field>
+        <name>Tasa</name>
+      </field>
+      <field>
+        <name>Hora</name>
+      </field>
+      <field>
+        <name>Moneda</name>
+      </field>
+      <field>
+        <name>TablaCambio</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Fecha</name>
+        <rename>Fecha</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Tasa</name>
+        <rename>Tasa</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>6</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Hora</name>
+        <rename>Hora</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Moneda</name>
+        <rename>Moneda</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>TablaCambio</name>
+        <rename>TablaCambio</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows - Ordenar Tasas por Fecha</name>
     <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -923,38 +963,6 @@ Propósito: Este paso es el corazón de la búsqueda de
         <collator_strength>0</collator_strength>
         <presorted>N</presorted>
       </field>
-      <field>
-        <name>Tasa</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>Hora</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>Moneda</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>TablaCambio</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -965,14 +973,14 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>448</yloc>
+      <xloc>720</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Stream lookup - Buscar Tasa de Cambio</name>
-    <type>StreamLookup</type>
+    <name>Text file output - Salida de Depuracion Tasas</name>
+    <type>TextFileOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -981,212 +989,98 @@ Propósito: Este paso es el corazón de la búsqueda de
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <from>Sort Rows - Ordenar Tasas Re-Leidas</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>Y</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>Fecha_Tasa</name>
-        <field>Fecha</field>
-      </key>
-      <value>
-        <name>Fecha</name>
-        <rename>Fecha</rename>
-        <default/>
-        <type>Date</type>
-      </value>
-      <value>
-        <name>Tasa</name>
-        <rename>Tasa</rename>
-        <default/>
-        <type>Number</type>
-      </value>
-      <value>
-        <name>Hora</name>
-        <rename>Hora</rename>
-        <default/>
-        <type>Date</type>
-      </value>
-      <value>
-        <name>Moneda</name>
-        <rename>Moneda</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>TablaCambio</name>
-        <rename>TablaCambio</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Text File Input - Leer Tasas Temp para Lookup</name>
-    <type>TextFileInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field/>
-    <accept_stepname/>
     <separator>;</separator>
     <enclosure>"</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
     <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
     <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field/>
     <format>DOS</format>
-    <encoding/>
-    <length>Characters</length>
-    <add_to_result_filenames>Y</add_to_result_filenames>
+    <compression>None</compression>
+    <encoding>UTF-8</encoding>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR}/tasas_depuracion.csv</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
+      <name>${AUDIT_DATA_OUTPUT_DIR_Paso00}/tasas_depuracion</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>csv</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery/>
     </file>
-    <filters>
-    </filters>
     <fields>
       <field>
         <name>Fecha</name>
         <type>Date</type>
         <format>dd/MM/yyyy</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
       </field>
       <field>
         <name>Tasa</name>
         <type>Number</type>
-        <format>#.#</format>
-        <currency>$</currency>
+        <format/>
+        <currency/>
         <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>15</length>
-        <precision>0</precision>
+        <group/>
+        <nullif/>
         <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <length>-1</length>
+        <precision>-1</precision>
       </field>
       <field>
         <name>Hora</name>
         <type>Date</type>
-        <format>MM/dd/yyyy HH:mm:ss</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
+        <format>dd/MM/yyyy HH:mm:ss</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
       </field>
       <field>
         <name>Moneda</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>3</length>
-        <precision>-1</precision>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
         <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <length>-1</length>
+        <precision>-1</precision>
       </field>
       <field>
         <name>TablaCambio</name>
         <type>String</type>
         <format/>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <nullif>-</nullif>
-        <ifnull/>
-        <position>-1</position>
-        <length>7</length>
-        <precision>-1</precision>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
         <trim_type>none</trim_type>
-        <repeat>N</repeat>
+        <length>-1</length>
+        <precision>-1</precision>
       </field>
     </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>en_US</date_format_locale>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1196,8 +1090,8 @@ Propósito: Este paso es el corazón de la búsqueda de
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>208</yloc>
+      <xloc>1088</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

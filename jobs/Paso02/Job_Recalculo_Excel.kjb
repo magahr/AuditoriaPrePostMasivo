@@ -294,7 +294,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR_Paso01}/trans_recalcular_excel_TODOS.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR_Paso02}/trans_recalcular_excel_TODOS.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -359,13 +359,13 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Transformation - trans_obtener_municipios</name>
+      <name>Transformation - trans_obtener_municipios_TODOS</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR_Paso01}/trans_obtener_municipios.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR_Paso02}/trans_obtener_municipios.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -400,7 +400,7 @@
   </entries>
   <hops>
     <hop>
-      <from>Transformation - trans_obtener_municipios</from>
+      <from>Transformation - trans_obtener_municipios_TODOS</from>
       <to>Transformation - trans_recalcular_excel_TODOS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -410,7 +410,7 @@
     </hop>
     <hop>
       <from>Start</from>
-      <to>Transformation - trans_obtener_municipios</to>
+      <to>Transformation - trans_obtener_municipios_TODOS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -420,24 +420,25 @@
   </hops>
   <notepads>
     <notepad>
-      <note>Job_Recalculo_Excel
+      <note>PASO 02.
+Job_Recalculo_Excel
 Job de prueba para la ejecucion del script para la actualizacion de todos las
 formulas de los archivos en excel
 </note>
       <xloc>112</xloc>
-      <yloc>32</yloc>
-      <width>404</width>
-      <heigth>73</heigth>
+      <yloc>16</yloc>
+      <width>419</width>
+      <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>64</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>

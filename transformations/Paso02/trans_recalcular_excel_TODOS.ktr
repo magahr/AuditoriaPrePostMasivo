@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_get_exchange_rates</name>
+    <name>trans_recalcular_excel_TODOS</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -9,6 +9,61 @@
     <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
+      <parameter>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02\Plantillas</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02\Plantillas</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02\input</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02\input\TIPO_A</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>PARAM_COLUMNAS_MAPEO_ENTRADA</name>
+        <default_value>1,2 a 1,2; 7 a 7</default_value>
+        <description>Mapeo de columnas de entrada (ej. 1,2 a 1,2 del doc salida. 7 a 7 del doc salida)</description>
+      </parameter>
+      <parameter>
+        <name>PARAM_HOJAS_A_LEER</name>
+        <default_value>1</default_value>
+        <description>Números de hoja a leer del archivo de entrada (ej. 1,2,3)</description>
+      </parameter>
+      <parameter>
+        <name>PARAM_HOJA_DESTINO_NOMBRE_PREFIJO</name>
+        <default_value>2.-Anterior </default_value>
+        <description>Prefijo del nombre de la hoja de destino (2.-Anterior)</description>
+      </parameter>
+      <parameter>
+        <name>PARAM_HOJA_DESTINO_POSICION</name>
+        <default_value>3</default_value>
+        <description>Posición de la hoja de destino (3)</description>
+      </parameter>
+      <parameter>
+        <name>PARAM_NOMBRE_FIJO_ENTRADA</name>
+        <default_value>PROFORMAS_Lote_CIERRE_</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>PARAM_NOMBRE_FIJO_SALIDA</name>
+        <default_value>Rep Auditoria_ABM_</default_value>
+        <description>Patrón del nombre fijo de salida</description>
+      </parameter>
+      <parameter>
+        <name>PARAM_NOMBRE_HOJA_ENTRADA</name>
+        <default_value>Proforma Comerc_JUNIO 2025</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>PARAM_NUMERO_HOJA</name>
+        <default_value>1</default_value>
+        <description/>
+      </parameter>
     </parameters>
     <log>
       <trans-log-table>
@@ -428,136 +483,33 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2025/06/25 20:15:24.326</created_date>
+    <created_date>2025/07/27 18:26:19.228</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2025/06/25 20:15:24.326</modified_date>
+    <modified_date>2025/07/27 18:26:19.228</modified_date>
     <key_for_session_key>H4sIAAAAAAAA/wMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>Transformación: trans_get_exchange_rates.ktr
-Propósito: Leer el archivo Consulta_TasaCambio.xlsx y preparar
- las tasas para una búsqueda eficiente.
-Esta transformación generará un "cache" de tasas para su uso.
-</note>
-      <xloc>336</xloc>
-      <yloc>48</yloc>
-      <width>342</width>
-      <heigth>89</heigth>
+      <note>PASO 02.
+2.3.- trans_recalcular_excel_TODOS.ktr
+Propósito: Esta transformación será ejecutada 
+repetidamente por  el Job principal (una vez por 
+cada municipio).</note>
+      <xloc>400</xloc>
+      <yloc>96</yloc>
+      <width>280</width>
+      <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorred>0</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Microsoft Excel Input
-Propósito: Leer el archivo de tasas.
-</note>
-      <xloc>16</xloc>
-      <yloc>176</yloc>
-      <width>191</width>
-      <heigth>57</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Nombre del Paso (Step name): Select values - 
-                               Seleccionar y Limpiar Campos Tasas
-
-Propósito: Confirmar los nombres de los campos, 
-sus metadatos  (tipo, longitud, precisión) y 
-renombrarlos si es necesario para mayor claridad.</note>
-      <xloc>272</xloc>
-      <yloc>176</yloc>
-      <width>294</width>
-      <heigth>105</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Nombre del Paso (Step name): Ordenar Tasas por Fecha
-
-Propósito: Es CRUCIAL ordenar las tasas por fecha. 
-Esto es absolutamente necesario para que el siguiente 
-paso (Stream Lookup) que usaremos más adelante 
-funcione correctamente y pueda encontrar la tasa 
-más cercana si no hay una coincidencia exacta de fecha.</note>
-      <xloc>608</xloc>
-      <yloc>176</yloc>
-      <width>307</width>
-      <heigth>121</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>Nombre del Paso (Step name): Text file output
-                                              (Salida a archivo de texto)
-Propósito: Este paso es solo para verificar que tus tasas se leen, 
-transforman  y ordenan correctamente. Lo eliminarás una vez 
-que todo funcione.
-(este paso lo quitamos lo puse en la transformacion de prueba)
-</note>
-      <xloc>944</xloc>
-      <yloc>176</yloc>
-      <width>343</width>
-      <heigth>121</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -566,23 +518,100 @@ que todo funcione.
   </notepads>
   <order>
     <hop>
-      <from>Microsoft Excel input - Leer Tasas de Cambio</from>
-      <to>Select values - Seleccionar y Limpiar Campos Tasas</to>
+      <from>Write to log - Despues del get variables en Recalculo de Excel</from>
+      <to>Formula - Forma Ruta y Nombre Archivo Entrada</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values - Seleccionar y Limpiar Campos Tasas</from>
-      <to>Sort rows - Ordenar Tasas por Fecha</to>
+      <from>Get variables - Obtener Variables de Entorno</from>
+      <to>Write to log - Despues del get variables en Recalculo de Excel</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get variables - Obtener Variables de Configuracion</from>
-      <to>Microsoft Excel input - Leer Tasas de Cambio</to>
+      <from>User defined Java expression</from>
+      <to>Execute a process</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Formula - Forma Ruta y Nombre Archivo Entrada</from>
+      <to>User defined Java expression</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Execute a process</from>
+      <to>Write to log - Recalculando Archivos Finales</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Get variables - Obtener Variables de Configuracion</name>
+    <name>Execute a process</name>
+    <type>ExecProcess</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <processfield>recalculo</processfield>
+    <resultfieldname>Result output</resultfieldname>
+    <errorfieldname>Error output</errorfieldname>
+    <exitvaluefieldname>Exit value</exitvaluefieldname>
+    <failwhennotsuccess>N</failwhennotsuccess>
+    <outputlinedelimiter/>
+    <argumentsInFields>N</argumentsInFields>
+    <argumentFields>
+    </argumentFields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Formula - Forma Ruta y Nombre Archivo Entrada</name>
+    <type>Formula</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <formula>
+      <field_name>ruta_archivo_salida_final_01</field_name>
+      <formula_string>[AUDIT_DATA_OUTPUT_DIR_Paso02] &amp; "/" &amp; [PARAM_NOMBRE_FIJO_SALIDA] &amp; [PARAM_MUNICIPIO] &amp; "_Periodo_Desde_" &amp; [PARAM_MES_ANIO_DESDE] &amp; "_hasta_" &amp; [PARAM_MES_ANIO_HASTA] &amp; ".xlsx"</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables - Obtener Variables de Entorno</name>
     <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
@@ -594,8 +623,8 @@ que todo funcione.
     </partitioning>
     <fields>
       <field>
-        <name>AUDIT_BASE_DIR_AUDI</name>
-        <variable>${AUDIT_BASE_DIR_AUDI}</variable>
+        <name>ruta_base_input_dir</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso01\input}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -606,8 +635,8 @@ que todo funcione.
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_INPUT_DIR</name>
-        <variable>${AUDIT_DATA_INPUT_DIR}</variable>
+        <name>ruta_base_output_dir</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso02}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -618,8 +647,8 @@ que todo funcione.
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_OUTPUT_DIR</name>
-        <variable>${AUDIT_DATA_OUTPUT_DIR}</variable>
+        <name>municipio</name>
+        <variable>${PARAM_MUNICIPIO}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -630,8 +659,224 @@ que todo funcione.
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_VAR_TASAS_FILENAME</name>
-        <variable>${AUDIT_VAR_TASAS_FILENAME}</variable>
+        <name>numero_hoja_individual</name>
+        <variable>${PARAM_NUMERO_HOJA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>nombre_fijo_entrada</name>
+        <variable>${PARAM_NOMBRE_FIJO_ENTRADA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>hojas_a_leer</name>
+        <variable>${PARAM_HOJAS_A_LEER}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>columnas_mapeo_entrada</name>
+        <variable>${PARAM_COLUMNAS_MAPEO_ENTRADA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>nombre_fijo_salida</name>
+        <variable>${PARAM_NOMBRE_FIJO_SALIDA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>hoja_destino_nombre_prefijo</name>
+        <variable>${PARAM_HOJA_DESTINO_NOMBRE_PREFIJO}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>hoja_destino_posicion</name>
+        <variable>${PARAM_HOJA_DESTINO_POSICION}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>numero_hoja_lectura</name>
+        <variable>${PARAM_NUMERO_HOJA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>mes_anio_desde</name>
+        <variable>${PARAM_MES_ANIO_DESDE}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>mes_anio_hasta</name>
+        <variable>${PARAM_MES_ANIO_HASTA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>nombre_hoja_entrada</name>
+        <variable>${PARAM_NOMBRE_HOJA_ENTRADA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>hoja_mes_anio_desde</name>
+        <variable>${PARAM_HOJA_MES_ANIO_DESDE}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>hoja_mes_anio_hasta</name>
+        <variable>${PARAM_HOJA_MES_ANIO_HASTA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>tipo_plantilla</name>
+        <variable>${PARAM_PLANTILLA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso02</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso02}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PARAM_NOMBRE_FIJO_SALIDA</name>
+        <variable>${PARAM_NOMBRE_FIJO_SALIDA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PARAM_MUNICIPIO</name>
+        <variable>${PARAM_MUNICIPIO}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PARAM_MES_ANIO_DESDE</name>
+        <variable>${PARAM_MES_ANIO_DESDE}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PARAM_MES_ANIO_HASTA</name>
+        <variable>${PARAM_MES_ANIO_HASTA}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -651,14 +896,14 @@ que todo funcione.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>64</yloc>
+      <xloc>64</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel input - Leer Tasas de Cambio</name>
-    <type>ExcelInput</type>
+    <name>User defined Java expression</name>
+    <type>Janino</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -667,116 +912,14 @@ que todo funcione.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
-    <limit>0</limit>
-    <encoding/>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-    <file>
-      <name>${AUDIT_DATA_INPUT_DIR}/${AUDIT_VAR_TASAS_FILENAME}</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>Fecha</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>dd/MM/yyyy</format>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Tasa</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>0.00</format>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Hora</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format>dd/MM/yyyy HH:mm:ss</format>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Moneda</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>TablaCambio</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-    </fields>
-    <sheets>
-      <sheet>
-        <name>Tasa de Cambio</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <spreadsheet_type>JXL</spreadsheet_type>
-    <password>Encrypted </password>
+    <formula>
+      <field_name>recalculo</field_name>
+      <formula_string>"C:\\Windows\\SysWOW64\\cscript.exe" + " " + "C:\\Desarrollo\\Proyectos\\AuditoriaPrePostMasivo\\scripts\\recalcular_excel.vbs" + " " + "\"" + ruta_archivo_salida_final_01 + "\""</formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -786,14 +929,14 @@ que todo funcione.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
+      <xloc>928</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values - Seleccionar y Limpiar Campos Tasas</name>
-    <type>SelectValues</type>
+    <name>Write to log - Despues del get variables en Recalculo de Excel</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -802,108 +945,78 @@ que todo funcione.
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
     <fields>
       <field>
-        <name>Fecha</name>
+        <name>ruta_base_input_dir</name>
       </field>
       <field>
-        <name>Tasa</name>
+        <name>ruta_base_output_dir</name>
       </field>
       <field>
-        <name>Hora</name>
+        <name>municipio</name>
       </field>
       <field>
-        <name>Moneda</name>
+        <name>numero_hoja_individual</name>
       </field>
       <field>
-        <name>TablaCambio</name>
+        <name>nombre_fijo_entrada</name>
       </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>Fecha</name>
-        <rename>Fecha</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Tasa</name>
-        <rename>Tasa</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Hora</name>
-        <rename>Hora</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Moneda</name>
-        <rename>Moneda</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>TablaCambio</name>
-        <rename>TablaCambio</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
+      <field>
+        <name>hojas_a_leer</name>
+      </field>
+      <field>
+        <name>columnas_mapeo_entrada</name>
+      </field>
+      <field>
+        <name>nombre_fijo_salida</name>
+      </field>
+      <field>
+        <name>hoja_destino_nombre_prefijo</name>
+      </field>
+      <field>
+        <name>hoja_destino_posicion</name>
+      </field>
+      <field>
+        <name>numero_hoja_lectura</name>
+      </field>
+      <field>
+        <name>mes_anio_desde</name>
+      </field>
+      <field>
+        <name>mes_anio_hasta</name>
+      </field>
+      <field>
+        <name>nombre_hoja_entrada</name>
+      </field>
+      <field>
+        <name>hoja_mes_anio_desde</name>
+      </field>
+      <field>
+        <name>hoja_mes_anio_hasta</name>
+      </field>
+      <field>
+        <name>tipo_plantilla</name>
+      </field>
+      <field>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso02</name>
+      </field>
+      <field>
+        <name>PARAM_NOMBRE_FIJO_SALIDA</name>
+      </field>
+      <field>
+        <name>PARAM_MUNICIPIO</name>
+      </field>
+      <field>
+        <name>PARAM_MES_ANIO_DESDE</name>
+      </field>
+      <field>
+        <name>PARAM_MES_ANIO_HASTA</name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -914,14 +1027,14 @@ que todo funcione.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>320</yloc>
+      <xloc>304</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sort rows - Ordenar Tasas por Fecha</name>
-    <type>SortRows</type>
+    <name>Write to log - Recalculando Archivos Finales</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -930,21 +1043,17 @@ que todo funcione.
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
     <fields>
       <field>
-        <name>Fecha</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
+        <name>ruta_archivo_salida_final_01</name>
+      </field>
+      <field>
+        <name>recalculo</name>
       </field>
     </fields>
     <attributes/>
@@ -956,8 +1065,8 @@ que todo funcione.
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>320</yloc>
+      <xloc>944</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

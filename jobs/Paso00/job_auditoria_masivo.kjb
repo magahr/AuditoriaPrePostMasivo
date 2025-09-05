@@ -12,7 +12,7 @@
   <modified_date>2025/06/18 21:05:49.964</modified_date>
   <parameters>
     <parameter>
-      <name>${AUDIT_DATA_INPUT_DIR}</name>
+      <name>${AUDIT_DATA_INPUT_DIR_Paso00}</name>
       <default_value/>
       <description/>
     </parameter>
@@ -325,22 +325,17 @@
       <fields>
         <field>
           <variable_name>VAR_TASAS_FILENAME</variable_name>
-          <variable_value>${AUDIT_VAR_TASAS_FILENAME}</variable_value>
+          <variable_value>${AUDIT_VAR_TASAS_FILENAME_Paso00}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>VAR_FACTURACION_FILENAME_PATTERN</variable_name>
-          <variable_value>${AUDIT_FACTURACION_FILENAME_PATTERN}</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-        <field>
-          <variable_name>FULL_PATH_FACTURACION_EXCEL</variable_name>
-          <variable_value>${FULL_PATH_FACTURACION_EXCEL}</variable_value>
+          <variable_value>${AUDIT_FACTURACION_FILENAME_PATTERN_Paso00}</variable_value>
           <variable_type>JVM</variable_type>
         </field>
         <field>
           <variable_name>FULL_PATH_EXCEL_OUTPUT</variable_name>
-          <variable_value>"${AUDIT_DATA_OUTPUT_DIR}/Resultados_Auditoria_Facturas_Proformas_" + [nombre_empresa] + ".xlsx"</variable_value>
+          <variable_value>"${AUDIT_DATA_OUTPUT_DIR_Paso00}/Resultados_Auditoria_Facturas_Proformas_" + [nombre_empresa] + ".xlsx"</variable_value>
           <variable_type>JVM</variable_type>
         </field>
       </fields>
@@ -358,7 +353,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_find_facturacion_file.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR_Paso00}/trans_find_facturacion_file.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -397,7 +392,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_get_exchange_rates.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR_Paso00}/trans_get_exchange_rates.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -436,7 +431,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_process_invoices_and_proformas.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR_Paso00}/trans_process_invoices_and_proformas.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -487,7 +482,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_write_results_to_excel_02.ktr</filename>
+      <filename>${AUDIT_TRANS_DIR_Paso00}/trans_write_results_to_excel_02.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -617,14 +612,15 @@
   </hops>
   <notepads>
     <notepad>
-      <note>Job Principal: job_auditoria_masivo.kjb
+      <note>PASO 00.
+Job Principal: job_auditoria_masivo.kjb
 Este Job será el director de orquesta.
              EMPETRADO
 </note>
       <xloc>189</xloc>
       <yloc>20</yloc>
       <width>356</width>
-      <heigth>113</heigth>
+      <heigth>139</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>14</fontsize>
       <fontbold>Y</fontbold>

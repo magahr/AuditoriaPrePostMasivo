@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_cargar_integracion_municipio - TIPO_B</name>
+    <name>trans_cargar_integracion_municipio</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -21,7 +21,7 @@
       </parameter>
       <parameter>
         <name>AUDIT_DATA_INPUT_DIR_Paso01\input</name>
-        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso01\input\TIPO_B</default_value>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso01\input</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -491,16 +491,14 @@
   </info>
   <notepads>
     <notepad>
-      <note>2.3.- Transformation - trans_obtener_municipios_TIPO_B:  
-Propósito: Cargar todas los archivos en excel correspondiente
-                   a las integraciones anteriores de los municipios Foráneos,
-                  para luego colocarlos en las plantillas de auditoría de la 
-                  forma Rep.
-</note>
-      <xloc>384</xloc>
-      <yloc>64</yloc>
-      <width>382</width>
-      <heigth>105</heigth>
+      <note>2.3.- trans_cargar_integracion_municipio.ktr
+Propósito: Esta transformación será ejecutada 
+repetidamente por  el Job principal (una vez por 
+cada municipio).</note>
+      <xloc>400</xloc>
+      <yloc>96</yloc>
+      <width>280</width>
+      <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>Y</fontbold>
@@ -508,7 +506,7 @@ Propósito: Cargar todas los archivos en excel correspondiente
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>255</backgroundcolorgreen>
       <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
@@ -517,62 +515,12 @@ Propósito: Cargar todas los archivos en excel correspondiente
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.1  Get variables - Obtener Variables de Entorno 
-Propósito: Cargar a la transformación todas las variables
-                  de entorno ya sea las que están en el archivo 
-                  ketle.properties o las de inicio.
-</note>
-      <xloc>16</xloc>
-      <yloc>192</yloc>
-      <width>306</width>
-      <heigth>89</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.2   Fórmula - Forma Ruta y Nombre Archivo Entrada 
-Propósito: Armar las rutas y nombres de archivos 
-                  correspondientes.  Dependiendo de los 
-                  municipios y las fechas de procesamiento.
-</note>
-      <xloc>0</xloc>
-      <yloc>464</yloc>
-      <width>306</width>
-      <heigth>89</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.3   File exists - Existencias de Archivo 
-Propósito: Detectar si existe o no el archivo 
-                   de integración que se intenta subir. </note>
-      <xloc>384</xloc>
-      <yloc>224</yloc>
-      <width>256</width>
+      <note>Recuerda los parametros que pusistes en la transformacion en las propiedades de la transformacion
+${PARAM_NUMERO_HOJA}, PARAM_NOMBRE_HOJA_ENTRADA que esta en las propiedades de la transformatiocn 
+${PARAM_NOMBRE_HOJA_ENTRADA}</note>
+      <xloc>304</xloc>
+      <yloc>32</yloc>
+      <width>614</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -581,202 +529,9 @@ Propósito: Detectar si existe o no el archivo
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.4   Switch / case Existencias de Archivo 
-Propósito: Detener el flujo si el archivo de  entrada las
-                   integraciones anteriores no existen. </note>
-      <xloc>192</xloc>
-      <yloc>688</yloc>
-      <width>292</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.5   Microsoft Excel input - Archivo de Entrada Tipo B Foráneos
-Propósito: Carga de la data de entrada, las integraciones anteriores
-                   de los diferentes municipios, que se trabajaron.
-</note>
-      <xloc>832</xloc>
-      <yloc>592</yloc>
-      <width>361</width>
-      <heigth>73</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.7   Select values  - Reorganize fields Tipo B Foráneos
-Propósito: Reorganización de los diferentes campos para
-                   adaptarlos a las plantillas de salida Rep.</note>
-      <xloc>1264</xloc>
-      <yloc>608</yloc>
-      <width>309</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.6   Add constants - add aditionals fields - Tipo B Foráneos
-Propósito: Se agregan campos adicionales a proceso de carga
-                  para que corresponda con las columnas de la plantilla 
-                  de salida, en este caso los Rep.
-</note>
-      <xloc>1008</xloc>
-      <yloc>208</yloc>
-      <width>351</width>
-      <heigth>89</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.8   Microsoft Excel writer - Tipo B Foráneos 
-Propósito: Generación de los archivos de salida Excel
-                   con la data que viene de los pasos anteriores 
-                   y con las variables de entorno ya actualizadas.
-</note>
-      <xloc>1424</xloc>
-      <yloc>208</yloc>
-      <width>308</width>
-      <heigth>89</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.9  Get variables - Obtener Nuevas Variables de Entorno 
-Propósito: Cargar a la transformación todas las variables de
-                   entorno ya sea las que están en el archivo
-                   ketle.properties o las de inicio, nuevamente.
-</note>
-      <xloc>1600</xloc>
-      <yloc>608</yloc>
-      <width>322</width>
-      <heigth>89</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.10   Formula - Forma Ruta y Nombre Archivo Salida 
-Propósito: Armar las rutas y nombres de archivos correspondientes
-                  de Salida. Dependiendo de los municipios y las fechas de 
-                   procesamiento.
-</note>
-      <xloc>1792</xloc>
-      <yloc>208</yloc>
-      <width>367</width>
-      <heigth>89</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.11   Set variables 
-Propósito: Establecer las variables ya obtenidas 
-                   para hacer uso en los job correspondientes.</note>
-      <xloc>1984</xloc>
-      <yloc>624</yloc>
-      <width>295</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -796,7 +551,7 @@ Propósito: Establecer las variables ya obtenidas
     </hop>
     <hop>
       <from>Set variables</from>
-      <to>Write to log - Archivo Final TIPO_B</to>
+      <to>Write to log - Archivo Final</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -815,6 +570,11 @@ Propósito: Establecer las variables ya obtenidas
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Write to log - Valores Despues de la formula Entrada</from>
+      <to>Switch / case - Tipo de Municipio</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>File exists - Existencias de Archivo</from>
       <to>Switch / case Existencias de Archivo</to>
       <enabled>Y</enabled>
@@ -830,6 +590,11 @@ Propósito: Establecer las variables ya obtenidas
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Switch / case - Tipo de Municipio</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Add constants - add aditionals fields Tipo B Fonáneos</from>
       <to>Select values  -Reorganize fields Tipo B Fonáneos</to>
       <enabled>Y</enabled>
@@ -837,6 +602,16 @@ Propósito: Establecer las variables ya obtenidas
     <hop>
       <from>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</from>
       <to>Add constants - add aditionals fields Tipo B Fonáneos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Switch / case - Tipo de Municipio</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -854,15 +629,10 @@ Propósito: Establecer las variables ya obtenidas
       <to>Microsoft Excel writer - Tipo B Foráneos</to>
       <enabled>Y</enabled>
     </hop>
-    <hop>
-      <from>Write to log - Valores Despues de la formula Entrada</from>
-      <to>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
   <step>
-    <name>Add constants - add aditionals fields Tipo B Fonáneos</name>
-    <type>Constant</type>
+    <name>Dummy (do nothing)</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -871,56 +641,6 @@ Propósito: Establecer las variables ya obtenidas
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>Fecha Documento</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Fecha Contabilizacion</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CNAE</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>FeCreCliente</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -930,8 +650,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1184</xloc>
-      <yloc>320</yloc>
+      <xloc>784</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -956,7 +676,7 @@ Propósito: Establecer las variables ya obtenidas
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
-      <yloc>1008</yloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -991,50 +711,6 @@ Propósito: Establecer las variables ya obtenidas
     </GUI>
   </step>
   <step>
-    <name>Filter rows 3</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Write to log - Valores Despues de la formula Entrada</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>existe_archivo</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Boolean</type>
-          <text>Y</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>496</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Formula - Forma Ruta y Nombre Archivo Entrada</name>
     <type>Formula</type>
     <description/>
@@ -1047,7 +723,7 @@ Propósito: Establecer las variables ya obtenidas
     </partitioning>
     <formula>
       <field_name>ruta_archivo_excel</field_name>
-      <formula_string>[ruta_base_input_dir] &amp; "\" &amp; [nombre_fijo_entrada] &amp; [municipio] &amp; "_Periodo_Desde_" &amp; [mes_anio_desde] &amp; "_hasta_" &amp; [mes_anio_desde] &amp; ".xlsx" </formula_string>
+      <formula_string>[ruta_base_input_dir] &amp; "\" &amp; [nombre_fijo_entrada] &amp; [municipio] &amp; "_Periodo_Desde_" &amp; [mes_anio_desde] &amp; "_hasta_" &amp; [mes_anio_hasta] &amp; ".xlsx" </formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -1063,7 +739,7 @@ Propósito: Establecer las variables ya obtenidas
     </remotesteps>
     <GUI>
       <xloc>320</xloc>
-      <yloc>560</yloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1095,7 +771,7 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1968</xloc>
+      <xloc>1904</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1482,7 +1158,7 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1760</xloc>
+      <xloc>1712</xloc>
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1719,6 +1395,419 @@ Propósito: Establecer las variables ya obtenidas
     </GUI>
   </step>
   <step>
+    <name>Set variables</name>
+    <type>SetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <field_name>ruta_archivo_salida_final</field_name>
+        <variable_name>RUTA_ARCHIVO_FINAL</variable_name>
+        <variable_type>JVM</variable_type>
+        <default_value/>
+      </field>
+    </fields>
+    <use_formatting>Y</use_formatting>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1904</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Switch / case - Tipo de Municipio</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>tipo_plantilla</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step>Dummy (do nothing)</default_target_step>
+    <cases>
+      <case>
+        <value>TIPO_B</value>
+        <target_step>Filter rows</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Switch / case Existencias de Archivo</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fieldname>existe_archivo</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
+    <default_target_step>Write to log - No existe el archivo</default_target_step>
+    <cases>
+      <case>
+        <value>Y</value>
+        <target_step>Filter rows 3</target_step>
+      </case>
+      <case>
+        <value>N</value>
+        <target_step>Write to log - No existe el archivo</target_step>
+      </case>
+    </cases>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - Archivo Final</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>ruta_archivo_salida_final</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1712</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - Despues del get variables</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>ruta_base_input_dir</name>
+      </field>
+      <field>
+        <name>municipio</name>
+      </field>
+      <field>
+        <name>numero_hoja_individual</name>
+      </field>
+      <field>
+        <name>nombre_fijo_entrada</name>
+      </field>
+      <field>
+        <name>hojas_a_leer</name>
+      </field>
+      <field>
+        <name>columnas_mapeo_entrada</name>
+      </field>
+      <field>
+        <name>nombre_fijo_salida</name>
+      </field>
+      <field>
+        <name>hoja_destino_nombre_prefijo</name>
+      </field>
+      <field>
+        <name>hoja_destino_posicion</name>
+      </field>
+      <field>
+        <name>numero_hoja_lectura</name>
+      </field>
+      <field>
+        <name>mes_anio_desde</name>
+      </field>
+      <field>
+        <name>mes_anio_hasta</name>
+      </field>
+      <field>
+        <name>nombre_hoja_entrada</name>
+      </field>
+      <field>
+        <name>tipo_plantilla</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - No existe el archivo</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>No Existe este archivo, en la ruta indicada</logmessage>
+    <fields>
+      <field>
+        <name>ruta_archivo_excel</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - Valores Despues de la formula Entrada</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>ruta_base_input_dir</name>
+      </field>
+      <field>
+        <name>municipio</name>
+      </field>
+      <field>
+        <name>numero_hoja_individual</name>
+      </field>
+      <field>
+        <name>nombre_fijo_entrada</name>
+      </field>
+      <field>
+        <name>hojas_a_leer</name>
+      </field>
+      <field>
+        <name>columnas_mapeo_entrada</name>
+      </field>
+      <field>
+        <name>nombre_fijo_salida</name>
+      </field>
+      <field>
+        <name>hoja_destino_nombre_prefijo</name>
+      </field>
+      <field>
+        <name>hoja_destino_posicion</name>
+      </field>
+      <field>
+        <name>numero_hoja_lectura</name>
+      </field>
+      <field>
+        <name>mes_anio_desde</name>
+      </field>
+      <field>
+        <name>mes_anio_hasta</name>
+      </field>
+      <field>
+        <name>nombre_hoja_entrada</name>
+      </field>
+      <field>
+        <name>ruta_archivo_excel</name>
+      </field>
+      <field>
+        <name>tipo_plantilla</name>
+      </field>
+      <field>
+        <name>existe_archivo</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add constants - add aditionals fields Tipo B Fonáneos</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Fecha Documento</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>CNAE</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</name>
     <type>ExcelInput</type>
     <description/>
@@ -1743,7 +1832,7 @@ Propósito: Establecer las variables ya obtenidas
     <add_to_result_filenames>Y</add_to_result_filenames>
     <accept_filenames>Y</accept_filenames>
     <accept_field>ruta_archivo_excel</accept_field>
-    <accept_stepname>Write to log - Valores Despues de la formula Entrada</accept_stepname>
+    <accept_stepname>Filter rows</accept_stepname>
     <file>
       <name/>
       <filemask/>
@@ -1836,8 +1925,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
-      <yloc>512</yloc>
+      <xloc>1056</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1985,8 +2074,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1552</xloc>
-      <yloc>320</yloc>
+      <xloc>1488</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2057,8 +2146,8 @@ Propósito: Establecer las variables ya obtenidas
     </GUI>
   </step>
   <step>
-    <name>Set variables</name>
-    <type>SetVariable</type>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2067,15 +2156,25 @@ Propósito: Establecer las variables ya obtenidas
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <field_name>ruta_archivo_salida_final</field_name>
-        <variable_name>RUTA_ARCHIVO_FINAL</variable_name>
-        <variable_type>JVM</variable_type>
-        <default_value/>
-      </field>
-    </fields>
-    <use_formatting>Y</use_formatting>
+    <send_true_to>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>tipo_plantilla</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>TIPO_B</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2085,14 +2184,14 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2080</xloc>
-      <yloc>528</yloc>
+      <xloc>912</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Switch / case Existencias de Archivo</name>
-    <type>SwitchCase</type>
+    <name>Filter rows 3</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2101,23 +2200,25 @@ Propósito: Establecer las variables ya obtenidas
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fieldname>existe_archivo</fieldname>
-    <use_contains>N</use_contains>
-    <case_value_type>String</case_value_type>
-    <case_value_format/>
-    <case_value_decimal/>
-    <case_value_group/>
-    <default_target_step>Write to log - No existe el archivo</default_target_step>
-    <cases>
-      <case>
-        <value>Y</value>
-        <target_step>Filter rows 3</target_step>
-      </case>
-      <case>
-        <value>N</value>
-        <target_step>Write to log - No existe el archivo</target_step>
-      </case>
-    </cases>
+    <send_true_to>Write to log - Valores Despues de la formula Entrada</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>existe_archivo</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Boolean</type>
+          <text>Y</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2127,232 +2228,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
-      <yloc>720</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log - Archivo Final TIPO_B</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
-    <fields>
-      <field>
-        <name>ruta_archivo_salida_final</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>2320</xloc>
-      <yloc>528</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log - Despues del get variables</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
-    <fields>
-      <field>
-        <name>ruta_base_input_dir</name>
-      </field>
-      <field>
-        <name>municipio</name>
-      </field>
-      <field>
-        <name>numero_hoja_individual</name>
-      </field>
-      <field>
-        <name>nombre_fijo_entrada</name>
-      </field>
-      <field>
-        <name>hojas_a_leer</name>
-      </field>
-      <field>
-        <name>columnas_mapeo_entrada</name>
-      </field>
-      <field>
-        <name>nombre_fijo_salida</name>
-      </field>
-      <field>
-        <name>hoja_destino_nombre_prefijo</name>
-      </field>
-      <field>
-        <name>hoja_destino_posicion</name>
-      </field>
-      <field>
-        <name>numero_hoja_lectura</name>
-      </field>
-      <field>
-        <name>mes_anio_desde</name>
-      </field>
-      <field>
-        <name>mes_anio_hasta</name>
-      </field>
-      <field>
-        <name>nombre_hoja_entrada</name>
-      </field>
-      <field>
-        <name>tipo_plantilla</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log - No existe el archivo</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage>No Existe este archivo, en la ruta indicada</logmessage>
-    <fields>
-      <field>
-        <name>ruta_archivo_excel</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>528</xloc>
-      <yloc>880</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write to log - Valores Despues de la formula Entrada</name>
-    <type>WriteToLog</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <loglevel>log_level_basic</loglevel>
-    <displayHeader>Y</displayHeader>
-    <limitRows>N</limitRows>
-    <limitRowsNumber>0</limitRowsNumber>
-    <logmessage/>
-    <fields>
-      <field>
-        <name>ruta_base_input_dir</name>
-      </field>
-      <field>
-        <name>municipio</name>
-      </field>
-      <field>
-        <name>numero_hoja_individual</name>
-      </field>
-      <field>
-        <name>nombre_fijo_entrada</name>
-      </field>
-      <field>
-        <name>hojas_a_leer</name>
-      </field>
-      <field>
-        <name>columnas_mapeo_entrada</name>
-      </field>
-      <field>
-        <name>nombre_fijo_salida</name>
-      </field>
-      <field>
-        <name>hoja_destino_nombre_prefijo</name>
-      </field>
-      <field>
-        <name>hoja_destino_posicion</name>
-      </field>
-      <field>
-        <name>numero_hoja_lectura</name>
-      </field>
-      <field>
-        <name>mes_anio_desde</name>
-      </field>
-      <field>
-        <name>mes_anio_hasta</name>
-      </field>
-      <field>
-        <name>nombre_hoja_entrada</name>
-      </field>
-      <field>
-        <name>ruta_archivo_excel</name>
-      </field>
-      <field>
-        <name>tipo_plantilla</name>
-      </field>
-      <field>
-        <name>existe_archivo</name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>784</xloc>
-      <yloc>320</yloc>
+      <xloc>656</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

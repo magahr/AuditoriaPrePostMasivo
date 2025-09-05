@@ -10,18 +10,18 @@
     <directory>/</directory>
     <parameters>
       <parameter>
-        <name>AUDIT_DATA_INPUT_DIR_Paso01</name>
-        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso01</default_value>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02</default_value>
         <description/>
       </parameter>
       <parameter>
-        <name>AUDIT_DATA_INPUT_DIR_Paso01\Plantillas</name>
-        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso01\Plantillas</default_value>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02\Plantillas</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02\Plantillas</default_value>
         <description/>
       </parameter>
       <parameter>
-        <name>AUDIT_DATA_INPUT_DIR_Paso01\input</name>
-        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso01\input\TIPO_B</default_value>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02\input</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02\input\TIPO_B</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -36,7 +36,7 @@
       </parameter>
       <parameter>
         <name>PARAM_HOJA_DESTINO_NOMBRE_PREFIJO</name>
-        <default_value>2.-Anterior </default_value>
+        <default_value>1.- Actual </default_value>
         <description>Prefijo del nombre de la hoja de destino (2.-Anterior)</description>
       </parameter>
       <parameter>
@@ -62,6 +62,11 @@
       <parameter>
         <name>PARAM_NUMERO_HOJA</name>
         <default_value>1</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>PARAM_PLANTILLA</name>
+        <default_value>TIPO_B</default_value>
         <description/>
       </parameter>
     </parameters>
@@ -491,7 +496,8 @@
   </info>
   <notepads>
     <notepad>
-      <note>2.3.- Transformation - trans_obtener_municipios_TIPO_B:  
+      <note>PASO 02.
+2.3.- Transformation - trans_obtener_municipios_TIPO_B:  
 Propósito: Cargar todas los archivos en excel correspondiente
                    a las integraciones anteriores de los municipios Foráneos,
                   para luego colocarlos en las plantillas de auditoría de la 
@@ -500,7 +506,7 @@ Propósito: Cargar todas los archivos en excel correspondiente
       <xloc>384</xloc>
       <yloc>64</yloc>
       <width>382</width>
-      <heigth>105</heigth>
+      <heigth>121</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>Y</fontbold>
@@ -508,9 +514,9 @@ Propósito: Cargar todas los archivos en excel correspondiente
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -534,8 +540,8 @@ Propósito: Cargar a la transformación todas las variables
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -559,8 +565,8 @@ Propósito: Armar las rutas y nombres de archivos
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -582,8 +588,8 @@ Propósito: Detectar si existe o no el archivo
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -605,8 +611,8 @@ Propósito: Detener el flujo si el archivo de  entrada las
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -629,8 +635,8 @@ Propósito: Carga de la data de entrada, las integraciones anteriores
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -652,8 +658,8 @@ Propósito: Reorganización de los diferentes campos para
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -677,8 +683,8 @@ Propósito: Se agregan campos adicionales a proceso de carga
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -702,8 +708,8 @@ Propósito: Generación de los archivos de salida Excel
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -727,8 +733,8 @@ Propósito: Cargar a la transformación todas las variables de
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -752,8 +758,8 @@ Propósito: Armar las rutas y nombres de archivos correspondientes
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -775,8 +781,8 @@ Propósito: Establecer las variables ya obtenidas
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -1047,7 +1053,7 @@ Propósito: Establecer las variables ya obtenidas
     </partitioning>
     <formula>
       <field_name>ruta_archivo_excel</field_name>
-      <formula_string>[ruta_base_input_dir] &amp; "\" &amp; [nombre_fijo_entrada] &amp; [municipio] &amp; "_Periodo_Desde_" &amp; [mes_anio_desde] &amp; "_hasta_" &amp; [mes_anio_desde] &amp; ".xlsx" </formula_string>
+      <formula_string>[ruta_base_input_dir] &amp; "\" &amp; [nombre_fijo_entrada] &amp; [municipio] &amp; "_Periodo_Desde_" &amp; [mes_anio_hasta] &amp; "_hasta_" &amp; [mes_anio_hasta] &amp; ".xlsx" </formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -1080,7 +1086,7 @@ Propósito: Establecer las variables ya obtenidas
     </partitioning>
     <formula>
       <field_name>ruta_archivo_salida_final</field_name>
-      <formula_string>[AUDIT_DATA_OUTPUT_DIR_Paso01] &amp; "/" &amp; [PARAM_NOMBRE_FIJO_SALIDA] &amp; [PARAM_MUNICIPIO] &amp; "_Periodo_Desde_" &amp; [PARAM_MES_ANIO_DESDE] &amp; "_hasta_" &amp; [PARAM_MES_ANIO_HASTA] &amp; ".xlsx"</formula_string>
+      <formula_string>[AUDIT_DATA_OUTPUT_DIR_Paso02] &amp; "/" &amp; [PARAM_NOMBRE_FIJO_SALIDA] &amp; [PARAM_MUNICIPIO] &amp; "_Periodo_Desde_" &amp; [PARAM_MES_ANIO_DESDE] &amp; "_hasta_" &amp; [PARAM_MES_ANIO_HASTA] &amp; ".xlsx"</formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -1137,8 +1143,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_INPUT_DIR_Paso01</name>
-        <variable>${AUDIT_DATA_INPUT_DIR_Paso01}</variable>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso02}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1149,8 +1155,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_INPUT_DIR_Paso01\Plantillas</name>
-        <variable>${AUDIT_DATA_INPUT_DIR_Paso01\Plantillas}</variable>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02\Plantillas</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso02\Plantillas}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1161,8 +1167,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_INPUT_DIR_Paso01\input</name>
-        <variable>${AUDIT_DATA_INPUT_DIR_Paso01\input}</variable>
+        <name>AUDIT_DATA_INPUT_DIR_Paso02\input</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso02\input}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1197,8 +1203,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_OUTPUT_DIR_Paso01</name>
-        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso01}</variable>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso02</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso02}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1245,8 +1251,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_JOBS_DIR_Paso01</name>
-        <variable>${AUDIT_JOBS_DIR_Paso01}</variable>
+        <name>AUDIT_JOBS_DIR_Paso02</name>
+        <variable>${AUDIT_JOBS_DIR_Paso02}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1281,8 +1287,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_TRANS_DIR_Paso01</name>
-        <variable>${AUDIT_TRANS_DIR_Paso01}</variable>
+        <name>AUDIT_TRANS_DIR_Paso02</name>
+        <variable>${AUDIT_TRANS_DIR_Paso02}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1501,7 +1507,7 @@ Propósito: Establecer las variables ya obtenidas
     <fields>
       <field>
         <name>ruta_base_input_dir</name>
-        <variable>${AUDIT_DATA_INPUT_DIR_Paso01\input}</variable>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso02\input}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1513,7 +1519,7 @@ Propósito: Establecer las variables ya obtenidas
       </field>
       <field>
         <name>ruta_base_output_dir</name>
-        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso01}</variable>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso02}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1865,7 +1871,7 @@ Propósito: Establecer las variables ya obtenidas
     <appendLines>N</appendLines>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR_Paso01}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}_Periodo_Desde_${PARAM_MES_ANIO_DESDE}_hasta_${PARAM_MES_ANIO_HASTA}</name>
+      <name>${AUDIT_DATA_OUTPUT_DIR_Paso02}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}_Periodo_Desde_${PARAM_MES_ANIO_DESDE}_hasta_${PARAM_MES_ANIO_HASTA}</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
@@ -1873,7 +1879,7 @@ Propósito: Establecer las variables ya obtenidas
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
-      <sheetname>${PARAM_HOJA_DESTINO_NOMBRE_PREFIJO}${PARAM_HOJA_MES_ANIO_DESDE}</sheetname>
+      <sheetname>${PARAM_HOJA_DESTINO_NOMBRE_PREFIJO}${PARAM_HOJA_MES_ANIO_HASTA}</sheetname>
       <autosizecolums>N</autosizecolums>
       <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
@@ -1886,7 +1892,7 @@ Propósito: Establecer las variables ya obtenidas
     <template>
       <enabled>Y</enabled>
       <sheet_enabled>Y</sheet_enabled>
-      <filename>${AUDIT_DATA_INPUT_DIR_Paso01\Plantillas}/NO_BORRAR_Rep_Auditoria_ABM.xlsx</filename>
+      <filename>${AUDIT_DATA_INPUT_DIR_Paso02\Plantillas}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}_Periodo_Desde_${PARAM_MES_ANIO_DESDE}_hasta_${PARAM_MES_ANIO_HASTA}.xlsx</filename>
       <sheetname/>
       <hidden>N</hidden>
     </template>

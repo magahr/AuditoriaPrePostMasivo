@@ -616,6 +616,11 @@ Propósito: Filtrar el nombre de la empresa para
       <to>Microsoft Excel Writer - Salida Final - Chacao</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Filter rows - Filtrar por Empresa Hatillo</from>
+      <to>Write to log - NO PUDE GENERAR HATILLO</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Filter rows - Baruta</name>
@@ -717,7 +722,7 @@ Propósito: Filtrar el nombre de la empresa para
       <schema_name/>
     </partitioning>
     <send_true_to>Write to log - Hatillo</send_true_to>
-    <send_false_to/>
+    <send_false_to>Write to log - NO PUDE GENERAR HATILLO</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
@@ -1019,11 +1024,11 @@ Propósito: Filtrar el nombre de la empresa para
     <appendLines>N</appendLines>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR}/Resultado_Auditoria_Baruta</name>
+      <name>${AUDIT_DATA_OUTPUT_DIR}/VOG_Facturacion_ARMONIZADO_Baruta</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
-      <add_date>Y</add_date>
+      <add_date>N</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
@@ -1323,7 +1328,7 @@ Propósito: Filtrar el nombre de la empresa para
       </field>
       <field>
         <name>UDCD</name>
-        <type>String</type>
+        <type>Integer</type>
         <format/>
         <title>UDCD</title>
         <titleStyleCell/>
@@ -1612,11 +1617,11 @@ Propósito: Filtrar el nombre de la empresa para
     <appendLines>N</appendLines>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR}/Resultado_Auditoria_Chacao</name>
+      <name>${AUDIT_DATA_OUTPUT_DIR}/VOG_Facturacion_ARMONIZADO_Chacao</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
-      <add_date>Y</add_date>
+      <add_date>N</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
@@ -2205,11 +2210,11 @@ Propósito: Filtrar el nombre de la empresa para
     <appendLines>N</appendLines>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR}/Resultado_Auditoria_Hatillo</name>
+      <name>${AUDIT_DATA_OUTPUT_DIR}/VOG_Facturacion_ARMONIZADO_Hatillo</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
-      <add_date>Y</add_date>
+      <add_date>N</add_date>
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
@@ -2509,7 +2514,7 @@ Propósito: Filtrar el nombre de la empresa para
       </field>
       <field>
         <name>UDCD</name>
-        <type>String</type>
+        <type>Integer</type>
         <format/>
         <title>UDCD</title>
         <titleStyleCell/>
@@ -3052,14 +3057,14 @@ Propósito: Filtrar el nombre de la empresa para
       <field>
         <name>Suspendido</name>
         <type>Integer</type>
-        <format>#</format>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>15</length>
+        <length>-1</length>
         <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
@@ -3156,7 +3161,7 @@ Propósito: Filtrar el nombre de la empresa para
       </field>
       <field>
         <name>UDCD</name>
-        <type>String</type>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
@@ -3164,8 +3169,8 @@ Propósito: Filtrar el nombre de la empresa para
         <nullif>-</nullif>
         <ifnull/>
         <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
+        <length>30</length>
+        <precision>0</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
@@ -3641,6 +3646,38 @@ Propósito: Filtrar el nombre de la empresa para
     <GUI>
       <xloc>560</xloc>
       <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - NO PUDE GENERAR HATILLO</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

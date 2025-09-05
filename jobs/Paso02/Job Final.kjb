@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>job_auditoria_masivo</name>
+  <name>Job Final</name>
   <description/>
   <extended_description/>
   <job_version/>
-  <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
-  <created_date>2025/06/18 21:05:49.964</created_date>
+  <created_date>2025/08/09 21:12:32.694</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2025/06/18 21:05:49.964</modified_date>
+  <modified_date>2025/08/09 21:12:32.694</modified_date>
   <parameters>
-    <parameter>
-      <name>${AUDIT_DATA_INPUT_DIR}</name>
-      <default_value/>
-      <description/>
-    </parameter>
-  </parameters>
+    </parameters>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -293,6 +287,43 @@
   <shared_objects_file/>
   <entries>
     <entry>
+      <name>Job - Job_TIPO_A</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${AUDIT_JOBS_DIR_Paso02}/Job_TIPO_A.kjb</filename>
+      <jobname/>
+      <directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>400</xloc>
+      <yloc>272</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
       <name>Start</name>
       <description/>
       <type>SPECIAL</type>
@@ -310,8 +341,94 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>48</xloc>
-      <yloc>336</yloc>
+      <xloc>80</xloc>
+      <yloc>128</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>240</xloc>
+      <yloc>720</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Job - Job_TIPO_B</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${AUDIT_JOBS_DIR_Paso02}/Job_TIPO_B.kjb</filename>
+      <jobname/>
+      <directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>1</nr>
+      <xloc>400</xloc>
+      <yloc>416</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Job - Job_Recalculo_Excel</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${AUDIT_JOBS_DIR_Paso02}/Job_Recalculo_Excel.kjb</filename>
+      <jobname/>
+      <directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>400</xloc>
+      <yloc>560</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -324,208 +441,35 @@
       <file_variable_type>JVM</file_variable_type>
       <fields>
         <field>
-          <variable_name>VAR_TASAS_FILENAME</variable_name>
-          <variable_value>${AUDIT_VAR_TASAS_FILENAME}</variable_value>
-          <variable_type>JVM</variable_type>
+          <variable_name>PARAM_HOJA_MES_ANIO_DESDE</variable_name>
+          <variable_value>JUNIO2025</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
-          <variable_name>VAR_FACTURACION_FILENAME_PATTERN</variable_name>
-          <variable_value>${AUDIT_FACTURACION_FILENAME_PATTERN}</variable_value>
-          <variable_type>JVM</variable_type>
+          <variable_name>PARAM_HOJA_MES_ANIO_HASTA</variable_name>
+          <variable_value>JULIO2025</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
-          <variable_name>FULL_PATH_FACTURACION_EXCEL</variable_name>
-          <variable_value>${FULL_PATH_FACTURACION_EXCEL}</variable_value>
-          <variable_type>JVM</variable_type>
+          <variable_name>PARAM_MES_ANIO_DESDE</variable_name>
+          <variable_value>JUNIO_2025</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
-          <variable_name>FULL_PATH_EXCEL_OUTPUT</variable_name>
-          <variable_value>"${AUDIT_DATA_OUTPUT_DIR}/Resultados_Auditoria_Facturas_Proformas_" + [nombre_empresa] + ".xlsx"</variable_value>
-          <variable_type>JVM</variable_type>
+          <variable_name>PARAM_MES_ANIO_HASTA</variable_name>
+          <variable_value>JULIO_2025</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>176</xloc>
-      <yloc>336</yloc>
+      <xloc>400</xloc>
+      <yloc>128</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Transformation - trans_find_facturacion_file</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_find_facturacion_file.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>336</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Transformation - trans_get_exchange_rates</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_get_exchange_rates.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>496</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Transformation -trans_process_invoices_and_proformas.ktr</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_process_invoices_and_proformas.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>624</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Success</name>
-      <description/>
-      <type>SUCCESS</type>
-      <attributes/>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>176</xloc>
-      <yloc>896</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Transformation -trans_write_results_to_excel_02</name>
-      <description/>
-      <type>TRANS</type>
-      <attributes/>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>${AUDIT_TRANS_DIR}/trans_write_results_to_excel_02.ktr</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-        <parameter>
-          <name>FULL_PATH_EXCEL_OUTPUT</name>
-          <stream_name>FULL_PATH_EXCEL_OUTPUT</stream_name>
-          <value/>
-        </parameter>
-      </parameters>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>1</nr>
-      <xloc>416</xloc>
-      <yloc>896</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Shell 2</name>
+      <name>Shell</name>
       <description/>
       <type>SHELL</type>
       <attributes/>
@@ -540,17 +484,35 @@
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>mshta javascript:alert("El proceso de Aditoria Masivo - Paso00 -EMPETRADO Caracas -  ha finalizado con EXITO!");window.close();</script>
+      <script>mshta javascript:alert("El proceso de Aditoria Masivo - Paso02 -CARGA DE  INTEGRACIONES ACTUALES -  ha finalizado con EXITO!");window.close();</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>1024</yloc>
+      <xloc>400</xloc>
+      <yloc>720</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
+    <hop>
+      <from>Job - Job_TIPO_A</from>
+      <to>Job - Job_TIPO_B</to>
+      <from_nr>0</from_nr>
+      <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Job - Job_TIPO_B</from>
+      <to>Job - Job_Recalculo_Excel</to>
+      <from_nr>1</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
     <hop>
       <from>Start</from>
       <to>Set variables</to>
@@ -562,7 +524,7 @@
     </hop>
     <hop>
       <from>Set variables</from>
-      <to>Transformation - trans_find_facturacion_file</to>
+      <to>Job - Job_TIPO_A</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -570,8 +532,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation - trans_find_facturacion_file</from>
-      <to>Transformation - trans_get_exchange_rates</to>
+      <from>Job - Job_Recalculo_Excel</from>
+      <to>Shell</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -579,36 +541,9 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Transformation - trans_get_exchange_rates</from>
-      <to>Transformation -trans_process_invoices_and_proformas.ktr</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Transformation -trans_process_invoices_and_proformas.ktr</from>
-      <to>Transformation -trans_write_results_to_excel_02</to>
-      <from_nr>0</from_nr>
-      <to_nr>1</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Shell 2</from>
+      <from>Shell</from>
       <to>Success</to>
       <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Transformation -trans_write_results_to_excel_02</from>
-      <to>Shell 2</to>
-      <from_nr>1</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
@@ -617,40 +552,35 @@
   </hops>
   <notepads>
     <notepad>
-      <note>Job Principal: job_auditoria_masivo.kjb
-Este Job será el director de orquesta.
-             EMPETRADO
-</note>
-      <xloc>189</xloc>
-      <yloc>20</yloc>
-      <width>356</width>
-      <heigth>113</heigth>
+      <note>PASO02
+2.1.- Job (Job Final.kjb)
+Propósito: Orquestador de todos los job del proyecto</note>
+      <xloc>336</xloc>
+      <yloc>32</yloc>
+      <width>302</width>
+      <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
-      <fontsize>14</fontsize>
+      <fontsize>9</fontsize>
       <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>Set Variables
-Propósito: Aquí puedes definir variables a 
-nivel de Job que se usarán en  las
- transformaciones y pasos posteriores.
-
-</note>
-      <xloc>128</xloc>
-      <yloc>208</yloc>
-      <width>232</width>
-      <heigth>104</heigth>
+      <note>2.1.1  Set variables - Definir Parámetros del Job
+Propósito: Definir los parámetros iniciales.</note>
+      <xloc>480</xloc>
+      <yloc>128</yloc>
+      <width>255</width>
+      <heigth>42</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -659,51 +589,21 @@ nivel de Job que se usarán en  las
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>192</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3 Transformación trans_find_facturacion_file.ktr
- (Buscar el archivo de facturación)
-Propósito:
-Obtener la ruta del directorio donde se está ejecutando 
-el Job principal.
-Buscar el archivo de facturación dentro de ese directorio
- utilizando un patrón de nombre.
-Establecer la ruta completa del archivo encontrado como
- una variable de entorno para que el Job principal pueda usarla.
-</note>
-      <xloc>592</xloc>
-      <yloc>224</yloc>
-      <width>342</width>
-      <heigth>169</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.4 Transformación trans_get_exchange_rates.ktr 
-(Obtener y Preparar Tasas)
- Propósito: Leer el archivo Consulta_TasaCambio.xlsx y 
-                    preparar las tasas para una búsqueda eficiente.</note>
-      <xloc>592</xloc>
-      <yloc>480</yloc>
-      <width>315</width>
+      <note>2.1.2  Job - Job_TIPO_A - 
+Propósito: Ejecución de las transformaciones del 
+                   grupo de municipios del Grupo  TIPO_A
+                   (Caracas)</note>
+      <xloc>48</xloc>
+      <yloc>256</yloc>
+      <width>276</width>
       <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -712,8 +612,8 @@ Establecer la ruta completa del archivo encontrado como
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
@@ -721,19 +621,14 @@ Establecer la ruta completa del archivo encontrado como
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.5 Transformación trans_process_invoices_and_proformas.ktr
- (Procesar y Calcular)
-Propósito:Esta transformación es responsable de leer los datos 
-                 de facturas y proformas desde un archivo Excel, leer 
-                 las tasas de cambio depuradas desde un archivo
-                CSV temporal, buscar la tasa de cambio aplicable a 
-                 cada documento y preparar los datos para cálculos 
-                 de auditoría posteriores.
-</note>
-      <xloc>592</xloc>
-      <yloc>624</yloc>
-      <width>341</width>
-      <heigth>153</heigth>
+      <note>2.1.3  Job - Job_TIPO_B - 
+Propósito: Ejecución de las transformaciones del 
+                   grupo de municipios del Grupo  TIPO_B
+                   (Foráneos)</note>
+      <xloc>48</xloc>
+      <yloc>384</yloc>
+      <width>275</width>
+      <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -741,8 +636,8 @@ Propósito:Esta transformación es responsable de leer los datos
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
@@ -750,15 +645,14 @@ Propósito:Esta transformación es responsable de leer los datos
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.6 Transformación: trans_write_results_to_excel.ktr
- (Escribir en Excel Temporal):
-Propósito: Tomar los datos procesados y escribirlos en 
-                    un nuevo archivo Excel temporal.
-</note>
-      <xloc>592</xloc>
-      <yloc>848</yloc>
-      <width>298</width>
-      <heigth>89</heigth>
+      <note>2.1.4  Job - Job_Recalculo_Excel -
+Propósito: Ejecución de las transformaciones para
+                   el recalculo de todas las hojas en excel
+                   que poseen formulas.</note>
+      <xloc>48</xloc>
+      <yloc>544</yloc>
+      <width>273</width>
+      <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -766,8 +660,8 @@ Propósito: Tomar los datos procesados y escribirlos en
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
       <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>

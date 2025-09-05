@@ -353,8 +353,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>720</yloc>
+      <xloc>160</xloc>
+      <yloc>672</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -442,22 +442,22 @@
       <fields>
         <field>
           <variable_name>PARAM_HOJA_MES_ANIO_DESDE</variable_name>
-          <variable_value>JUNIO2025</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>PARAM_HOJA_MES_ANIO_HASTA</variable_name>
           <variable_value>JULIO2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
+          <variable_name>PARAM_HOJA_MES_ANIO_HASTA</variable_name>
+          <variable_value>AGOSTO2025</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
           <variable_name>PARAM_MES_ANIO_DESDE</variable_name>
-          <variable_value>JUNIO_2025</variable_value>
+          <variable_value>JULIO_2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>PARAM_MES_ANIO_HASTA</variable_name>
-          <variable_value>JUNIO_2025</variable_value>
+          <variable_value>AGOSTO_2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
@@ -471,6 +471,31 @@
       <nr>0</nr>
       <xloc>400</xloc>
       <yloc>128</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Shell</name>
+      <description/>
+      <type>SHELL</type>
+      <attributes/>
+      <filename/>
+      <work_directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <set_append_logfile>N</set_append_logfile>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <insertScript>Y</insertScript>
+      <script>mshta javascript:alert("El proceso de Aditoria Masivo - Paso01 -CARGA DE  INTEGRACIONES ANTERIORES -  ha finalizado con EXITO!");window.close();</script>
+      <loglevel>Basic</loglevel>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>400</xloc>
+      <yloc>672</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -494,15 +519,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Job - Job_Recalculo_Excel</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Start</from>
       <to>Set variables</to>
       <from_nr>0</from_nr>
@@ -520,18 +536,37 @@
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>Job - Job_Recalculo_Excel</from>
+      <to>Shell</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Shell</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
-      <note>2.1.- Job (Job Final.kjb)
+      <note>PASO 01.
+2.1.- Job (Job Final.kjb)
 Propósito: Orquestador de todos los job del proyecto</note>
       <xloc>336</xloc>
       <yloc>32</yloc>
-      <width>290</width>
-      <heigth>42</heigth>
+      <width>302</width>
+      <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
