@@ -287,43 +287,6 @@
   <shared_objects_file/>
   <entries>
     <entry>
-      <name>Job - Job_TIPO_A</name>
-      <description/>
-      <type>JOB</type>
-      <attributes/>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${AUDIT_JOBS_DIR_Paso01}/Job_TIPO_A.kjb</filename>
-      <jobname/>
-      <directory/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>272</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
       <name>Start</name>
       <description/>
       <type>SPECIAL</type>
@@ -353,8 +316,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>160</xloc>
-      <yloc>672</yloc>
+      <xloc>240</xloc>
+      <yloc>720</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -364,7 +327,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>${AUDIT_JOBS_DIR_Paso01}/Job_TIPO_B.kjb</filename>
+      <filename>${AUDIT_JOBS_DIR_Paso03}/Job_TIPO_B.kjb</filename>
       <jobname/>
       <directory/>
       <arg_from_previous>N</arg_from_previous>
@@ -390,45 +353,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>1</nr>
-      <xloc>400</xloc>
-      <yloc>416</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Job - Job_Recalculo_Excel</name>
-      <description/>
-      <type>JOB</type>
-      <attributes/>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${AUDIT_JOBS_DIR_Paso01}/Job_Recalculo_Excel.kjb</filename>
-      <jobname/>
-      <directory/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>560</yloc>
+      <xloc>464</xloc>
+      <yloc>496</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -460,11 +386,6 @@
           <variable_value>AGOSTO_2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
-        <field>
-          <variable_name>PARAM_NOMBRE_FIJO_ENTRADA</variable_name>
-          <variable_value>PROFORMAS_Lote_CIERRE_</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -489,35 +410,54 @@
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>mshta javascript:alert("El proceso de Aditoria Masivo - Paso01 -CARGA DE  INTEGRACIONES ANTERIORES -  ha finalizado con EXITO!");window.close();</script>
+      <script>mshta javascript:alert("El proceso de Aditoria Masivo - PASO03    - Análisis Post Integración - Carga de Integraciones Actuales -  ha finalizado con EXITO!");window.close();</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>672</yloc>
+      <xloc>464</xloc>
+      <yloc>704</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Job - Job_TIPO_A</name>
+      <description/>
+      <type>JOB</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <job_object_id/>
+      <filename>${AUDIT_JOBS_DIR_Paso03}/Job_TIPO_A.kjb</filename>
+      <jobname/>
+      <directory/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Nothing</loglevel>
+      <slave_server_name/>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <expand_remote_job>N</expand_remote_job>
+      <create_parent_folder>N</create_parent_folder>
+      <pass_export>N</pass_export>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <set_append_logfile>N</set_append_logfile>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>3</nr>
+      <xloc>464</xloc>
+      <yloc>288</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>Job - Job_TIPO_A</from>
-      <to>Job - Job_TIPO_B</to>
-      <from_nr>0</from_nr>
-      <to_nr>1</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Job - Job_TIPO_B</from>
-      <to>Job - Job_Recalculo_Excel</to>
-      <from_nr>1</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
     <hop>
       <from>Start</from>
       <to>Set variables</to>
@@ -528,24 +468,6 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Set variables</from>
-      <to>Job - Job_TIPO_A</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Job - Job_Recalculo_Excel</from>
-      <to>Shell</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Shell</from>
       <to>Success</to>
       <from_nr>0</from_nr>
@@ -554,15 +476,65 @@
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>Job - Job_TIPO_B</from>
+      <to>Shell</to>
+      <from_nr>1</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set variables</from>
+      <to>Job - Job_TIPO_A</to>
+      <from_nr>0</from_nr>
+      <to_nr>3</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Job - Job_TIPO_A</from>
+      <to>Job - Job_TIPO_B</to>
+      <from_nr>3</from_nr>
+      <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
   </hops>
   <notepads>
     <notepad>
-      <note>PASO 01.
+      <note>PASO03    - Análisis Post Integración
 2.1.- Job (Job Final.kjb)
-Propósito: Orquestador Carga Integraciones Anteriores</note>
+Propósito: Orquestador de todos los job del proyecto en el Paso03</note>
       <xloc>336</xloc>
       <yloc>32</yloc>
-      <width>315</width>
+      <width>422</width>
+      <heigth>64</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>PASO03    - Análisis Post Integración
+2.1.1  Set variables - Definir Parámetros del Job
+Propósito: Definir los parámetros iniciales.</note>
+      <xloc>480</xloc>
+      <yloc>128</yloc>
+      <width>274</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -571,54 +543,33 @@ Propósito: Orquestador Carga Integraciones Anteriores</note>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.1.1  Set variables - Definir Parámetros del Job
-Propósito: Definir los parámetros iniciales.</note>
-      <xloc>480</xloc>
-      <yloc>128</yloc>
-      <width>255</width>
-      <heigth>42</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.1.2  Job - Job_TIPO_A - 
+      <note>PASO03    - Análisis Post Integración
+2.1.2  Job - Job_TIPO_A - 
 Propósito: Ejecución de las transformaciones del 
                    grupo de municipios del Grupo  TIPO_A
                    (Caracas)</note>
       <xloc>48</xloc>
       <yloc>256</yloc>
-      <width>276</width>
-      <heigth>74</heigth>
+      <width>284</width>
+      <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
       <backgroundcolorblue>128</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
@@ -626,14 +577,15 @@ Propósito: Ejecución de las transformaciones del
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.1.3  Job - Job_TIPO_B - 
+      <note>PASO03    - Análisis Post Integración
+2.1.3  Job - Job_TIPO_B - 
 Propósito: Ejecución de las transformaciones del 
                    grupo de municipios del Grupo  TIPO_B
                    (Foráneos)</note>
       <xloc>48</xloc>
-      <yloc>384</yloc>
+      <yloc>480</yloc>
       <width>275</width>
-      <heigth>74</heigth>
+      <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -641,33 +593,9 @@ Propósito: Ejecución de las transformaciones del
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.1.4  Job - Job_Recalculo_Excel -
-Propósito: Ejecución de las transformaciones para
-                   el recalculo de todas las hojas en excel
-                   que poseen formulas.</note>
-      <xloc>48</xloc>
-      <yloc>544</yloc>
-      <width>273</width>
-      <heigth>74</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>0</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
