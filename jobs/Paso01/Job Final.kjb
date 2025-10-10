@@ -442,22 +442,22 @@
       <fields>
         <field>
           <variable_name>PARAM_HOJA_MES_ANIO_DESDE</variable_name>
-          <variable_value>JULIO2025</variable_value>
-          <variable_type>CURRENT_JOB</variable_type>
-        </field>
-        <field>
-          <variable_name>PARAM_HOJA_MES_ANIO_HASTA</variable_name>
           <variable_value>AGOSTO2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
+          <variable_name>PARAM_HOJA_MES_ANIO_HASTA</variable_name>
+          <variable_value>SEPTIEMBRE2025</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
           <variable_name>PARAM_MES_ANIO_DESDE</variable_name>
-          <variable_value>JULIO_2025</variable_value>
+          <variable_value>AGOSTO_2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>PARAM_MES_ANIO_HASTA</variable_name>
-          <variable_value>AGOSTO_2025</variable_value>
+          <variable_value>SEPTIEMBRE_2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>

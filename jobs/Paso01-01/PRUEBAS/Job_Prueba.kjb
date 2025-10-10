@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>Job Final</name>
+  <name>Job_Prueba</name>
   <description/>
   <extended_description/>
   <job_version/>
   <directory>/</directory>
   <created_user>-</created_user>
-  <created_date>2025/08/09 21:12:32.694</created_date>
+  <created_date>2025/08/05 11:29:24.231</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2025/08/09 21:12:32.694</modified_date>
+  <modified_date>2025/08/05 11:29:24.231</modified_date>
   <parameters>
     </parameters>
   <slaveservers>
@@ -287,40 +287,52 @@
   <shared_objects_file/>
   <entries>
     <entry>
-      <name>Job - Job_TIPO_A</name>
+      <name>Transformation - trans_cargar_integracion_municipio - TIPO_A</name>
       <description/>
-      <type>JOB</type>
+      <type>TRANS</type>
       <attributes/>
       <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${AUDIT_JOBS_DIR_Paso02}/Job_TIPO_A.kjb</filename>
-      <jobname/>
-      <directory/>
+      <trans_object_id/>
+      <filename>${AUDIT_TRANS_DIR_Paso01}/trans_cargar_integracion_municipio - TIPO_A.ktr</filename>
+      <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
+      <exec_per_row>Y</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
       <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
+      <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>PARAM_MUNICIPIO</name>
+          <stream_name>municipio</stream_name>
+          <value/>
+        </parameter>
+        <parameter>
+          <name>PARAM_PLANTILLA</name>
+          <stream_name>tipo_plantilla</stream_name>
+          <value/>
+        </parameter>
       </parameters>
-      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>272</yloc>
+      <xloc>240</xloc>
+      <yloc>448</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -341,94 +353,72 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>80</xloc>
+      <xloc>240</xloc>
       <yloc>128</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Success</name>
+      <name>Shell - recalcular_excel</name>
       <description/>
-      <type>SUCCESS</type>
+      <type>SHELL</type>
       <attributes/>
+      <filename/>
+      <work_directory>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\output\Paso01</work_directory>
+      <arg_from_previous>N</arg_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <set_append_logfile>N</set_append_logfile>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <insertScript>Y</insertScript>
+      <script>cscript.exe "C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\scripts\recalcular_excel.vbs" "${RUTA_ARCHIVO_FINAL}"</script>
+      <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>240</xloc>
-      <yloc>720</yloc>
+      <yloc>624</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Job - Job_TIPO_B</name>
+      <name>Transformation - trans_obtener_municipios</name>
       <description/>
-      <type>JOB</type>
+      <type>TRANS</type>
       <attributes/>
       <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${AUDIT_JOBS_DIR_Paso02}/Job_TIPO_B.kjb</filename>
-      <jobname/>
-      <directory/>
+      <trans_object_id/>
+      <filename>${AUDIT_TRANS_DIR_Paso01}/trans_obtener_municipios.ktr</filename>
+      <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
       <logfile/>
       <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
       <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
       <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
+      <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
       <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
+        <pass_all_parameters>N</pass_all_parameters>
       </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>1</nr>
-      <xloc>400</xloc>
-      <yloc>416</yloc>
-      <attributes_kjc/>
-    </entry>
-    <entry>
-      <name>Job - Job_Recalculo_Excel</name>
-      <description/>
-      <type>JOB</type>
-      <attributes/>
-      <specification_method>filename</specification_method>
-      <job_object_id/>
-      <filename>${AUDIT_JOBS_DIR_Paso02}/Job_Recalculo_Excel.kjb</filename>
-      <jobname/>
-      <directory/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <run_configuration>Pentaho local</run_configuration>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>560</yloc>
+      <xloc>240</xloc>
+      <yloc>272</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -442,39 +432,117 @@
       <fields>
         <field>
           <variable_name>PARAM_HOJA_MES_ANIO_DESDE</variable_name>
-          <variable_value>AGOSTO2025</variable_value>
+          <variable_value>JUNIO2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>PARAM_HOJA_MES_ANIO_HASTA</variable_name>
-          <variable_value>SEPTIEMBRE2025</variable_value>
+          <variable_value>JULIO2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>PARAM_MES_ANIO_DESDE</variable_name>
-          <variable_value>AGOSTO_2025</variable_value>
+          <variable_value>JUNIO_2025</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
         <field>
           <variable_name>PARAM_MES_ANIO_HASTA</variable_name>
-          <variable_value>SEPTIEMBRE_2025</variable_value>
+          <variable_value>JUNIO_2025</variable_value>
+          <variable_type>CURRENT_JOB</variable_type>
+        </field>
+        <field>
+          <variable_name>PARAM_NOMBRE_FIJO_ENTRADA</variable_name>
+          <variable_value>PROFORMAS_Lote_CIERRE_</variable_value>
           <variable_type>CURRENT_JOB</variable_type>
         </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>128</yloc>
+      <xloc>80</xloc>
+      <yloc>208</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Shell</name>
+      <name>Simple evaluation</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <attributes/>
+      <valuetype>field</valuetype>
+      <fieldname>tipo_plantilla</fieldname>
+      <variablename>Tipo_A</variablename>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>TIPO_A</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>320</xloc>
+      <yloc>352</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Transformation - trans_cargar_integracion_municipio - TIPO_B</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${AUDIT_TRANS_DIR_Paso01}/trans_cargar_integracion_municipio - TIPO_B.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>Y</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <suppress_result_data>N</suppress_result_data>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>PARAM_MUNICIPIO</name>
+          <stream_name>municipio</stream_name>
+          <value/>
+        </parameter>
+        <parameter>
+          <name>PARAM_PLANTILLA</name>
+          <stream_name>tipo_plantilla</stream_name>
+          <value/>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>1</nr>
+      <xloc>656</xloc>
+      <yloc>464</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Shell - recalcular_excel</name>
       <description/>
       <type>SHELL</type>
       <attributes/>
       <filename/>
-      <work_directory/>
+      <work_directory>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\output\Paso01</work_directory>
       <arg_from_previous>N</arg_from_previous>
       <exec_per_row>N</exec_per_row>
       <set_logfile>N</set_logfile>
@@ -484,30 +552,45 @@
       <add_date>N</add_date>
       <add_time>N</add_time>
       <insertScript>Y</insertScript>
-      <script>mshta javascript:alert("El proceso de Aditoria Masivo - Paso02 -CARGA DE  INTEGRACIONES ACTUALES -  ha finalizado con EXITO!");window.close();</script>
+      <script>cscript.exe "C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\scripts\recalcular_excel.vbs" "${RUTA_ARCHIVO_FINAL}"</script>
       <loglevel>Basic</loglevel>
       <parallel>N</parallel>
       <draw>Y</draw>
+      <nr>1</nr>
+      <xloc>656</xloc>
+      <yloc>640</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Simple evaluation 2</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <attributes/>
+      <valuetype>field</valuetype>
+      <fieldname>tipo_plantilla</fieldname>
+      <variablename/>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>TIPO_B</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>720</yloc>
+      <xloc>656</xloc>
+      <yloc>352</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>Job - Job_TIPO_A</from>
-      <to>Job - Job_TIPO_B</to>
+      <from>Transformation - trans_cargar_integracion_municipio - TIPO_A</from>
+      <to>Shell - recalcular_excel</to>
       <from_nr>0</from_nr>
-      <to_nr>1</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Job - Job_TIPO_B</from>
-      <to>Job - Job_Recalculo_Excel</to>
-      <from_nr>1</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
@@ -524,7 +607,7 @@
     </hop>
     <hop>
       <from>Set variables</from>
-      <to>Job - Job_TIPO_A</to>
+      <to>Transformation - trans_obtener_municipios</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -532,8 +615,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Job - Job_Recalculo_Excel</from>
-      <to>Shell</to>
+      <from>Transformation - trans_obtener_municipios</from>
+      <to>Simple evaluation</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -541,10 +624,37 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Shell</from>
-      <to>Success</to>
+      <from>Simple evaluation</from>
+      <to>Transformation - trans_cargar_integracion_municipio - TIPO_A</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation - trans_cargar_integracion_municipio - TIPO_B</from>
+      <to>Shell - recalcular_excel</to>
+      <from_nr>1</from_nr>
+      <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Simple evaluation</from>
+      <to>Simple evaluation 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Simple evaluation 2</from>
+      <to>Transformation - trans_cargar_integracion_municipio - TIPO_B</to>
+      <from_nr>0</from_nr>
+      <to_nr>1</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
@@ -552,35 +662,14 @@
   </hops>
   <notepads>
     <notepad>
-      <note>PASO02- Carga Integraciones ACTUALES
-2.1.- Job (Job Final.kjb)
-Propósito: Orquestador de todos los job del proyecto</note>
-      <xloc>336</xloc>
+      <note>Job de prueba
+Job de prueba para la ejecucion del script para la actualizacion de todos las
+formulas de los archivos en excel
+</note>
+      <xloc>224</xloc>
       <yloc>32</yloc>
-      <width>302</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>Y</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.1.1  Set variables - Definir Parámetros del Job
-Propósito: Definir los parámetros iniciales.</note>
-      <xloc>480</xloc>
-      <yloc>128</yloc>
-      <width>255</width>
-      <heigth>42</heigth>
+      <width>404</width>
+      <heigth>73</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -589,80 +678,8 @@ Propósito: Definir los parámetros iniciales.</note>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>192</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.1.2  Job - Job_TIPO_A - 
-Propósito: Ejecución de las transformaciones del 
-                   grupo de municipios del Grupo  TIPO_A
-                   (Caracas)</note>
-      <xloc>48</xloc>
-      <yloc>256</yloc>
-      <width>276</width>
-      <heigth>74</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.1.3  Job - Job_TIPO_B - 
-Propósito: Ejecución de las transformaciones del 
-                   grupo de municipios del Grupo  TIPO_B
-                   (Foráneos)</note>
-      <xloc>48</xloc>
-      <yloc>384</yloc>
-      <width>275</width>
-      <heigth>74</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.1.4  Job - Job_Recalculo_Excel -
-Propósito: Ejecución de las transformaciones para
-                   el recalculo de todas las hojas en excel
-                   que poseen formulas.</note>
-      <xloc>48</xloc>
-      <yloc>544</yloc>
-      <width>273</width>
-      <heigth>74</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>64</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>

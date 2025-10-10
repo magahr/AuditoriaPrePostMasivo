@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_obtener_municipios_TIPO_A</name>
+    <name>trans_obtener_municipios</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -437,12 +436,12 @@
   <notepads>
     <notepad>
       <note>
-TIPO_B
+
 trans_obtener_municipios</note>
       <xloc>288</xloc>
       <yloc>32</yloc>
       <width>147</width>
-      <heigth>57</heigth>
+      <heigth>56</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -461,13 +460,18 @@ trans_obtener_municipios</note>
   </notepads>
   <order>
     <hop>
-      <from>Copy rows to result</from>
-      <to>Write to log - Transformacion trans_obtener_municipios</to>
+      <from>Data grid - GRID - Detalles Municipios</from>
+      <to>Split field to rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Data grid - GRID - Detalles Municipios</from>
+      <from>Split field to rows</from>
       <to>Copy rows to result</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Copy rows to result</from>
+      <to>Write to log</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -521,9 +525,69 @@ trans_obtener_municipios</note>
         <field_null_if/>
       </field>
       <field>
-        <name>tipo_plantilla</name>
+        <name>nombre_fijo_entrada</name>
+        <type>String</type>
+        <format>100</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+      <field>
+        <name>hojas_a_leer</name>
         <type>String</type>
         <format>50</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+      <field>
+        <name>columnas_mapeo_entrada</name>
+        <type>String</type>
+        <format>200</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+      <field>
+        <name>nombre_fijo_salida</name>
+        <type>String</type>
+        <format>100</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+      <field>
+        <name>hoja_destino_nombre_prefijo</name>
+        <type>String</type>
+        <format>50</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+        <field_null_if/>
+      </field>
+      <field>
+        <name>hoja_destino_posicion</name>
+        <type>String</type>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -535,8 +599,67 @@ trans_obtener_municipios</note>
     </fields>
     <data>
       <line>
+        <item>Chacao	</item>
+        <item>PROFORMAS_Lote_CIERRE_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>1,2,3,4</item>
+        <item>1,2 a 1,2 del doc salida. 7 a 7 del doc salida</item>
+        <item>Rep Auditoria_ABM_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>2.-Anterior</item>
+        <item>3</item>
+      </line>
+      <line>
+        <item>Hatillo</item>
+        <item>PROFORMAS_Lote_CIERRE_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>1,2</item>
+        <item>1,2 a 1,2 del doc salida. 7 a 7 del doc salida	</item>
+        <item>Rep Auditoria_ABM_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>	2.-Anterior</item>
+        <item>	3</item>
+      </line>
+      <line>
+        <item>Maneiro</item>
+        <item>PROFORMAS_Lote_CIERRE_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>	1</item>
+        <item>	1,2 a 1,2 del doc salida. 4 a 7 del doc salida	</item>
+        <item>Rep Auditoria_ABM_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>2.-Anterior</item>
+        <item>	3</item>
+      </line>
+      <line>
+        <item>San Diego</item>
+        <item>PROFORMAS_Lote_CIERRE_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>	1	</item>
+        <item>1,2 a 1,2 del doc salida. 4 a 7 del doc salida	</item>
+        <item>Rep Auditoria_ABM_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>2.-Anterior</item>
+        <item>	3</item>
+      </line>
+      <line>
+        <item>Inv Baruta</item>
+        <item>PROFORMAS_Lote_CIERRE_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>	1,2,3</item>
+        <item>	1,2 a 1,2 del doc salida. 7 a 7 del doc salida</item>
+        <item>Rep Auditoria_ABM_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>	2.-Anterior</item>
+        <item>	3</item>
+      </line>
+      <line>
+        <item>Simon</item>
+        <item>PROFORMAS_Lote_CIERRE_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>	1</item>
+        <item>	1,2 a 1,2 del doc salida. 4 a 7 del doc salida</item>
+        <item>Rep Auditoria_ABM_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>	2.-Anterior</item>
+        <item>3</item>
+      </line>
+      <line>
         <item>Caroni</item>
-        <item>TIPO_B</item>
+        <item>PROFORMAS_Lote_CIERRE_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>	1</item>
+        <item>	1,2 a 1,2 del doc salida. 4 a 7 del doc salida	</item>
+        <item>Rep Auditoria_ABM_[municipio]_Periodo_Desde_[mes_anio_desde]_Hasta_[mes_anio_hasta].xlsx</item>
+        <item>2.-Anterior</item>
+        <item>3</item>
       </line>
     </data>
     <attributes/>
@@ -554,7 +677,39 @@ trans_obtener_municipios</note>
     </GUI>
   </step>
   <step>
-    <name>Write to log - Transformacion trans_obtener_municipios</name>
+    <name>Split field to rows</name>
+    <type>SplitFieldToRows3</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <splitfield>hojas_a_leer</splitfield>
+    <delimiter>,</delimiter>
+    <newfield>numero_hoja_individual</newfield>
+    <rownum>N</rownum>
+    <rownum_field/>
+    <resetrownumber>Y</resetrownumber>
+    <delimiter_is_regex>N</delimiter_is_regex>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -571,10 +726,7 @@ trans_obtener_municipios</note>
     <logmessage/>
     <fields>
       <field>
-        <name>municipio</name>
-      </field>
-      <field>
-        <name>tipo_plantilla</name>
+        <name>nombre_fijo_entrada</name>
       </field>
     </fields>
     <attributes/>

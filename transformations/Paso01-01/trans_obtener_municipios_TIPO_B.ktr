@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_obtener_municipios_TIPO_A</name>
+    <name>trans_obtener_municipios_TIPO_B</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -441,18 +441,18 @@ TIPO_B
 trans_obtener_municipios</note>
       <xloc>288</xloc>
       <yloc>32</yloc>
-      <width>147</width>
+      <width>153</width>
       <heigth>57</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>64</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -536,6 +536,10 @@ trans_obtener_municipios</note>
     <data>
       <line>
         <item>Caroni</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>Maneiro</item>
         <item>TIPO_B</item>
       </line>
     </data>

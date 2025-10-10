@@ -10,18 +10,18 @@
     <directory>/</directory>
     <parameters>
       <parameter>
-        <name>AUDIT_DATA_INPUT_DIR_Paso02</name>
-        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02</default_value>
+        <name>AUDIT_DATA_INPUT_DIR_Paso01-01</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso01-01</default_value>
         <description/>
       </parameter>
       <parameter>
-        <name>AUDIT_DATA_INPUT_DIR_Paso02\Plantillas</name>
-        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02\Plantillas</default_value>
+        <name>AUDIT_DATA_INPUT_DIR_Paso01-01\Plantillas</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso01-01\Plantillas</default_value>
         <description/>
       </parameter>
       <parameter>
-        <name>AUDIT_DATA_INPUT_DIR_Paso02\input</name>
-        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso02\input\TIPO_B</default_value>
+        <name>AUDIT_DATA_INPUT_DIR_Paso01-01\input</name>
+        <default_value>C:\Desarrollo\Proyectos\AuditoriaPrePostMasivo\data\input\Paso01-01\input\TIPO_B</default_value>
         <description/>
       </parameter>
       <parameter>
@@ -36,7 +36,7 @@
       </parameter>
       <parameter>
         <name>PARAM_HOJA_DESTINO_NOMBRE_PREFIJO</name>
-        <default_value>1.- Actual </default_value>
+        <default_value>CONVENIOS</default_value>
         <description>Prefijo del nombre de la hoja de destino (2.-Anterior)</description>
       </parameter>
       <parameter>
@@ -45,14 +45,34 @@
         <description>Posición de la hoja de destino (3)</description>
       </parameter>
       <parameter>
-        <name>PARAM_NOMBRE_FIJO_ENTRADA_TIPO_B</name>
-        <default_value>PROFORMAS_Lote_CIERRE_</default_value>
+        <name>PARAM_MES_ANIO_DESDE</name>
+        <default_value>SEPTIEMBRE_2025</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>PARAM_MES_ANIO_HASTA</name>
+        <default_value>SEPTIEMBRE_2025</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>PARAM_MUNICIPIO</name>
+        <default_value>Maneiro</default_value>
+        <description/>
+      </parameter>
+      <parameter>
+        <name>PARAM_NOMBRE_FIJO_ENTRADA</name>
+        <default_value>CONVENIOS_</default_value>
         <description/>
       </parameter>
       <parameter>
         <name>PARAM_NOMBRE_FIJO_SALIDA</name>
-        <default_value>Rep Auditoria_ABM_</default_value>
+        <default_value>Alertas_y_Ajustes_</default_value>
         <description>Patrón del nombre fijo de salida</description>
+      </parameter>
+      <parameter>
+        <name>PARAM_NOMBRE_FIJO_SALIDA_PLANTILLA</name>
+        <default_value>Plantillas_Alertas_y_Ajustes_</default_value>
+        <description/>
       </parameter>
       <parameter>
         <name>PARAM_NOMBRE_HOJA_ENTRADA</name>
@@ -496,17 +516,16 @@
   </info>
   <notepads>
     <notepad>
-      <note>PASO 02.  este
-2.3.- Transformation - trans_obtener_municipios_TIPO_B:  
-Propósito: Cargar todas los archivos en excel correspondiente
-                   a las integraciones ACTUALES de los municipios Foráneos,
-                  para luego colocarlos en las plantillas de auditoría de la 
-                  forma Rep.
+      <note>Paso01 - 01 - Carga CONVENIOS ACTUALES Foráneos
+
+1.1.1.- Transformation - trans_obtener_municipios_TIPO_B:  
+Propósito: Cargar todas los archivos en excel correspondiente 
+                   a los CONVENIOS de los municipios de  Caracas.
 </note>
-      <xloc>384</xloc>
-      <yloc>64</yloc>
-      <width>383</width>
-      <heigth>121</heigth>
+      <xloc>448</xloc>
+      <yloc>48</yloc>
+      <width>354</width>
+      <heigth>104</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>Y</fontbold>
@@ -515,274 +534,277 @@ Propósito: Cargar todas los archivos en excel correspondiente
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>128</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.1  Get variables - Obtener Variables de Entorno 
+      <note>1.1.1  Get variables - Obtener Variables de Entorno 
 Propósito: Cargar a la transformación todas las variables
-                  de entorno ya sea las que están en el archivo 
-                  ketle.properties o las de inicio.
-</note>
-      <xloc>16</xloc>
-      <yloc>192</yloc>
-      <width>306</width>
-      <heigth>89</heigth>
+                   de entorno ya sea las que están en el archivo 
+                   ketle.properties o las de inicio.</note>
+      <xloc>0</xloc>
+      <yloc>224</yloc>
+      <width>317</width>
+      <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.2   Fórmula - Forma Ruta y Nombre Archivo Entrada 
-Propósito: Armar las rutas y nombres de archivos 
-                  correspondientes.  Dependiendo de los 
-                  municipios y las fechas de procesamiento.
+      <note>1.2.2   Fórmula - Forma Ruta y Nombre Archivo Entrada 
+Propósito: Formar la ruta y el nombre del archivo de entrada
+                   configurando el municipio y el mes año de las 
+                   diferentes integraciones.</note>
+      <xloc>0</xloc>
+      <yloc>576</yloc>
+      <width>344</width>
+      <heigth>74</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>1.2.4   Switch / case Existencias de Archivo 
+Propósito: Detener el flujo si el archivo de entrada 
+                   las integraciones anteriores no existen.
+                   (Actualmente al 11-08-2025, este proceso
+                   no está funcionando completamente, pues
+                   igualmente el flujo continúa aún si la data 
+                   no existe)
 </note>
       <xloc>0</xloc>
-      <yloc>464</yloc>
-      <width>306</width>
-      <heigth>89</heigth>
+      <yloc>704</yloc>
+      <width>304</width>
+      <heigth>137</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.3   File exists - Existencias de Archivo 
-Propósito: Detectar si existe o no el archivo 
-                   de integración que se intenta subir. </note>
-      <xloc>384</xloc>
+      <note>1.2.3   File exists - Existencias de Archivo 
+Propósito: Detectar si existe o no el archivo de
+                   integración que se intenta subir. </note>
+      <xloc>416</xloc>
       <yloc>224</yloc>
-      <width>256</width>
+      <width>268</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.4   Switch / case Existencias de Archivo 
-Propósito: Detener el flujo si el archivo de  entrada las
-                   integraciones anteriores no existen. </note>
-      <xloc>192</xloc>
-      <yloc>688</yloc>
-      <width>292</width>
-      <heigth>58</heigth>
+      <note>1.2.5   Microsoft Excel input - Archivo de Entrada Tipo  B Foraneos 
+Propósito: Carga de la data de entrada, los CONVENIOS correspondiente al período.
+Entrada:    Variable de entrada ruta_archivo_excel, que es configurada 
+                   en el paso Formula.</note>
+      <xloc>704</xloc>
+      <yloc>784</yloc>
+      <width>468</width>
+      <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.5   Microsoft Excel input - Archivo de Entrada Tipo B Foráneos
-Propósito: Carga de la data de entrada, las integraciones anteriores
-                   de los diferentes municipios, que se trabajaron.
-</note>
-      <xloc>832</xloc>
-      <yloc>624</yloc>
-      <width>361</width>
-      <heigth>73</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.7   Select values  - Reorganize fields Tipo B Foráneos
-Propósito: Reorganización de los diferentes campos para
-                   adaptarlos a las plantillas de salida Rep.</note>
-      <xloc>1264</xloc>
-      <yloc>608</yloc>
-      <width>309</width>
-      <heigth>58</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.6   Add constants - add aditionals fields - Tipo B Foráneos
+      <note>1.2.6   Add constants - add aditionals fields - Tipo B Foráneos
 Propósito: Se agregan campos adicionales a proceso de carga
-                  para que corresponda con las columnas de la plantilla 
-                  de salida, en este caso los Rep.
-</note>
-      <xloc>1008</xloc>
-      <yloc>208</yloc>
-      <width>351</width>
-      <heigth>89</heigth>
+                   para que corresponda con las columnas de la plantilla 
+                  de salida, en este caso los Alertas_y_Ajustes_.</note>
+      <xloc>992</xloc>
+      <yloc>224</yloc>
+      <width>361</width>
+      <heigth>74</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.8   Microsoft Excel writer - Tipo B Foráneos 
-Propósito: Generación de los archivos de salida Excel
-                   con la data que viene de los pasos anteriores 
-                   y con las variables de entorno ya actualizadas.
+      <note>1.2.7   Select values  - Reorganize fields Tipo B Foráneos
+Propósito: Reorganización de los diferentes campos para
+                   adaptarlos a las plantillas de salida lertas_y_Ajustes_.</note>
+      <xloc>1216</xloc>
+      <yloc>608</yloc>
+      <width>350</width>
+      <heigth>58</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>1.2.8   Microsoft Excel writer - Tipo B Foráneo
+Propósito: Generación de los archivos de salida 
+                   Excel con la data que viene de los pasos 
+                   anteriores y con las variables de entorno 
+                   ya actualizadas.
 </note>
       <xloc>1424</xloc>
-      <yloc>208</yloc>
-      <width>308</width>
-      <heigth>89</heigth>
+      <yloc>192</yloc>
+      <width>294</width>
+      <heigth>105</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.9  Get variables - Obtener Nuevas Variables de Entorno 
+      <note>1.2.9   Formula - Forma Ruta y Nombre Archivo Salida 
+Propósito: Armar las rutas y nombres de archivos 
+                  correspondientes  de Salida. Dependiendo 
+                  de los municipios y las fechas de  procesamiento.
+</note>
+      <xloc>2816</xloc>
+      <yloc>208</yloc>
+      <width>333</width>
+      <heigth>89</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>Y</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>128</backgroundcolorred>
+      <backgroundcolorgreen>128</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>1.2.9  Get variables - Obtener Nuevas Variables de Entorno 
 Propósito: Cargar a la transformación todas las variables de
                    entorno ya sea las que están en el archivo
                    ketle.properties o las de inicio, nuevamente.
 </note>
-      <xloc>1600</xloc>
-      <yloc>608</yloc>
-      <width>322</width>
+      <xloc>2496</xloc>
+      <yloc>624</yloc>
+      <width>338</width>
       <heigth>89</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>2.3.10   Formula - Forma Ruta y Nombre Archivo Salida 
-Propósito: Armar las rutas y nombres de archivos correspondientes
-                  de Salida. Dependiendo de los municipios y las fechas de 
-                   procesamiento.
-</note>
-      <xloc>1792</xloc>
-      <yloc>208</yloc>
-      <width>367</width>
-      <heigth>89</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
-      <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>2.3.11   Set variables 
+      <note>1.2.11   Set variables 
 Propósito: Establecer las variables ya obtenidas 
                    para hacer uso en los job correspondientes.</note>
-      <xloc>1984</xloc>
-      <yloc>624</yloc>
-      <width>295</width>
+      <xloc>2880</xloc>
+      <yloc>640</yloc>
+      <width>306</width>
       <heigth>58</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
+      <fontbold>Y</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorred>128</backgroundcolorred>
       <backgroundcolorgreen>128</backgroundcolorgreen>
-      <backgroundcolorblue>255</backgroundcolorblue>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -791,13 +813,13 @@ Propósito: Establecer las variables ya obtenidas
   </notepads>
   <order>
     <hop>
-      <from>Formula - Forma Ruta y Nombre Archivo Salida</from>
-      <to>Set variables</to>
+      <from>Set variables</from>
+      <to>Write to log - Archivo Final TIPO_B</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Set variables</from>
-      <to>Write to log - Archivo Final TIPO_B</to>
+      <from>Write to log - Despues del get variables</from>
+      <to>Formula - Forma Ruta y Nombre Archivo Entrada</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -831,28 +853,8 @@ Propósito: Establecer las variables ya obtenidas
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values  -Reorganize fields Tipo B Fonáneos</from>
-      <to>Microsoft Excel writer - Tipo B Foráneos</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Write to log - Valores Despues de la formula Entrada</from>
-      <to>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</from>
-      <to>Add constants - add aditionals fields - Tipo B Caracas</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add constants - add aditionals fields - Tipo B Caracas</from>
-      <to>Select values  -Reorganize fields Tipo B Fonáneos</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Get variables - Obtener Nuevas Variables de Entorno</from>
-      <to>Formula - Forma Ruta y Nombre Archivo Salida</to>
+      <from>Add constants - add aditionals fields - Tipo B Foraneos</from>
+      <to>Select values  - Reorganize fields Tipo B Foráneos</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -861,13 +863,58 @@ Propósito: Establecer las variables ya obtenidas
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Write to log - Despues del get variables</from>
-      <to>Formula - Forma Ruta y Nombre Archivo Entrada</to>
+      <from>Microsoft Excel input - Archivo de Entrada Tipo B Foraneos</from>
+      <to>Add constants - add aditionals fields - Tipo B Foraneos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables - Obtener Nuevas Variables de Entorno</from>
+      <to>Formula - Forma Ruta y Nombre Archivo Salida</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Formula - Forma Ruta y Nombre Archivo Salida</from>
+      <to>Set variables</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write to log - Valores Despues de la formula Entrada</from>
+      <to>Microsoft Excel input - Archivo de Entrada Tipo B Foraneos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values  - Reorganize fields Tipo B Foráneos</from>
+      <to>Write to log - Municipio EXCEL</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Write to log - Municipio EXCEL</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Microsoft Excel writer - Tipo B Maneiro</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>Microsoft Excel writer - Tipo B CARONI</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>Write to log NO ENTRO EN LA ESCRITURA DE EXCEL</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add constants - add aditionals fields - Tipo B Caracas</name>
+    <name>Add constants - add aditionals fields - Tipo B Foraneos</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -879,211 +926,7 @@ Propósito: Establecer las variables ya obtenidas
     </partitioning>
     <fields>
       <field>
-        <name>Nombre_Cliente</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Tasa</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Fecha_Tasa</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Periodo</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Artículo Proforma</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Pedido Digital</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Id. de moneda</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>CIERRE</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>nada</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Clave</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LARGO RIF</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>LARGO CTA_CONTRATO</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>NO-RIF-CTA-GP-TIPO03</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>SUPENDIDOS-TIPO 04</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>INACTIVOS-TIPO05</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Resolución_Monto</name>
-        <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Resolucion_Nota</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Fecha Documento</name>
+        <name>columnaF</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -1107,7 +950,7 @@ Propósito: Establecer las variables ya obtenidas
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>CNAE</name>
+        <name>FeCreCliente</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -1119,7 +962,163 @@ Propósito: Establecer las variables ya obtenidas
         <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>FeCreCliente</name>
+        <name>Monto Según Proforma Original</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Monto del Descuento 30%</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>columnaJ</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Cuota Mensual</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Observacion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>columnaY</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Fecha Inicio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ColumnaAA</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ColumnaAB</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ColumnaAC</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ColumnaD_Alertas</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>ColumnaF_Alertas</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Fecha Culminación</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>BLANCO</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -1140,7 +1139,7 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1200</xloc>
+      <xloc>1168</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1166,7 +1165,7 @@ Propósito: Establecer las variables ya obtenidas
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
-      <yloc>1008</yloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1197,6 +1196,50 @@ Propósito: Establecer las variables ya obtenidas
     <GUI>
       <xloc>528</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Microsoft Excel writer - Tipo B Maneiro</send_true_to>
+    <send_false_to>Filter rows 2</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Municipio EXCEL</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Maneiro</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1648</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1239,8 +1282,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>496</yloc>
+      <xloc>688</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1257,7 +1300,15 @@ Propósito: Establecer las variables ya obtenidas
     </partitioning>
     <formula>
       <field_name>ruta_archivo_excel</field_name>
-      <formula_string>[ruta_base_input_dir] &amp; "\" &amp; [nombre_fijo_entrada] &amp; [municipio] &amp; "_Periodo_Desde_" &amp; [mes_anio_hasta] &amp; "_hasta_" &amp; [mes_anio_hasta] &amp; ".xlsx" </formula_string>
+      <formula_string>[ruta_base_input_dir] &amp; "\" &amp; [nombre_fijo_entrada]&amp; "Periodo_Desde_" &amp; [mes_anio_desde] &amp; "_hasta_" &amp; [mes_anio_desde] &amp; ".xlsx" </formula_string>
+      <value_type>String</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <replace_field/>
+    </formula>
+    <formula>
+      <field_name>ruta_archivo_salida_final_01</field_name>
+      <formula_string>[AUDIT_DATA_OUTPUT_DIR_Paso01-01] &amp; "/" &amp; [PARAM_NOMBRE_FIJO_SALIDA] &amp; [PARAM_MUNICIPIO] &amp;".xlsx"</formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -1273,7 +1324,7 @@ Propósito: Establecer las variables ya obtenidas
     </remotesteps>
     <GUI>
       <xloc>320</xloc>
-      <yloc>560</yloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1290,7 +1341,7 @@ Propósito: Establecer las variables ya obtenidas
     </partitioning>
     <formula>
       <field_name>ruta_archivo_salida_final</field_name>
-      <formula_string>[AUDIT_DATA_OUTPUT_DIR_Paso02] &amp; "/" &amp; [PARAM_NOMBRE_FIJO_SALIDA] &amp; [PARAM_MUNICIPIO] &amp; "_Periodo_Desde_" &amp; [PARAM_MES_ANIO_DESDE] &amp; "_hasta_" &amp; [PARAM_MES_ANIO_HASTA] &amp; ".xlsx"</formula_string>
+      <formula_string>[AUDIT_DATA_OUTPUT_DIR_Paso01-01] &amp; "/" &amp; [PARAM_NOMBRE_FIJO_SALIDA] &amp; [PARAM_MUNICIPIO] &amp;".xlsx"</formula_string>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
@@ -1305,8 +1356,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1968</xloc>
-      <yloc>320</yloc>
+      <xloc>2976</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1347,8 +1398,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_INPUT_DIR_Paso02</name>
-        <variable>${AUDIT_DATA_INPUT_DIR_Paso02}</variable>
+        <name>AUDIT_DATA_INPUT_DIR_Paso01-01</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso01-01}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1359,8 +1410,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_INPUT_DIR_Paso02\Plantillas</name>
-        <variable>${AUDIT_DATA_INPUT_DIR_Paso02\Plantillas}</variable>
+        <name>AUDIT_DATA_INPUT_DIR_Paso01\Plantillas</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso01\Plantillas}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1371,8 +1422,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_INPUT_DIR_Paso02\input</name>
-        <variable>${AUDIT_DATA_INPUT_DIR_Paso02\input}</variable>
+        <name>AUDIT_DATA_INPUT_DIR_Paso01\input</name>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso01\input}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1407,8 +1458,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_DATA_OUTPUT_DIR_Paso02</name>
-        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso02}</variable>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso01-01</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso01-01}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1455,8 +1506,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_JOBS_DIR_Paso02</name>
-        <variable>${AUDIT_JOBS_DIR_Paso02}</variable>
+        <name>AUDIT_JOBS_DIR_Paso01-01</name>
+        <variable>${AUDIT_JOBS_DIR_Paso01-01}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1491,8 +1542,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>AUDIT_TRANS_DIR_Paso02</name>
-        <variable>${AUDIT_TRANS_DIR_Paso02}</variable>
+        <name>AUDIT_TRANS_DIR_Paso01-01</name>
+        <variable>${AUDIT_TRANS_DIR_Paso01-01}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1692,8 +1743,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1760</xloc>
-      <yloc>528</yloc>
+      <xloc>2640</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1711,7 +1762,7 @@ Propósito: Establecer las variables ya obtenidas
     <fields>
       <field>
         <name>ruta_base_input_dir</name>
-        <variable>${AUDIT_DATA_INPUT_DIR_Paso02\input}</variable>
+        <variable>${AUDIT_DATA_INPUT_DIR_Paso01-01\input}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1723,7 +1774,7 @@ Propósito: Establecer las variables ya obtenidas
       </field>
       <field>
         <name>ruta_base_output_dir</name>
-        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso02}</variable>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso01-01}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1736,6 +1787,66 @@ Propósito: Establecer las variables ya obtenidas
       <field>
         <name>municipio</name>
         <variable>${PARAM_MUNICIPIO}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>numero_hoja_individual</name>
+        <variable>${PARAM_NUMERO_HOJA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>nombre_fijo_entrada</name>
+        <variable>${PARAM_NOMBRE_FIJO_ENTRADA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>hojas_a_leer</name>
+        <variable>${PARAM_HOJAS_A_LEER}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>columnas_mapeo_entrada</name>
+        <variable>${PARAM_COLUMNAS_MAPEO_ENTRADA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>nombre_fijo_salida</name>
+        <variable>${PARAM_NOMBRE_FIJO_SALIDA}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1770,6 +1881,18 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
+        <name>numero_hoja_lectura</name>
+        <variable>${PARAM_NUMERO_HOJA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
         <name>mes_anio_desde</name>
         <variable>${PARAM_MES_ANIO_DESDE}</variable>
         <type>String</type>
@@ -1784,6 +1907,18 @@ Propósito: Establecer las variables ya obtenidas
       <field>
         <name>mes_anio_hasta</name>
         <variable>${PARAM_MES_ANIO_HASTA}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>nombre_hoja_entrada</name>
+        <variable>${PARAM_NOMBRE_HOJA_ENTRADA}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1830,32 +1965,8 @@ Propósito: Establecer las variables ya obtenidas
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>nombre_fijo_entrada</name>
-        <variable>${PARAM_NOMBRE_FIJO_ENTRADA_TIPO_B}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>nombre_fijo_salida</name>
-        <variable>${PARAM_NOMBRE_FIJO_SALIDA}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>AUDIT_DATA_OUTPUT_DIR_Paso02</name>
-        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso02}</variable>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso01-01</name>
+        <variable>${AUDIT_DATA_OUTPUT_DIR_Paso01-01}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -1923,13 +2034,13 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
+      <xloc>64</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel input - Archivo de Entrada Tipo B Fonáneos</name>
+    <name>Microsoft Excel input - Archivo de Entrada Tipo B Foraneos</name>
     <type>ExcelInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1942,12 +2053,12 @@ Propósito: Establecer las variables ya obtenidas
     <header>Y</header>
     <noempty>Y</noempty>
     <stoponempty>N</stoponempty>
-    <filefield/>
+    <filefield>ruta_archivo_excel</filefield>
     <sheetfield/>
     <sheetrownumfield/>
     <rownumfield/>
     <sheetfield/>
-    <filefield/>
+    <filefield>ruta_archivo_excel</filefield>
     <limit>0</limit>
     <encoding>UTF-8</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
@@ -1963,7 +2074,7 @@ Propósito: Establecer las variables ya obtenidas
     </file>
     <fields>
       <field>
-        <name>CODIGO.</name>
+        <name>Cuenta contrato</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -1975,7 +2086,7 @@ Propósito: Establecer las variables ya obtenidas
         <group/>
       </field>
       <field>
-        <name>ID_DIR</name>
+        <name>Rif</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -1987,7 +2098,7 @@ Propósito: Establecer las variables ya obtenidas
         <group/>
       </field>
       <field>
-        <name>Tarifa BS </name>
+        <name>Nombre de cliente</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -1999,211 +2110,7 @@ Propósito: Establecer las variables ya obtenidas
         <group/>
       </field>
       <field>
-        <name>Tarifa UDCD</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency>,</currency>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Nombre_Cliente</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>tasa</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>fecha_tasa</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Periodo</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Artículo Proforma</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Pedido Digital</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Id. de moneda</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>CIERRE</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>nada</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Clave</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>LARGO RIF</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>LARGO CTA_CONTRATO</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>NO-RIF-CTA-GP-TIPO03</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>SUPENDIDOS-TIPO 04</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>INACTIVOS-TIPO05</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Resolución_Monto</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency>,</currency>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Resolucion_Nota</name>
+        <name>Municipio_1</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -2217,7 +2124,52 @@ Propósito: Establecer las variables ya obtenidas
     </fields>
     <sheets>
       <sheet>
-        <name>PROFORMAS</name>
+        <name>CHACAO</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>BARUTA</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>CARONI (ASEO + RELLENO)</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>CARONI (SOLO ASEO)</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>MANEIRO</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>HATILLO</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>SAN DIEGO</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>EL TIGRE</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>GenerarProf.enVEB</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+      <sheet>
+        <name>NO GENERAR PROF.</name>
         <startrow>0</startrow>
         <startcol>0</startcol>
       </sheet>
@@ -2250,13 +2202,13 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
-      <yloc>512</yloc>
+      <xloc>880</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Microsoft Excel writer - Tipo B Foráneos</name>
+    <name>Microsoft Excel writer - Tipo B Maneiro</name>
     <type>TypeExitExcelWriterStep</type>
     <description/>
     <distribute>Y</distribute>
@@ -2279,7 +2231,7 @@ Propósito: Establecer las variables ya obtenidas
     <appendLines>N</appendLines>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>${AUDIT_DATA_OUTPUT_DIR_Paso02}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}_Periodo_Desde_${PARAM_MES_ANIO_DESDE}_hasta_${PARAM_MES_ANIO_HASTA}</name>
+      <name>${AUDIT_DATA_OUTPUT_DIR_Paso01-01}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}</name>
       <extention>xlsx</extention>
       <do_not_open_newfile_init>N</do_not_open_newfile_init>
       <split>N</split>
@@ -2287,7 +2239,7 @@ Propósito: Establecer las variables ya obtenidas
       <add_time>N</add_time>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
-      <sheetname>${PARAM_HOJA_DESTINO_NOMBRE_PREFIJO}${PARAM_HOJA_MES_ANIO_HASTA}</sheetname>
+      <sheetname>${PARAM_HOJA_DESTINO_NOMBRE_PREFIJO}${PARAM_HOJA_MES_ANIO_DESDE}</sheetname>
       <autosizecolums>N</autosizecolums>
       <stream_data>N</stream_data>
       <protect_sheet>N</protect_sheet>
@@ -2300,16 +2252,16 @@ Propósito: Establecer las variables ya obtenidas
     <template>
       <enabled>Y</enabled>
       <sheet_enabled>Y</sheet_enabled>
-      <filename>${AUDIT_DATA_INPUT_DIR_Paso02\Plantillas}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}_Periodo_Desde_${PARAM_MES_ANIO_DESDE}_hasta_${PARAM_MES_ANIO_HASTA}.xlsx</filename>
+      <filename>${AUDIT_DATA_INPUT_DIR_Paso01-01\Plantillas}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}.xlsx</filename>
       <sheetname/>
       <hidden>N</hidden>
     </template>
     <fields>
       <field>
-        <name>CODIGO.</name>
+        <name>BLANCO</name>
         <type>String</type>
         <format/>
-        <title>CODIGO.</title>
+        <title>BLANCO</title>
         <titleStyleCell/>
         <styleCell/>
         <commentField/>
@@ -2318,10 +2270,10 @@ Propósito: Establecer las variables ya obtenidas
         <hyperlinkField/>
       </field>
       <field>
-        <name>ID_DIR</name>
+        <name>Cuenta contrato</name>
         <type>String</type>
         <format/>
-        <title>ID_DIR</title>
+        <title>Cuenta contrato</title>
         <titleStyleCell/>
         <styleCell/>
         <commentField/>
@@ -2330,10 +2282,46 @@ Propósito: Establecer las variables ya obtenidas
         <hyperlinkField/>
       </field>
       <field>
-        <name>Fecha Documento</name>
+        <name>Rif</name>
         <type>String</type>
         <format/>
-        <title>Fecha Documento</title>
+        <title>Rif</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Nombre de cliente</name>
+        <type>String</type>
+        <format/>
+        <title>Nombre de cliente</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Municipio EXCEL</name>
+        <type>String</type>
+        <format/>
+        <title>Municipio_1</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>columnaF</name>
+        <type>String</type>
+        <format/>
+        <title>columnaF</title>
         <titleStyleCell/>
         <styleCell/>
         <commentField/>
@@ -2354,10 +2342,10 @@ Propósito: Establecer las variables ya obtenidas
         <hyperlinkField/>
       </field>
       <field>
-        <name>CNAE</name>
+        <name>Municipio EXCEL</name>
         <type>String</type>
         <format/>
-        <title>CNAE</title>
+        <title>Municipio_2</title>
         <titleStyleCell/>
         <styleCell/>
         <commentField/>
@@ -2378,34 +2366,142 @@ Propósito: Establecer las variables ya obtenidas
         <hyperlinkField/>
       </field>
       <field>
-        <name>UCD</name>
-        <type>Number</type>
-        <format/>
-        <title>UCD</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Resolución_Monto</name>
-        <type>Number</type>
-        <format/>
-        <title>Resolución_Monto</title>
-        <titleStyleCell/>
-        <styleCell/>
-        <commentField/>
-        <commentAuthorField/>
-        <formula>N</formula>
-        <hyperlinkField/>
-      </field>
-      <field>
-        <name>Resolucion_Nota</name>
+        <name>Monto Según Proforma Original</name>
         <type>String</type>
         <format/>
-        <title>Resolucion_Nota</title>
+        <title>Monto Según Proforma Original</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Monto del Descuento 30%</name>
+        <type>String</type>
+        <format/>
+        <title>Monto del Descuento 30%</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>columnaJ</name>
+        <type>String</type>
+        <format/>
+        <title>columnaJ</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Cuota Mensual</name>
+        <type>String</type>
+        <format/>
+        <title>Cuota Mensual</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Observacion</name>
+        <type>String</type>
+        <format/>
+        <title>Observacion</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>columnaY</name>
+        <type>String</type>
+        <format/>
+        <title>columnaY</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha Inicio</name>
+        <type>String</type>
+        <format/>
+        <title>Fecha Inicio</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha Culminación</name>
+        <type>String</type>
+        <format/>
+        <title>Fecha Culminación</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ColumnaAA</name>
+        <type>String</type>
+        <format/>
+        <title>ColumnaAA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ColumnaAB</name>
+        <type>String</type>
+        <format/>
+        <title>ColumnaAB</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ColumnaAC</name>
+        <type>String</type>
+        <format/>
+        <title>ColumnaAC</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ruta_archivo_excel</name>
+        <type>String</type>
+        <format/>
+        <title>ruta_archivo_excel</title>
         <titleStyleCell/>
         <styleCell/>
         <commentField/>
@@ -2423,13 +2519,13 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1552</xloc>
-      <yloc>320</yloc>
+      <xloc>1888</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values  -Reorganize fields Tipo B Fonáneos</name>
+    <name>Select values  - Reorganize fields Tipo B Foráneos</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2441,102 +2537,76 @@ Propósito: Establecer las variables ya obtenidas
     </partitioning>
     <fields>
       <field>
-        <name>CODIGO.</name>
+        <name>Cuenta contrato</name>
       </field>
       <field>
-        <name>ID_DIR</name>
+        <name>Rif</name>
       </field>
       <field>
-        <name>Tarifa BS </name>
+        <name>Nombre de cliente</name>
       </field>
       <field>
-        <name>Tarifa UDCD</name>
+        <name>Municipio_1</name>
       </field>
       <field>
-        <name>Nombre_Cliente</name>
-      </field>
-      <field>
-        <name>tasa</name>
-      </field>
-      <field>
-        <name>fecha_tasa</name>
-      </field>
-      <field>
-        <name>Periodo</name>
-      </field>
-      <field>
-        <name>Artículo Proforma</name>
-      </field>
-      <field>
-        <name>Pedido Digital</name>
-      </field>
-      <field>
-        <name>Id. de moneda</name>
-      </field>
-      <field>
-        <name>CIERRE</name>
-      </field>
-      <field>
-        <name>nada</name>
-      </field>
-      <field>
-        <name>Clave</name>
-      </field>
-      <field>
-        <name>LARGO RIF</name>
-      </field>
-      <field>
-        <name>LARGO CTA_CONTRATO</name>
-      </field>
-      <field>
-        <name>NO-RIF-CTA-GP-TIPO03</name>
-      </field>
-      <field>
-        <name>SUPENDIDOS-TIPO 04</name>
-      </field>
-      <field>
-        <name>INACTIVOS-TIPO05</name>
-      </field>
-      <field>
-        <name>Resolución_Monto</name>
-      </field>
-      <field>
-        <name>Resolucion_Nota</name>
-      </field>
-      <field>
-        <name>Fecha Documento</name>
+        <name>columnaF</name>
       </field>
       <field>
         <name>Fecha Contabilizacion</name>
       </field>
       <field>
-        <name>CNAE</name>
+        <name>FeCreCliente</name>
       </field>
       <field>
-        <name>FeCreCliente</name>
+        <name>Monto Según Proforma Original</name>
+      </field>
+      <field>
+        <name>Monto del Descuento 30%</name>
+      </field>
+      <field>
+        <name>columnaJ</name>
+      </field>
+      <field>
+        <name>Cuota Mensual</name>
+      </field>
+      <field>
+        <name>Observacion</name>
+      </field>
+      <field>
+        <name>columnaY</name>
+      </field>
+      <field>
+        <name>Fecha Inicio</name>
+      </field>
+      <field>
+        <name>ColumnaAA</name>
+      </field>
+      <field>
+        <name>ColumnaAB</name>
+      </field>
+      <field>
+        <name>ColumnaAC</name>
+      </field>
+      <field>
+        <name>ColumnaD_Alertas</name>
+      </field>
+      <field>
+        <name>ColumnaF_Alertas</name>
+      </field>
+      <field>
+        <name>Fecha Culminación</name>
+      </field>
+      <field>
+        <name>BLANCO</name>
+      </field>
+      <field>
+        <name>ruta_archivo_excel</name>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
-        <name>Tarifa UDCD</name>
-        <rename>UCD</rename>
-        <type>Number</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Resolución_Monto</name>
-        <rename>Resolución_Monto</rename>
-        <type>Number</type>
+        <name>Municipio_1</name>
+        <rename>Municipio EXCEL</rename>
+        <type>None</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -2560,8 +2630,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1408</xloc>
-      <yloc>512</yloc>
+      <xloc>1328</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2594,8 +2664,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2080</xloc>
-      <yloc>528</yloc>
+      <xloc>2976</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2637,7 +2707,7 @@ Propósito: Establecer las variables ya obtenidas
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
-      <yloc>720</yloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2671,8 +2741,8 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>2320</xloc>
-      <yloc>528</yloc>
+      <xloc>3312</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2703,16 +2773,37 @@ Propósito: Establecer las variables ya obtenidas
         <name>municipio</name>
       </field>
       <field>
+        <name>numero_hoja_individual</name>
+      </field>
+      <field>
+        <name>nombre_fijo_entrada</name>
+      </field>
+      <field>
+        <name>hojas_a_leer</name>
+      </field>
+      <field>
+        <name>columnas_mapeo_entrada</name>
+      </field>
+      <field>
+        <name>nombre_fijo_salida</name>
+      </field>
+      <field>
         <name>hoja_destino_nombre_prefijo</name>
       </field>
       <field>
         <name>hoja_destino_posicion</name>
       </field>
       <field>
+        <name>numero_hoja_lectura</name>
+      </field>
+      <field>
         <name>mes_anio_desde</name>
       </field>
       <field>
         <name>mes_anio_hasta</name>
+      </field>
+      <field>
+        <name>nombre_hoja_entrada</name>
       </field>
       <field>
         <name>hoja_mes_anio_desde</name>
@@ -2724,10 +2815,7 @@ Propósito: Establecer las variables ya obtenidas
         <name>tipo_plantilla</name>
       </field>
       <field>
-        <name>nombre_fijo_entrada</name>
-      </field>
-      <field>
-        <name>AUDIT_DATA_OUTPUT_DIR_Paso02</name>
+        <name>AUDIT_DATA_OUTPUT_DIR_Paso01-01</name>
       </field>
       <field>
         <name>PARAM_NOMBRE_FIJO_SALIDA</name>
@@ -2753,6 +2841,41 @@ Propósito: Establecer las variables ya obtenidas
     <GUI>
       <xloc>320</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log - Municipio EXCEL</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      <field>
+        <name>Municipio EXCEL</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1440</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2787,7 +2910,7 @@ Propósito: Establecer las variables ya obtenidas
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
-      <yloc>880</yloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2815,7 +2938,16 @@ Propósito: Establecer las variables ya obtenidas
         <name>municipio</name>
       </field>
       <field>
+        <name>numero_hoja_individual</name>
+      </field>
+      <field>
         <name>nombre_fijo_entrada</name>
+      </field>
+      <field>
+        <name>hojas_a_leer</name>
+      </field>
+      <field>
+        <name>columnas_mapeo_entrada</name>
       </field>
       <field>
         <name>nombre_fijo_salida</name>
@@ -2827,10 +2959,16 @@ Propósito: Establecer las variables ya obtenidas
         <name>hoja_destino_posicion</name>
       </field>
       <field>
+        <name>numero_hoja_lectura</name>
+      </field>
+      <field>
         <name>mes_anio_desde</name>
       </field>
       <field>
         <name>mes_anio_hasta</name>
+      </field>
+      <field>
+        <name>nombre_hoja_entrada</name>
       </field>
       <field>
         <name>ruta_archivo_excel</name>
@@ -2840,6 +2978,9 @@ Propósito: Establecer las variables ya obtenidas
       </field>
       <field>
         <name>existe_archivo</name>
+      </field>
+      <field>
+        <name>ruta_archivo_salida_final_01</name>
       </field>
     </fields>
     <attributes/>
@@ -2851,8 +2992,401 @@ Propósito: Establecer las variables ya obtenidas
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
+      <xloc>816</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write to log NO ENTRO EN LA ESCRITURA DE EXCEL</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage>NO ENTRO EN LA ESCRITURA DE EXCEL</logmessage>
+    <fields>
+      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2160</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel writer - Tipo B CARONI</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>N</makeSheetActive>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${AUDIT_DATA_OUTPUT_DIR_Paso01-01}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}</name>
+      <extention>xlsx</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>${PARAM_HOJA_DESTINO_NOMBRE_PREFIJO}${PARAM_HOJA_MES_ANIO_DESDE}</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+    </file>
+    <template>
+      <enabled>Y</enabled>
+      <sheet_enabled>Y</sheet_enabled>
+      <filename>${AUDIT_DATA_INPUT_DIR_Paso01-01\Plantillas}/${PARAM_NOMBRE_FIJO_SALIDA}${PARAM_MUNICIPIO}.xlsx</filename>
+      <sheetname/>
+      <hidden>N</hidden>
+    </template>
+    <fields>
+      <field>
+        <name>BLANCO</name>
+        <type>String</type>
+        <format/>
+        <title>BLANCO</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Cuenta contrato</name>
+        <type>String</type>
+        <format/>
+        <title>Cuenta contrato</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Rif</name>
+        <type>String</type>
+        <format/>
+        <title>Rif</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Nombre de cliente</name>
+        <type>String</type>
+        <format/>
+        <title>Nombre de cliente</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Municipio EXCEL</name>
+        <type>String</type>
+        <format/>
+        <title>Municipio_1</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>columnaF</name>
+        <type>String</type>
+        <format/>
+        <title>columnaF</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha Contabilizacion</name>
+        <type>String</type>
+        <format/>
+        <title>Fecha Contabilizacion</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Municipio EXCEL</name>
+        <type>String</type>
+        <format/>
+        <title>Municipio_2</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>FeCreCliente</name>
+        <type>String</type>
+        <format/>
+        <title>FeCreCliente</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Monto Según Proforma Original</name>
+        <type>String</type>
+        <format/>
+        <title>Monto Según Proforma Original</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Monto del Descuento 30%</name>
+        <type>String</type>
+        <format/>
+        <title>Monto del Descuento 30%</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>columnaJ</name>
+        <type>String</type>
+        <format/>
+        <title>columnaJ</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Cuota Mensual</name>
+        <type>String</type>
+        <format/>
+        <title>Cuota Mensual</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Observacion</name>
+        <type>String</type>
+        <format/>
+        <title>Observacion</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>columnaY</name>
+        <type>String</type>
+        <format/>
+        <title>columnaY</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha Inicio</name>
+        <type>String</type>
+        <format/>
+        <title>Fecha Inicio</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>Fecha Culminación</name>
+        <type>String</type>
+        <format/>
+        <title>Fecha Culminación</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ColumnaAA</name>
+        <type>String</type>
+        <format/>
+        <title>ColumnaAA</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ColumnaAB</name>
+        <type>String</type>
+        <format/>
+        <title>ColumnaAB</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ColumnaAC</name>
+        <type>String</type>
+        <format/>
+        <title>ColumnaAC</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>ruta_archivo_excel</name>
+        <type>String</type>
+        <format/>
+        <title>ruta_archivo_excel</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2144</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Microsoft Excel writer - Tipo B CARONI</send_true_to>
+    <send_false_to>Write to log NO ENTRO EN LA ESCRITURA DE EXCEL</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Municipio EXCEL</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Caroni</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1888</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

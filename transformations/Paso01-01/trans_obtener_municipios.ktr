@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>trans_obtener_municipios_TIPO_A</name>
+    <name>trans_obtener_municipios</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -437,12 +436,12 @@
   <notepads>
     <notepad>
       <note>
-TIPO_B
+
 trans_obtener_municipios</note>
       <xloc>288</xloc>
       <yloc>32</yloc>
       <width>147</width>
-      <heigth>57</heigth>
+      <heigth>56</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -535,7 +534,31 @@ trans_obtener_municipios</note>
     </fields>
     <data>
       <line>
+        <item>Hatillo</item>
+        <item>TIPO_A</item>
+      </line>
+      <line>
+        <item>Baruta</item>
+        <item>TIPO_A</item>
+      </line>
+      <line>
+        <item>Chacao</item>
+        <item>TIPO_A</item>
+      </line>
+      <line>
         <item>Caroni</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>Maneiro</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>San Diego</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>Simon</item>
         <item>TIPO_B</item>
       </line>
     </data>
