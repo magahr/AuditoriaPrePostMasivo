@@ -535,11 +535,19 @@ trans_obtener_municipios</note>
     </fields>
     <data>
       <line>
-        <item>Caroni</item>
+        <item>MANEIRO</item>
         <item>TIPO_B</item>
       </line>
       <line>
-        <item>Maneiro</item>
+        <item>SAN DIEGO</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>CARONI</item>
+        <item>TIPO_B</item>
+      </line>
+      <line>
+        <item>El Tigre</item>
         <item>TIPO_B</item>
       </line>
     </data>
